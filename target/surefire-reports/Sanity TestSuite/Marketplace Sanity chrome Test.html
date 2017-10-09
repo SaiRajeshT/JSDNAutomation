@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>TestNG:  Marketplace Sanity chrome Test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Marketplace Sanity chrome Test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>5/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Oct 05 16:26:50 IST 2017</td>
+</tr>
+<tr><td>Total time:</td><td>364 seconds (364045 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.jamcracker.testcases.customeManagement.TC001CustomerRegistration.testCustomerRegistration()'><b>testCustomerRegistration</b><br>Test class: com.jamcracker.testcases.customeManagement.TC001CustomerRegistration<br>Parameters: com.jamcracker.entity.service.CustomerCreationData@533101cb<br/>
+<a href="#Output-250451306" onClick='toggleBox("Output-250451306", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-250451306" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-250451306">
+Customer Registration Successful<br/>
+</div>
+</td>
+<td></td>
+<td>23</td>
+<td>com.jamcracker.testcases.customeManagement.TC001CustomerRegistration@61dc03ce</td></tr>
+<tr>
+<td title='com.jamcracker.testcases.customeManagement.TC005OrderLess.testOrderLess()'><b>testOrderLess</b><br>Test class: com.jamcracker.testcases.customeManagement.TC005OrderLess<br>Parameters: com.jamcracker.entity.service.OrderLessData@6a9024ab</td>
+<td></td>
+<td>30</td>
+<td>com.jamcracker.testcases.customeManagement.TC005OrderLess@12843fce</td></tr>
+<tr>
+<td title='com.jamcracker.testcases.customeManagement.TC004OrderMore.testOrderMore()'><b>testOrderMore</b><br>Test class: com.jamcracker.testcases.customeManagement.TC004OrderMore<br>Parameters: testcust4@jcadmin.com, Root123#, Logoservice, Logoservice offer, Logoservice offer, 10</td>
+<td></td>
+<td>48</td>
+<td>com.jamcracker.testcases.customeManagement.TC004OrderMore@13c78c0b</td></tr>
+<tr>
+<td title='com.jamcracker.testcases.customeManagement.TC003OrderNew.testOrderNew()'><b>testOrderNew</b><br>Test class: com.jamcracker.testcases.customeManagement.TC003OrderNew<br>Parameters: testcust4@jcadmin.com, Root123#, Logoservice, Logoservice offer, Logoservice offer, 5, PayPal<br/>
+<a href="#Output-495965819" onClick='toggleBox("Output-495965819", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-495965819" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-495965819">
+Waiting for the Paypal Page to load completely<br/>
+Switched to Paypal Details Entering Frame<br/>
+Cleared the value which exists in the Email field<br/>
+Entered Paypal Account Email Addresscust2433@gmail.com<br/>
+Entered Paypal Account Password<br/>
+Clicked on the Login Button<br/>
+Waited for the Agree and Continue button to be visible<br/>
+Accepted the Terms and Conditions by clicking Agree Button<br/>
+</div>
+</td>
+<td></td>
+<td>129</td>
+<td>com.jamcracker.testcases.customeManagement.TC003OrderNew@2cb4c3ab</td></tr>
+<tr>
+<td title='com.jamcracker.testcases.customeManagement.TC002SetPassword.testSetpassword()'><b>testSetpassword</b><br>Test class: com.jamcracker.testcases.customeManagement.TC002SetPassword<br>Parameters: testcust4@jcadmin.com</td>
+<td></td>
+<td>16</td>
+<td>com.jamcracker.testcases.customeManagement.TC002SetPassword@50f8360d</td></tr>
+</table><p>
+</body>
+</html>
