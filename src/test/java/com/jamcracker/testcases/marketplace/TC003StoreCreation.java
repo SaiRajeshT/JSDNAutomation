@@ -21,9 +21,6 @@ public class TC003StoreCreation extends TestBase
 	{
 		return getData("TestData.xls", "URLSheet", "URL", 3);
 	}
-
-
-	
 	
 	@DataProvider(name="storeCreationData")
 	private String[][] getStoreCreationData()

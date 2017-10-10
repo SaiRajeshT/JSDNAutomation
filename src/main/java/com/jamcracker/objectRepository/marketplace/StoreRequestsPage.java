@@ -21,7 +21,7 @@ public class StoreRequestsPage extends TestBase
 	
 	public WebElement getStoreReviewLink(String storeAdminEmail)
 	{
-		 objXPath ="//td[text()='<REPLACE>']//following-sibling::td//a[text()='Review']";
+		 objXPath ="//td[@title='<REPLACE>']//following-sibling::td//a[text()='Review']";
 		 objXPath=objXPath.replaceAll("<REPLACE>", storeAdminEmail);
 		return driver.findElement(By.xpath(objXPath));
 	}
