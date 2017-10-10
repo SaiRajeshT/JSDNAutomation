@@ -36,7 +36,7 @@ public class TC006StoreAdminSetPassword extends TestBase {
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init(browser, getURL());
+		init("chrome", getURL());
 	}
 	
 	  @Test(dataProvider="setPasswordData")
