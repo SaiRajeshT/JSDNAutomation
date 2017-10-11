@@ -39,7 +39,8 @@ public class PolicyCreation extends TestBase {
 		
 		switch (pcData.getPolicyCategory()) {
 		case "Iaas Resources":			
-						
+			
+			restrictPolicyCreation(pcData);
 			break;
 			
 		case "Instance":
