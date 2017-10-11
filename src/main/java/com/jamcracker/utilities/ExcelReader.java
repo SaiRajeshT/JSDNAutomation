@@ -81,6 +81,8 @@ public class ExcelReader {
 				for (int j = 0; j < totalColumn; j++) {
 					//Getting the cell
 					cell = row.getCell(j);
+					//Checking the value is null or not
+					if(cell!=null){
 					//If the cell is String value, then this if condition will execute
 					if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
 						dataSets[i - 1][j] = cell.getStringCellValue().trim();
@@ -93,6 +95,7 @@ public class ExcelReader {
 					//If the cell is Boolean value, then this if condition will execute
 					else {
 						dataSets[i - 1][j] = String.valueOf(cell.getBooleanCellValue()).trim();
+					}
 					}
 				}
 			}

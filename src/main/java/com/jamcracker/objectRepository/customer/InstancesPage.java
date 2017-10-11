@@ -21,6 +21,9 @@ public class InstancesPage extends TestBase{
 	@FindBy(linkText="Instances")
 	public WebElement instancesLink;
 	
+	@FindBy(linkText="Volume Snapshots")
+	public WebElement volSnapshotLink;
+	
 	@FindBy(id="table_search")
 	public WebElement searchTextBox;
 	
@@ -94,6 +97,9 @@ public class InstancesPage extends TestBase{
 	@FindBy(id="createNewVolume")
 	public WebElement volumeDoneButton;
 	
+	@FindBy(id="btsubmit")
+	public WebElement volSnapshotDoneButton;
+	
 	@FindBy(id="cancelPopUp")
 	public WebElement volumeCancelButton;
 	
@@ -163,6 +169,12 @@ public class InstancesPage extends TestBase{
 	@FindBy(id="UserInputTxtBox")
 	public WebElement existingVolumeSearchBox;
 	
+	@FindBy(id="name")
+	public WebElement volSnapshotNameTextBox;
+	
+	@FindBy(id="description")
+	public WebElement volSnapShotDescriptionTextBox;
+	
 public String getVolumeStatus(String volumeName){
 	String value = null;
 	try{
@@ -196,16 +208,21 @@ public WebElement getSize(String size)
 		try {
 			a= driver.findElement(By.xpath("(//td[text()='" + instName + "']//parent::tr//td[contains(@class,'lastaction')]//img)[1]"));
 		} catch (NoSuchElementException e) {
-
+			e.printStackTrace();
 		}
+		
+		if(a == null)
 		try {
 			a = driver.findElement(By.xpath("(//tr[td[span[@title='" + instName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
 		} catch (NoSuchElementException e) {
+			e.printStackTrace();
 
 		}
+		if(a == null)
 		try {
 			a = driver.findElement(By.xpath("(//tr[td[div[text()='" + instName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
 		} catch (NoSuchElementException e) {
+			e.printStackTrace();
 
 		}
 
@@ -272,7 +289,7 @@ public WebElement getSize(String size)
 			}
 			
 			try{
-				element =  driver.findElement(By.xpath("(//tr[td[div[span[@title='INST AWS DR 02Sep18201717']]]]//td//div[text()='Running'])[1]"));
+				element =  driver.findElement(By.xpath("(//tr[td[div[span[@title='"+instName+"']]]]//td//div[text()='Running'])[1]"));
 				
 			} catch (Exception e) {
 
@@ -320,7 +337,14 @@ public WebElement getSize(String size)
 	{
 		WebElement element = null;
 				
-		element = driver.findElement(By.xpath("(//td[text()='"+volumeName+"']//following-sibling::td//span[contains(text(),'Actions')])[1]"));
+		try{
+		element = driver.findElement(By.xpath("(//td[text()='"+volumeName+"']//following-sibling::td//span[contains(text(),'Actions')])[1]"));}
+		catch(Exception e){}
+		
+		try{
+			element = driver.findElement(By.xpath("(//td[span[@title='"+volumeName+"']]//following-sibling::td//span[contains(text(),'Actions')])[1]"));}
+			catch(Exception e){}
+		
 	return	element ; }
 	
 	public boolean getDetachVolumeStatus(String volumeName) {
