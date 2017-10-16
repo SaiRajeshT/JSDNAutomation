@@ -13,18 +13,40 @@ public class VolSnapshotPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
+	@FindBy(linkText="Volume Snapshots")
+	public WebElement volumeSnapshotLink;
+	
 	@FindBy(linkText="Volume Snapshot")
 	public WebElement volumeSnapshotPageLink;
 	
 	@FindBy(xpath="//div[@id='Search_panel_div']//input[@id='UserInputTxtBox']")
 	public WebElement searchTextBox;
 	
+	@FindBy(xpath="(//div[@id='confirmDeleteVolumeMessage']//button[@name='btnyes'])[2]")
+	public WebElement volSnapshotDelconfirmButton;
 	
-	public WebElement getactiveSnapshotStatus(String volumeName)
+	public boolean getDeletingSnapshot(String snapShotName)
+	{
+		boolean result = false;
+		try{
+			if (driver.findElement(By.xpath("//tr[td[div[@title='"+snapShotName+"']]]//div[text()='Deleting']")).isDisplayed())
+				result = true;
+		}
+		
+		catch(Exception e)
+		{
+			result = false;	
+		}
+		
+		return result;
+	}
+	
+	
+	public WebElement getactiveSnapshotStatus(String snashotName)
 	{
 		WebElement element = null;
 		try{
-			 	element = driver.findElement(By.xpath("//tr[td[div[@title='"+volumeName+"']]]//td//div[text()='Active']"));
+			 	element = driver.findElement(By.xpath("//tr[td[div[@title='"+snashotName+"']]]//td//div[text()='Active']"));
 		}
 		catch(Exception e)
 		{
@@ -34,11 +56,11 @@ public class VolSnapshotPage extends TestBase {
 		return element;
 	}
 	
-	public WebElement getErrorSnapshotStatus(String volumeName)
+	public WebElement getErrorSnapshotStatus(String snashotName)
 	{
 		WebElement element = null;
 		try{
-			element = driver.findElement(By.xpath("//tr[td[div[@title='"+volumeName+"']]]//td//span[text()='Error']"));
+			element = driver.findElement(By.xpath("//tr[td[div[@title='"+snashotName+"']]]//td//span[text()='Error']"));
 			}
 			catch(Exception e)
 		{
@@ -47,6 +69,12 @@ public class VolSnapshotPage extends TestBase {
 		
 		return element;
 			
+	}
+	
+	public WebElement getDeleteSnapshotLink(String snashotName)
+	{
+		return driver.findElement(By.xpath("(//td[div[text()='"+snashotName+"']])[1]//a[contains(text(),'Delete')]"));
+		
 	}
 	
 	

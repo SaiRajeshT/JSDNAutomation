@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="1" ignored="0" total="2" passed="1">
   <reporter-output>
     <line>
-      <![CDATA[Marketplace Admin Log in is successfull]]>
+      <![CDATA[<p style='color:red'>Waited for200 Seconds.Volume Snapshot status did not go to Active.Please check the issue.</p>]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="39040" started-at="2017-10-10T11:17:50Z" finished-at="2017-10-10T11:18:29Z">
+  <suite name="Default suite" duration-ms="276066" started-at="2017-10-13T09:06:17Z" finished-at="2017-10-13T09:10:53Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="39040" started-at="2017-10-10T11:17:50Z" finished-at="2017-10-10T11:18:29Z">
-      <class name="com.jamcracker.testcases.marketplace.TC008AppStackCreation">
-        <test-method status="PASS" signature="intialize()[pri:0, instance:com.jamcracker.testcases.marketplace.TC008AppStackCreation@548e7350]" name="intialize" is-config="true" duration-ms="12" started-at="2017-10-10T16:47:50Z" finished-at="2017-10-10T16:47:50Z">
+    <test name="Default test" duration-ms="276066" started-at="2017-10-13T09:06:17Z" finished-at="2017-10-13T09:10:53Z">
+      <class name="com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot">
+        <test-method status="PASS" signature="intialize()[pri:0, instance:com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot@685cb137]" name="intialize" is-config="true" duration-ms="8" started-at="2017-10-13T14:36:17Z" finished-at="2017-10-13T14:36:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- intialize -->
-        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.jamcracker.testcases.marketplace.TC008AppStackCreation@548e7350]" name="setUp" is-config="true" duration-ms="17624" started-at="2017-10-10T16:47:50Z" finished-at="2017-10-10T16:48:08Z">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot@685cb137]" name="setUp" is-config="true" duration-ms="9432" started-at="2017-10-13T14:36:17Z" finished-at="2017-10-13T14:36:27Z">
           <params>
             <param index="0">
               <value>
@@ -25,7 +25,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="testAppStackCreation(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.jamcracker.testcases.marketplace.TC008AppStackCreation@548e7350]" name="testAppStackCreation" duration-ms="20982" started-at="2017-10-10T16:48:08Z" data-provider="stackCreationData" finished-at="2017-10-10T16:48:29Z">
+        <test-method status="FAIL" signature="volumeAction(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot@685cb137]" name="volumeAction" duration-ms="266188" started-at="2017-10-13T14:36:27Z" data-provider="VolumeData" finished-at="2017-10-13T14:40:53Z">
           <params>
             <param index="0">
               <value>
@@ -34,78 +34,59 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[SeleStack1]]>
+                <![CDATA[Create snapshot]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[SeleStack1]]>
+                <![CDATA[storeuser111@gmail.com]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[SeleStack1]]>
+                <![CDATA[Root123#]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[SeleStack1]]>
+                <![CDATA[POS INTFIMG O9]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[linuxWithChef]]>
+                <![CDATA[Test1gbVolume]]>
               </value>
             </param>
             <param index="6">
+              <value is-null="true"/>
+            </param>
+            <param index="7">
+              <value is-null="true"/>
+            </param>
+            <param index="8">
+              <value is-null="true"/>
+            </param>
+            <param index="9">
               <value>
-                <![CDATA[openSourceChefClient]]>
+                <![CDATA[Pradeep1]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Automation Snapshot desc]]>
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.WebDriverException">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[unknown error: Element <input type="button" value="Save Template" id="saveTemplate" class="designerSaveButton"> is not clickable at point (1060, 67). Other element would receive the click: <div id="facebox_overlay" class="facebox_hide facebox_overlayBG" style="display: block; opacity: 0.5;"></div>
-  (Session info: chrome=61.0.3163.100)
-  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
-System info: host: 'TSRAJESH', ip: '10.0.0.166', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_131'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\tsrajesh\AppData\Local\Temp\scoped_dir6564_10684}, takesHeapSnapshot=true, pageLoadStrategy=normal, unhandledPromptBehavior=, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 78f9ffd2f6d30eb40d791338afed1743]]>
+              <![CDATA[null]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.WebDriverException: unknown error: Element <input type="button" value="Save Template" id="saveTemplate" class="designerSaveButton"> is not clickable at point (1060, 67). Other element would receive the click: <div id="facebox_overlay" class="facebox_hide facebox_overlayBG" style="display: block; opacity: 0.5;"></div>
-  (Session info: chrome=61.0.3163.100)
-  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
-System info: host: 'TSRAJESH', ip: '10.0.0.166', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_131'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\tsrajesh\AppData\Local\Temp\scoped_dir6564_10684}, takesHeapSnapshot=true, pageLoadStrategy=normal, unhandledPromptBehavior=, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=XP, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 78f9ffd2f6d30eb40d791338afed1743
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
-	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
-	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
-	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:275)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:82)
-	at sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy12.click(Unknown Source)
-	at com.jamcracker.commonFunctions.marketplace.AppStackCreation.appStackCreation(AppStackCreation.java:97)
-	at com.jamcracker.testcases.marketplace.TC008AppStackCreation.testAppStackCreation(TC008AppStackCreation.java:52)
+              <![CDATA[java.lang.AssertionError: null
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.fail(Assert.java:101)
+	at com.jamcracker.commonFunctions.customer.CreateVolumeSnapshot.createVolumeSnapshot(CreateVolumeSnapshot.java:48)
+	at com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot.volumeAction(TC009CreateVolumeSnapshot.java:42)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -133,18 +114,65 @@ Session ID: 78f9ffd2f6d30eb40d791338afed1743
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:76)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
             <line>
-              <![CDATA[Marketplace Admin Log in is successfull]]>
+              <![CDATA[<p style='color:red'>Waited for200 Seconds.Volume Snapshot status did not go to Active.Please check the issue.</p>]]>
             </line>
           </reporter-output>
-        </test-method> <!-- testAppStackCreation -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jamcracker.testcases.marketplace.TC008AppStackCreation@548e7350]" name="tearDown" is-config="true" duration-ms="90" started-at="2017-10-10T16:48:29Z" finished-at="2017-10-10T16:48:29Z">
+        </test-method> <!-- volumeAction -->
+        <test-method status="PASS" signature="volumeAction(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot@685cb137]" name="volumeAction" duration-ms="2" started-at="2017-10-13T14:40:53Z" data-provider="VolumeData" finished-at="2017-10-13T14:40:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Y]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Delete snapshot]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[storeuser111@gmail.com]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Root123#]]>
+              </value>
+            </param>
+            <param index="4">
+              <value is-null="true"/>
+            </param>
+            <param index="5">
+              <value is-null="true"/>
+            </param>
+            <param index="6">
+              <value is-null="true"/>
+            </param>
+            <param index="7">
+              <value is-null="true"/>
+            </param>
+            <param index="8">
+              <value is-null="true"/>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[Pradeep1]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.jamcracker.testcases.marketplace.TC008AppStackCreation -->
+        </test-method> <!-- volumeAction -->
+      </class> <!-- com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
