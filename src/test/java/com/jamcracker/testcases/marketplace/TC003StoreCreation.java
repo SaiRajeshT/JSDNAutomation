@@ -32,7 +32,7 @@ public class TC003StoreCreation extends TestBase
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init("chrome", getURL());
+		init(browser, getURL());
 	}
 	
 	

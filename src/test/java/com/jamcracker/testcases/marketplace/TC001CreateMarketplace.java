@@ -36,7 +36,7 @@ public class TC001CreateMarketplace extends TestBase
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init("chrome", getURL());
+		init(browser, getURL());
 	}
 	
 	@Test(dataProvider="MarketplaceCreationData")

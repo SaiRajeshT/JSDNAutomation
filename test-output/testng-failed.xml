@@ -2,15 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <parameter name="browser" value="firefox"/>
+  <parameter name="sourceStoreUrl" value="https://store.sourcestore.com/cms/user/login"/>
   <test name="Default test(failed)">
     <classes>
-      <class name="com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot">
+      <class name="com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration">
         <methods>
-          <include name="volumeAction" invocation-numbers="0"/>
+          <include name="testCMSStoreConfiguration" invocation-numbers="0"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
           <include name="intialize"/>
         </methods>
-      </class> <!-- com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot -->
+      </class> <!-- com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
