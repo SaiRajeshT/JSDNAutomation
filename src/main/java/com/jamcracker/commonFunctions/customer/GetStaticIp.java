@@ -9,7 +9,6 @@ import org.testng.Reporter;
 import com.jamcracker.constants.Constants;
 import com.jamcracker.objectRepository.customer.InstancesPage;
 import com.jamcracker.objectRepository.customer.StaticIpAddressPage;
-import com.jamcracker.objectRepository.customer.VolSnapshotPage;
 import com.jamcracker.utilities.HandleDropDown;
 import com.jamcracker.utilities.TestBase;
 

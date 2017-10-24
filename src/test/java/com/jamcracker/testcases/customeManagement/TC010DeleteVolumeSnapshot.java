@@ -5,9 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.jamcracker.commonFunctions.customer.CreateVolumeSnapshot;
 import com.jamcracker.commonFunctions.customer.CustomerAdminLogin;
-import com.jamcracker.commonFunctions.customer.CustomerLogout;
 import com.jamcracker.commonFunctions.customer.DeleteVolumeSnapshot;
 import com.jamcracker.utilities.TestBase;
 

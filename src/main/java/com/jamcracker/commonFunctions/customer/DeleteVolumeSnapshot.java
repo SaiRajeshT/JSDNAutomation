@@ -1,13 +1,11 @@
 package com.jamcracker.commonFunctions.customer;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.jamcracker.objectRepository.customer.InstancesPage;
 import com.jamcracker.objectRepository.customer.VolSnapshotPage;
-import com.jamcracker.utilities.HandleDropDown;
 import com.jamcracker.utilities.TestBase;
 
 public class DeleteVolumeSnapshot extends TestBase{
