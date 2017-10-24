@@ -5,14 +5,14 @@
   <parameter name="sourceStoreUrl" value="https://store.sourcestore.com/cms/user/login"/>
   <test name="Default test(failed)">
     <classes>
-      <class name="com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration">
+      <class name="com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder">
         <methods>
-          <include name="testCMSStoreConfiguration" invocation-numbers="0"/>
-          <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="stackOrder" invocation-numbers="0"/>
+          <include name="aftermethod"/>
           <include name="intialize"/>
         </methods>
-      </class> <!-- com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration -->
+      </class> <!-- com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

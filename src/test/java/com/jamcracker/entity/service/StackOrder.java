@@ -36,6 +36,7 @@ public class StackOrder {
 	private String publicIp;
 	private String subnetMask;
 	
+	private String staticIp;
 	
 	public String getInstUserName() {
 		return instUserName;
@@ -281,6 +282,14 @@ public class StackOrder {
 
 	public void setExecutable(String executable) {
 		this.executable = executable;
+	}
+
+	public String getStaticIp() {
+		return staticIp;
+	}
+
+	public void setStaticIp(String staticIp) {
+		this.staticIp = staticIp;
 	}
 
 }

@@ -31,7 +31,7 @@ public class TC007IAASAction extends TestBase {
 		return getData("Iaas Stack Orders.xls", "Instances sheet"); }// passing file name and sheet name
 																	
 	@Test(dataProvider = "StartInstanceData")
-	public void iaasAction(String executable, String action, String email, String Password, String instName) {
+	public void iaasAction(String executable, String action, String email, String Password, String instName,String imageName) {
 		StartInstance objStartInstance = new StartInstance();
 		StopInstance objStopInstance = new StopInstance();
 		TerminateServer objTerminateInstance = new TerminateServer();

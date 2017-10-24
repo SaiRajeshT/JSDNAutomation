@@ -1,95 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
     <line>
-      <![CDATA[Drupal Admin is successfully logged in]]>
+      <![CDATA[IP Obtained successfully. and the Obtained IP is54.172.153.231]]>
     </line>
     <line>
-      <![CDATA[Navigated to Structures Page]]>
+      <![CDATA[aws Vendor Selected]]>
     </line>
     <line>
-      <![CDATA[Navigated to Domains Listing Page]]>
+      <![CDATA[us-east-1 Region Selected]]>
     </line>
     <line>
-      <![CDATA[Navigated to Domain Creation Page]]>
+      <![CDATA[CentOS 6.5 Image Selected]]>
     </line>
     <line>
-      <![CDATA[Store Type is Reseller]]>
+      <![CDATA[us-east-1a Availabilityzone Selected]]>
     </line>
     <line>
-      <![CDATA[Domain is created successfully]]>
+      <![CDATA[Family is selected as General purpose]]>
     </line>
     <line>
-      <![CDATA[Navigated to Domains Listing Page]]>
+      <![CDATA[T2 Family Type Selected]]>
     </line>
     <line>
-      <![CDATA[Navigated to Daily StoreDomain, Edit Page]]>
+      <![CDATA[t2.nano Flavor Selected]]>
     </line>
     <line>
-      <![CDATA[Navigated to Daily StoreDomain, Settings Page]]>
+      <![CDATA[ Monitoring Selected as No]]>
     </line>
     <line>
-      <![CDATA[Domain Settings saved successfully]]>
+      <![CDATA[712QAVPC(10.0.0.0/24) Network Selected]]>
     </line>
     <line>
-      <![CDATA[Navigated to Daily StoreDomain, Theme Page]]>
+      <![CDATA[712QASUBNET(10.0.0.0/24) Subnet Selected]]>
     </line>
     <line>
-      <![CDATA[Logo has been uploaded successfully for Daily Store domain]]>
+      <![CDATA[54.172.153.231  Selected for public IP ]]>
     </line>
     <line>
-      <![CDATA[CMS configuration for the store dailystore.jamcracker.com is successful]]>
+      <![CDATA[stack launched successfully]]>
     </line>
     <line>
-      <![CDATA[Drupal Admin is successfully logged in]]>
-    </line>
-    <line>
-      <![CDATA[Navigated to Structures Page]]>
-    </line>
-    <line>
-      <![CDATA[Navigated to Domains Listing Page]]>
-    </line>
-    <line>
-      <![CDATA[Navigated to Domain Creation Page]]>
-    </line>
-    <line>
-      <![CDATA[Store Type is Enterprise-Non Adand hence Restrict Pre-Login option is selected]]>
-    </line>
-    <line>
-      <![CDATA[Domain is created successfully]]>
-    </line>
-    <line>
-      <![CDATA[Navigated to Domains Listing Page]]>
-    </line>
-    <line>
-      <![CDATA[Navigated to Mnt Ent StoreDomain, Edit Page]]>
-    </line>
-    <line>
-      <![CDATA[Navigated to Mnt Ent StoreDomain, Settings Page]]>
-    </line>
-    <line>
-      <![CDATA[Domain Settings saved successfully]]>
-    </line>
-    <line>
-      <![CDATA[Navigated to Mnt Ent StoreDomain, Theme Page]]>
-    </line>
-    <line>
-      <![CDATA[Logo has been uploaded successfully for Mnt Ent Store domain]]>
-    </line>
-    <line>
-      <![CDATA[CMS configuration for the store mntentstore.jamcracker.com is successful]]>
+      <![CDATA[Appstack status  Present in Running status]]>
     </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="164670" started-at="2017-10-17T06:43:21Z" finished-at="2017-10-17T06:46:05Z">
+  <suite name="Default suite" duration-ms="361016" started-at="2017-10-24T06:18:14Z" finished-at="2017-10-24T06:24:15Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="164670" started-at="2017-10-17T06:43:21Z" finished-at="2017-10-17T06:46:05Z">
-      <class name="com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration">
-        <test-method status="PASS" signature="intialize()[pri:0, instance:com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration@7d9d1a19]" name="intialize" is-config="true" duration-ms="20" started-at="2017-10-17T12:13:21Z" finished-at="2017-10-17T12:13:21Z">
+    <test name="Default test" duration-ms="361016" started-at="2017-10-24T06:18:14Z" finished-at="2017-10-24T06:24:15Z">
+      <class name="com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder">
+        <test-method status="PASS" signature="intialize()[pri:0, instance:com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder@7cd62f43]" name="intialize" is-config="true" duration-ms="6" started-at="2017-10-24T11:48:14Z" finished-at="2017-10-24T11:48:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- intialize -->
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration@7d9d1a19]" name="setUp" is-config="true" duration-ms="11682" started-at="2017-10-17T12:13:21Z" finished-at="2017-10-17T12:13:33Z">
+        <test-method status="PASS" signature="setUp(java.lang.String)[pri:0, instance:com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder@7cd62f43]" name="setUp" is-config="true" duration-ms="8886" started-at="2017-10-24T11:48:15Z" finished-at="2017-10-24T11:48:24Z">
           <params>
             <param index="0">
               <value>
@@ -105,134 +69,60 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testCMSStoreConfiguration(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration@7d9d1a19]" name="testCMSStoreConfiguration" duration-ms="76677" started-at="2017-10-17T12:13:33Z" data-provider="cmsStoreData" finished-at="2017-10-17T12:14:49Z">
+        <test-method status="PASS" signature="stackOrder(com.jamcracker.entity.service.StackOrder)[pri:0, instance:com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder@7cd62f43]" name="stackOrder" duration-ms="351758" started-at="2017-10-24T11:48:24Z" data-provider="StackOrdersData" finished-at="2017-10-24T11:54:15Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[dailystore.jamcracker.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Daily Store]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Reseller]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Daily Store]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[dailystore@gmail.com]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[English]]>
+                <![CDATA[com.jamcracker.entity.service.StackOrder@8c3619e]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[Drupal Admin is successfully logged in]]>
+              <![CDATA[IP Obtained successfully. and the Obtained IP is54.172.153.231]]>
             </line>
             <line>
-              <![CDATA[Navigated to Structures Page]]>
+              <![CDATA[aws Vendor Selected]]>
             </line>
             <line>
-              <![CDATA[Navigated to Domains Listing Page]]>
+              <![CDATA[us-east-1 Region Selected]]>
             </line>
             <line>
-              <![CDATA[Navigated to Domain Creation Page]]>
+              <![CDATA[CentOS 6.5 Image Selected]]>
             </line>
             <line>
-              <![CDATA[Store Type is Reseller]]>
+              <![CDATA[us-east-1a Availabilityzone Selected]]>
             </line>
             <line>
-              <![CDATA[Domain is created successfully]]>
+              <![CDATA[Family is selected as General purpose]]>
             </line>
             <line>
-              <![CDATA[Navigated to Domains Listing Page]]>
+              <![CDATA[T2 Family Type Selected]]>
             </line>
             <line>
-              <![CDATA[Navigated to Daily StoreDomain, Edit Page]]>
+              <![CDATA[t2.nano Flavor Selected]]>
             </line>
             <line>
-              <![CDATA[Navigated to Daily StoreDomain, Settings Page]]>
+              <![CDATA[ Monitoring Selected as No]]>
             </line>
             <line>
-              <![CDATA[Domain Settings saved successfully]]>
+              <![CDATA[712QAVPC(10.0.0.0/24) Network Selected]]>
             </line>
             <line>
-              <![CDATA[Navigated to Daily StoreDomain, Theme Page]]>
+              <![CDATA[712QASUBNET(10.0.0.0/24) Subnet Selected]]>
             </line>
             <line>
-              <![CDATA[Logo has been uploaded successfully for Daily Store domain]]>
+              <![CDATA[54.172.153.231  Selected for public IP ]]>
             </line>
             <line>
-              <![CDATA[CMS configuration for the store dailystore.jamcracker.com is successful]]>
+              <![CDATA[stack launched successfully]]>
+            </line>
+            <line>
+              <![CDATA[Appstack status  Present in Running status]]>
             </line>
           </reporter-output>
-        </test-method> <!-- testCMSStoreConfiguration -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration@7d9d1a19]" name="tearDown" is-config="true" duration-ms="81" started-at="2017-10-17T12:14:49Z" finished-at="2017-10-17T12:14:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration@7d9d1a19]" name="setUp" is-config="true" duration-ms="10548" started-at="2017-10-17T12:14:49Z" finished-at="2017-10-17T12:15:00Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[https://store.sourcestore.com/cms/user/login]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testCMSStoreConfiguration(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration@7d9d1a19]" name="testCMSStoreConfiguration" duration-ms="63024" started-at="2017-10-17T12:15:00Z" data-provider="cmsStoreData" finished-at="2017-10-17T12:16:03Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[mntentstore.jamcracker.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Mnt Ent Store]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Enterprise-Non Ad]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Mnt Ent Store]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[mntentstore@gmail.com]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[English]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- stackOrder -->
+        <test-method status="PASS" signature="aftermethod()[pri:0, instance:com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder@7cd62f43]" name="aftermethod" is-config="true" duration-ms="0" started-at="2017-10-24T11:54:15Z" finished-at="2017-10-24T11:54:15Z">
           <reporter-output>
             <line>
               <![CDATA[Drupal Admin is successfully logged in]]>
@@ -278,8 +168,8 @@
         <test-method status="PASS" signature="tearDown()[pri:0, instance:com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration@7d9d1a19]" name="tearDown" is-config="true" duration-ms="2326" started-at="2017-10-17T12:16:03Z" finished-at="2017-10-17T12:16:05Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration -->
+        </test-method> <!-- aftermethod -->
+      </class> <!-- com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

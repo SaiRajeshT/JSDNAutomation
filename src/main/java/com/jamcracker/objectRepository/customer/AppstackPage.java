@@ -18,11 +18,12 @@ public class AppstackPage extends TestBase {
 		String elementValue= null;
 	try{	
 		String a = driver.findElement(By.xpath("//td[text()='"+appstackName +"']//following-sibling::td[4]//div/div")).getText();
+		System.out.println(a);
 		if(!a.equals("") && !a.equals(null)){
 			elementValue=a;
 		}
 	}
-	catch(Exception e){ }
+	catch(Exception e){e.printStackTrace(); }
 	
 	try{
 		String a = driver.findElement(By.xpath("//td[span[@title='"+appstackName+"']]//following-sibling::td[4]/div/div")).getText();
@@ -38,7 +39,9 @@ public class AppstackPage extends TestBase {
 			elementValue=a;
 		}
 	}
-	catch(Exception e){ e.printStackTrace();}
+	catch(Exception e){ 
+		//e.printStackTrace();
+		}
 	
 	try{
 		String a = driver.findElement(By.xpath("//td[span[@title='"+appstackName+"']]//following-sibling::td[4]//div/a")).getText();

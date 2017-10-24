@@ -92,6 +92,8 @@ public class ExcelStackOrderReader {
 				stackOrder.setPublicIp(row.getCell(27).getStringCellValue().trim());}
 				stackOrder.setSecurityGroups(mapSecurityGroup.get(stackOrder.getInstanceName()));
 				
+				stackOrder.setStaticIp(row.getCell(29).getStringCellValue().trim());
+				
 				
 				stackOrdersInfo.add(stackOrder);}}
 			}

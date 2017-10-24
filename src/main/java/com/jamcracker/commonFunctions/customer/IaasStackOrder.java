@@ -23,12 +23,22 @@ import com.jamcracker.utilities.SwitchFrame;
 import com.jamcracker.utilities.TestBase;
 
 public class IaasStackOrder extends TestBase {
-	
+	private String staticIP ;
+	AppstackPage objAppStackPage = new AppstackPage();
 	public void iaasStackOrder(StackOrder stackorderinfo)
 	{
 		CatalogPage objCatalogPage = new CatalogPage();
 		StackLaunchPage objStackLaunchPage = new StackLaunchPage();
-		AppstackPage objAppStackPage = new AppstackPage();
+		GetStaticIp objstaticIp = new GetStaticIp();
+		if(stackorderinfo.getStaticIp().equalsIgnoreCase("Y") ){
+		
+		 staticIP =objstaticIp.getStaticIp(stackorderinfo.getVendors(), stackorderinfo.getRegion(), "public");
+		}
+			
+	/*	if(stackorderinfo.getStaticIp().equalsIgnoreCase("Y")&& !stackorderinfo.getVendors().toLowerCase().equalsIgnoreCase("privateopenstack")){
+			staticIP =objstaticIp.getStaticIp(stackorderinfo.getVendors(), stackorderinfo.getRegion(), "public");
+		}*/
+			
 		objCatalogPage.catalogLink.click();
 		explicitWait(objCatalogPage.searchTextBox);
 		objCatalogPage.searchTextBox.sendKeys(stackorderinfo.getServiceName());
@@ -85,26 +95,22 @@ public class IaasStackOrder extends TestBase {
 		
 		for(int i=1;i<=tagsize;i++){
 		
-			try{
+			 if(i==1){
 				if(objStackLaunchPage.getTagKeyTextBox(i).getAttribute("value").isEmpty()){
 					Map.Entry<String , String> entry = (Map.Entry<String, String>) itr.next();
 					 objStackLaunchPage.getTagKeyTextBox(i).sendKeys(entry.getKey());
 					 objStackLaunchPage.valueLink.click();
 					 objStackLaunchPage.getTagValueTextBox(i).sendKeys(entry.getValue()	);
-					 objStackLaunchPage.valueLink.click();}
-				else{			
-					tagsize= tagsize+1;}
-				
-			}
-			catch(Exception e)
-			{	if( objStackLaunchPage.addNewTagLink.isDisplayed()){
+					 objStackLaunchPage.valueLink.click();}}
+			 else {
+			if( objStackLaunchPage.addNewTagLink.isDisplayed()){
 				objStackLaunchPage.addNewTagLink.click();
 			Map.Entry<String , String> entry = (Map.Entry<String, String>) itr.next();
 			 objStackLaunchPage.getTagKeyTextBox(i).sendKeys(entry.getKey());
 			 objStackLaunchPage.valueLink.click();
 			 objStackLaunchPage.getTagValueTextBox(i).sendKeys(entry.getValue()	);
-			 objStackLaunchPage.valueLink.click();}
-			}
+			 objStackLaunchPage.valueLink.click();}}
+			
 			
 		}
 		
@@ -181,14 +187,25 @@ public class IaasStackOrder extends TestBase {
 				Reporter.log(stackorderinfo.getSubNetName()+" Subnet Selected");
 				}
 			else{ Reporter.log("<p style='color:red'>Issue while selecting the Subnet.Please look in to the issue.</p>");}
-
-			HandleDropDown.selectDDLByVisibletext(objStackLaunchPage.publicIPDropdown,stackorderinfo.getPublicIp());
-			if(HandleDropDown.getSelectedValue(objStackLaunchPage.publicIPDropdown).equalsIgnoreCase(stackorderinfo.getPublicIp())){
-				Reporter.log(stackorderinfo.getPublicIp()+"  Selected for public IP ");
+				if (stackorderinfo.getStaticIp().equalsIgnoreCase("Y")) {
+					HandleDropDown.selectDDLByVisibletext(objStackLaunchPage.publicIPDropdown,
+							staticIP);
+					if (HandleDropDown.getSelectedValue(objStackLaunchPage.publicIPDropdown)
+							.equalsIgnoreCase(staticIP)) {
+						Reporter.log(staticIP + "  Selected for public IP ");
+					} else {
+						Reporter.log(
+								"<p style='color:red'>Issue while selecting the Public ip .Please look in to the issue.</p>");
+					}
+				} else {
+					if (HandleDropDown.getSelectedValue(objStackLaunchPage.publicIPDropdown)
+							.equalsIgnoreCase(stackorderinfo.getPublicIp())) {
+						Reporter.log(stackorderinfo.getPublicIp() + "  Selected for public IP ");
+					} else {
+						Reporter.log(
+								"<p style='color:red'>Issue while selecting the Public ip .Please look in to the issue.</p>");
+					}
 				}
-			else{ Reporter.log("<p style='color:red'>Issue while selecting the Public ip .Please look in to the issue.</p>");}
-			
-
 			break;}
 		catch (Exception e)
 		{
@@ -347,12 +364,21 @@ public class IaasStackOrder extends TestBase {
 				Reporter.log(stackorderinfo.getSubNetName()+" Subnet Selected");
 				}
 			else{ Reporter.log("<p style='color:red'>Issue while selecting the Subnet.Please look in to the issue.</p>");}
-
-			HandleDropDown.selectDDLByVisibletext(objStackLaunchPage.publicIPDropdown,stackorderinfo.getPublicIp());
-			if(HandleDropDown.getSelectedValue(objStackLaunchPage.publicIPDropdown).equalsIgnoreCase(stackorderinfo.getPublicIp())){
-				Reporter.log(stackorderinfo.getPublicIp()+"  Selected for public IP ");
+			
+			if (stackorderinfo.getStaticIp().equalsIgnoreCase("Y")) {
+			HandleDropDown.selectDDLByVisibletext(objStackLaunchPage.publicIPDropdown,staticIP);
+			if(HandleDropDown.getSelectedValue(objStackLaunchPage.publicIPDropdown).equalsIgnoreCase(staticIP)){
+				Reporter.log(staticIP+"  Selected for public IP ");
 				}
 			else{ Reporter.log("<p style='color:red'>Issue while selecting the Public ip .Please look in to the issue.</p>");}
+			}
+			else{
+				HandleDropDown.selectDDLByVisibletext(objStackLaunchPage.publicIPDropdown,stackorderinfo.getPublicIp());
+				if(HandleDropDown.getSelectedValue(objStackLaunchPage.publicIPDropdown).equalsIgnoreCase(stackorderinfo.getPublicIp())){
+					Reporter.log(stackorderinfo.getPublicIp()+"  Selected for public IP ");
+					}
+				else{ Reporter.log("<p style='color:red'>Issue while selecting the Public ip .Please look in to the issue.</p>");}
+			}
 			break;}
 			
 			catch (Exception e2)
@@ -432,25 +458,33 @@ public class IaasStackOrder extends TestBase {
 		long startTime = (System.currentTimeMillis())/1000;
 		while(test) //Converting in to second and waiting till the time out or the condition satisfied
 		{	
-			if ((System.currentTimeMillis() / 1000) - startTime > timeout) {
-				System.out.println("Reached 10 minutes and exiting the loop");
-				break;
-			}
-			try{
+			
+				if ((System.currentTimeMillis() / 1000) - startTime > timeout) {
+					System.out.println("Reached 10 minutes and exiting the loop");
+					Reporter.log("<p Style ='color:Red'> Waited for 10 minutes. Stack did not go to running please look in to the issue.</p>");
+					Assert.fail();
+				}
 				
 					explicitWait(objAppStackPage.showingText);
+				if(objAppStackPage.getAppStackStatus(stackorderinfo.getStackName())!=null)
+				{
 				 if((objAppStackPage.getAppStackStatus(stackorderinfo.getStackName()).equalsIgnoreCase("Running"))){
 				 test= false;
-				Reporter.log("Appstack status  Present in Running status");}
-				 
-				 if(objAppStackPage.getAppStackStatus(stackorderinfo.getStackName()).equalsIgnoreCase("Error")){
+				Reporter.log("Appstack status  Present in Running status");
+				break;}}
+				
+				if(objAppStackPage.getAppStackStatus(stackorderinfo.getStackName())!=null)
+				{
+					if(objAppStackPage.getAppStackStatus(stackorderinfo.getStackName()).equalsIgnoreCase("Error")){
 					 test= false;
-					Reporter.log("Appstack status  Present in Error status");}
+					Reporter.log("Appstack status  Present in Error status");
+					Assert.fail();}
 				}
+			  
 			
 			
-			catch(Exception e)
-			{	
+		/*	catch(Exception e)
+			{	*/
 				Thread.sleep(15000);
 				explicitWait(objAppStackPage.searchTextBox);
 				HandleDropDown.selectDDLByValue(objAppStackPage.searchDropDown, "name");
@@ -459,7 +493,7 @@ public class IaasStackOrder extends TestBase {
 				Thread.sleep(3000);
 				objAppStackPage.searchTextBox.sendKeys(Keys.ENTER);
 				
-				}
+				//}
 			}
 		
 		
