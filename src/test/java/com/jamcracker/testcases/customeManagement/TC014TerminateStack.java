@@ -4,8 +4,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
 import com.jamcracker.commonFunctions.customer.CustomerAdminLogin;
-import com.jamcracker.commonFunctions.customer.GetStaticIp;
 import com.jamcracker.commonFunctions.customer.TerminateStack;
 import com.jamcracker.utilities.TestBase;
 
