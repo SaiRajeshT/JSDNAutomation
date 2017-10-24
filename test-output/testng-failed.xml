@@ -4,13 +4,14 @@
   <parameter name="browser" value="firefox"/>
   <test name="Default test(failed)">
     <classes>
-      <class name="com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot">
+      <class name="com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder">
         <methods>
-          <include name="volumeAction" invocation-numbers="0"/>
           <include name="setUp"/>
+          <include name="stackOrder" invocation-numbers="0"/>
+          <include name="aftermethod"/>
           <include name="intialize"/>
         </methods>
-      </class> <!-- com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot -->
+      </class> <!-- com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
