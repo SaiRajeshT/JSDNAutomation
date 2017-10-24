@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.marketplace;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -17,6 +18,7 @@ public class CMSStoreConfiguration extends TestBase {
 	
 	public void storeCMSConfiguration(String domain, String name, String storeType, String siteName, String emailAddress, String defaultLanguage) {
 		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		CmsAdminMenuBar objCmsMenu = new CmsAdminMenuBar();
 		explicitWait(objCmsMenu.structureLink);
 		objCmsMenu.structureLink.click();
@@ -67,11 +69,13 @@ public class CMSStoreConfiguration extends TestBase {
 			break;
 		
 		case "enterprise-non ad":
+			js.executeScript("arguments[0].scrollIntoView(true);",objDomainCreation.restrictPreLoginCheckBox);
 			objDomainCreation.restrictPreLoginCheckBox.click();
 			Reporter.log("Store Type is " + storeType + "and hence Restrict Pre-Login option is selected");
 			break;
 			
 		case "enterprise-ad":
+			js.executeScript("arguments[0].scrollIntoView(true);",objDomainCreation.adConfiguredCheckBox);
 			objDomainCreation.restrictPreLoginCheckBox.click();
 			objDomainCreation.adConfiguredCheckBox.click();
 			Reporter.log("Store Type is " + storeType + "and hence Restrict Pre-Login and AD Configured options are selected");
@@ -80,6 +84,7 @@ public class CMSStoreConfiguration extends TestBase {
 		default:
 			break;
 		}
+		js.executeScript("arguments[0].scrollIntoView(true);",objDomainCreation.saveDomainRecordButton);
 		objDomainCreation.saveDomainRecordButton.click();
 		explicitWait(objDomainCreation.domainStatusMessage);
 		try {
@@ -107,6 +112,7 @@ public class CMSStoreConfiguration extends TestBase {
 			Assert.fail();
 		}
 		explicitWait(objCmsDomains.getEditDomainLink(name));
+		js.executeScript("arguments[0].scrollIntoView(true);",objCmsDomains.getEditDomainLink(name));
 		objCmsDomains.getEditDomainLink(name).click();
 		CmsEditDomainPage objEditDomain = new CmsEditDomainPage();
 		try {
@@ -140,6 +146,7 @@ public class CMSStoreConfiguration extends TestBase {
 		objDomainSettings.siteFrontPageTextBox.clear();
 		objDomainSettings.siteFrontPageTextBox.sendKeys("home");
 		HandleDropDown.selectDDLByVisibletext(objDomainSettings.defaultLangDropDown, defaultLanguage);
+		js.executeScript("arguments[0].scrollIntoView(true);",objDomainSettings.saveDomainSettingsButton);
 		objDomainSettings.saveDomainSettingsButton.click();
 		try {
 			if (objDomainSettings.domainSettingsStatusMessage.getText().contains("Domain options saved successfully.")) {
@@ -166,8 +173,11 @@ public class CMSStoreConfiguration extends TestBase {
 			Assert.fail();
 		}
 		explicitWait(objDomainTheme.configureLink);
-		objDomainTheme.configureLink.click();		
+		js.executeScript("arguments[0].scrollIntoView(true);",objDomainTheme.configureLink);
+		objDomainTheme.configureLink.click();
+		js.executeScript("arguments[0].scrollIntoView(true);",objDomainTheme.uploadLogo);
 		objDomainTheme.uploadLogo.sendKeys(System.getProperty("user.dir") + "/Data/Logos/CompanyLogo.JPG");
+		js.executeScript("arguments[0].scrollIntoView(true);",objDomainTheme.saveConfigurationButton);
 		objDomainTheme.saveConfigurationButton.click();
 		try {
 			if (objDomainTheme.successMsg.getText().contains("The configuration options have been saved.")) {

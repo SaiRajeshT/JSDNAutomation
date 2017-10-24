@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <parameter name="browser" value="firefox"/>
+  <parameter name="sourceStoreUrl" value="https://store.sourcestore.com/cms/user/login"/>
   <test name="Default test(failed)">
     <classes>
       <class name="com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder">

@@ -40,7 +40,7 @@ public class TC008AppStackCreation extends TestBase {
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init("chrome", getURL());
+		init(browser, getURL());
 	}
 	
 	@Test(dataProvider="stackCreationData")
