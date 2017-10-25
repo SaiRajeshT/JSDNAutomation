@@ -13,7 +13,9 @@ import com.jamcracker.entity.service.Offers;
 import com.jamcracker.entity.service.Price;
 import com.jamcracker.entity.service.PricingInfo;
 import com.jamcracker.entity.service.ServicesInfo;
+import com.jamcracker.objectRepository.marketplace.MarketplaceHomePage;
 import com.jamcracker.objectRepository.marketplace.MyservicesPage;
+import com.jamcracker.objectRepository.marketplace.ServiceManagementPage;
 import com.jamcracker.utilities.HandleDropDown;
 import com.jamcracker.utilities.TestBase;
 import com.jamcracker.utilities.TwoWindowsSwitch;
@@ -173,7 +175,6 @@ public class ServiceCreation extends TestBase {
 			objMyServicesPage.expandIcon.click();
 			PricingInfo pricingInfo = offer.getPricingInfo();
 			Map<Integer,Price> prices = pricingInfo.getPrice();
-			
 			objMyServicesPage.unitPriceTextBox.sendKeys(pricingInfo.getUnitPrice());
 			objMyServicesPage.minQtyTextBox.sendKeys(pricingInfo.getMinimumQty());
 			objMyServicesPage.unitPriceQtyTextBox.sendKeys(pricingInfo.getUnitPriceQuantity());
@@ -288,16 +289,35 @@ public class ServiceCreation extends TestBase {
 				
 			}
 		
-			objMyServicesPage.pricingInfoSaveAndNextButton.click();
-			if (objMyServicesPage.resellCheckbox.isDisplayed()) {
-				Reporter.log("Successfully configured pricing information  page and navigated to Activities page");
-			} else {
-				Reporter.log(
-						"<p style='color:red'>Issue while configuring pricing information page. Please look in to the issue. </p>");
+			try{
+				objMyServicesPage.pricingInfoSaveAndNextButton.click();
+			}
+			catch(NoSuchElementException e)
+			{
+				objMyServicesPage.saveAndExitButton.click();
 			}
 			
-
+			/*if (objMyServicesPage.addOfferLink.isDisplayed()||objMyServicesPage.resellCheckbox.isDisplayed()) {
+				Reporter.log("Successfully configured offer pricing information  page.");
+			} else {
+				Reporter.log(
+						"<p style='color:red'>Issue while configuring offer pricing information page. Please look in to the issue. </p>");
+			}
+			*/
+			
+			try{ 
+				if(objMyServicesPage.resellCheckbox.isDisplayed())
+				{
+					Reporter.log("Successfully configured offer pricing information  page for offer"+offer.getOfferName()+" and navigated to activities page.");
+				}
 				
+			}
+			catch(NoSuchElementException e1){
+				if (objMyServicesPage.addOfferLink.isDisplayed()){
+					Reporter.log("Successfully configured offer pricing information  page for offer"+offer.getOfferName()+" and navigated to offers page");
+				}
+			}
+						
 		}
 
 		catch (NoSuchElementException e) {
@@ -309,6 +329,7 @@ public class ServiceCreation extends TestBase {
 		catch (Exception e) {
 			System.out.println("Unknown Exception " + e.getMessage());
 			e.printStackTrace();
+			Assert.fail();
 		}
 
 	}
@@ -378,9 +399,26 @@ public class ServiceCreation extends TestBase {
 			}
 
 			// Configuring Offers
+			System.out.println(serviceInfo.getOffers().size());
+			int i =0;
 			for (Offers offer : serviceInfo.getOffers()) {
-
-				offerInfoConfig(offer);
+				i++;
+				
+				 //Only for the first time
+				if (i == 1) {
+					offerInfoConfig(offer);
+					activitiesPage();
+					resourcePage();
+					ServiceApprove.serviceApprove(offer.getServiceName());
+				}
+				else if(i==2){
+				ServiceManagementPage objServicePage = new ServiceManagementPage();
+				objServicePage.EditService(serviceInfo.getServiceName()).click();;
+				objServicePage.offersTab.click();
+				offerInfoConfig(offer);}
+				else{
+					offerInfoConfig(offer);
+				}
 
 			}
 
@@ -389,6 +427,7 @@ public class ServiceCreation extends TestBase {
 		catch (NoSuchElementException e) {
 			System.out.println("Element not found exception " + e.getMessage());
 			e.printStackTrace();
+			Assert.fail();
 
 		}
 

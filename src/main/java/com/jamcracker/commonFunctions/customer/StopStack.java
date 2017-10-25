@@ -6,9 +6,9 @@ import com.jamcracker.objectRepository.customer.InstancesPage;
 import com.jamcracker.utilities.HandleDropDown;
 import com.jamcracker.utilities.TestBase;
 
-public class TerminateStack extends TestBase {
+public class StopStack extends TestBase {
 	
-	public void terminateStack(String stackName,String action){
+	public void stopStack(String stackName){
 		
 		try {
 			InstancesPage objinstancePage = new InstancesPage();

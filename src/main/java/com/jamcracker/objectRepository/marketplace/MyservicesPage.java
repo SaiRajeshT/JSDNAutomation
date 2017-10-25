@@ -151,6 +151,9 @@ public class MyservicesPage extends TestBase {
 	@FindBy(xpath = "//td[text()='Marketplace - Store']//following-sibling::td//img")
 	public WebElement expandIcon;
 
+	@FindBy(id="saveExit")
+	public WebElement saveAndExitButton;
+	
 	public WebElement getSubCategory(String subCategory) {
 		String objXPath = "//div[@id='subcat_<REPLACE>']//input";
 		objXPath = objXPath.replaceAll("<REPLACE>", subCategory);

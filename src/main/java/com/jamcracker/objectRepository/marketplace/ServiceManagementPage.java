@@ -15,6 +15,9 @@ public class ServiceManagementPage extends TestBase {
 	@FindBy(xpath = "//a[contains(text(),'Service Management')]")
 	public WebElement serviceManagementLink;
 	
+	
+	@FindBy(linkText="Offers")
+	public WebElement offersTab;
 	@FindBy(xpath="//input[@value='Approve Selected']")
 	public WebElement ApproveButton;
 	
@@ -26,6 +29,10 @@ public class ServiceManagementPage extends TestBase {
 	
 	@FindBy(xpath="//button[text()='Yes']")
 	public WebElement yesButton;
+	
+	public WebElement EditService(String serviceName){
+		return driver.findElement(By.xpath("//td[@title='"+serviceName+"']//following-sibling::td//a//img[@title='Edit Service']"));
+	}
 
 	public WebElement getSelectServiceCheckbox(String serviceName) {
 		String objXPath = "//td[text()='<REPLACE>']//preceding-sibling::td[4]//input[@type='checkbox']";
