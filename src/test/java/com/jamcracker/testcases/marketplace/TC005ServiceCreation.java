@@ -30,7 +30,7 @@ public class TC005ServiceCreation extends TestBase{
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init(browser, getURL());
+		init("chrome", getURL());
 	}
 //	@DataProvider(name="ServicesData")
 //	private String[][] getServiceCreationData()
@@ -68,10 +68,10 @@ public class TC005ServiceCreation extends TestBase{
 		objMyServices.continueButton.click();
 		ServiceCreation objServiceCreate = new ServiceCreation();
 		objServiceCreate.serviceInfoConfig(serviceOffer);
-	   // objServiceCreate.offerInfoConfig();
-		objServiceCreate.activitiesPage();
+	   //objServiceCreate.offerInfoConfig();
+		/*objServiceCreate.activitiesPage();
 		objServiceCreate.resourcePage();
-		ServiceApprove.serviceApprove(serviceOffer.getServiceName());
+		ServiceApprove.serviceApprove(serviceOffer.getServiceName());*/
 	 }
 	 
 	 catch(Exception e)

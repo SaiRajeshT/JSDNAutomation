@@ -1,6 +1,7 @@
 package com.jamcracker.objectRepository.customer;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -69,6 +70,63 @@ public class AppstackPage extends TestBase {
 	
 	@FindBy(linkText="AppStacks")
 	public WebElement appStacksLink;
+	
+	@FindBy(linkText="Start")
+	public WebElement startLink;
+	
+	@FindBy(linkText="Stop")
+	public WebElement stopLink;
+	
+	@FindBy(linkText="Terminate")
+	public WebElement terminateLink;
+	
+	@FindBy(linkText="View Details")
+	public WebElement viewDetailsLink;
+	
+	
+	
+	public WebElement getStackActionLink(String stackName) {
+		WebElement  a = null;
+		try {
+			a= driver.findElement(By.xpath("(//td[text()='" + stackName + "']//parent::tr//td[contains(@class,'lastaction')]//img)[1]"));
+			return a;
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+		}
+		
+	try {
+			a = driver.findElement(By.xpath("(//tr[td[span[@title='" + stackName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
+		} catch (NoSuchElementException e) {
+			e.printStackTrace();
+
+		}
+		
+		return a;
+	}
+	
+	
+	public WebElement getRunningstack(String stackName) {
+		WebElement element = null;
+		
+		try {
+			element = driver.findElement(By.xpath("(//td[text()='"+stackName+"']//parent::tr//td//div[text()='Running'])[1]"));
+			return element;
+		} catch (Exception e) {
+
+		}
+		
+		try {
+			element = driver.findElement(By.xpath("(//tr[td[span[@title='"+stackName+"']]]//td//div[text()='Running'])[1]"));
+			return element;
+		} catch (Exception e) {
+
+		}
+		return element;
+	}
+				
+	
+	
+	
 	
 	
 }

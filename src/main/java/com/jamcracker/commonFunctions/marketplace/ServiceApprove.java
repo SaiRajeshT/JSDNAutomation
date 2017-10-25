@@ -28,7 +28,9 @@ public class ServiceApprove {
 					TwoWindowsSwitch.switchToChild();
 					objServicePage.yesButton.click();
 					TwoWindowsSwitch.switchToParent();
-					
+					objServicePage.searchTextBox.clear();
+					objServicePage.searchTextBox.sendKeys(serviceName);
+					objServicePage.goButton.click();
 					Assert.assertEquals(objServicePage.getServiceStatus(serviceName).getText(),"Approved");
 					Reporter.log("Service  Approved successfully");
 				} 
