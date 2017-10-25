@@ -35,7 +35,7 @@ public class TC014TerminateStack extends TestBase{
 
 		if (executable.equalsIgnoreCase("y")) {
 			custLogin.customerAdminLogin(email, password);
-			objTerminateStack.terminateStack(email,  password,  stackName, action);
+			objTerminateStack.terminateStack(stackName, action);
 		
 	}
 	

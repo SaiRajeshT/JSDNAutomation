@@ -21,6 +21,9 @@ public class InstancesPage extends TestBase{
 	@FindBy(linkText="Instances")
 	public WebElement instancesLink;
 	
+	@FindBy(linkText="AppStacks")
+	public WebElement appstacksLink;
+	
 	@FindBy(linkText="Volume Snapshots")
 	public WebElement volSnapshotLink;
 	
