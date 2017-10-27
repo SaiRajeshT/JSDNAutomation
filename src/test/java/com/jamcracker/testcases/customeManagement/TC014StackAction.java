@@ -9,6 +9,7 @@ import com.jamcracker.commonFunctions.customer.CustomerAdminLogin;
 import com.jamcracker.commonFunctions.customer.StartStack;
 import com.jamcracker.commonFunctions.customer.StopStack;
 import com.jamcracker.commonFunctions.customer.TerminateStack;
+import com.jamcracker.objectRepository.customer.CustomerMenuAndSubmenuObjects;
 import com.jamcracker.utilities.TestBase;
 
 public class TC014StackAction extends TestBase {
@@ -51,7 +52,10 @@ public class TC014StackAction extends TestBase {
 			case "terminate":
 				objTerminateStack.terminateStack(stackName, action);
 				break;
-	}
+			}
+			CustomerMenuAndSubmenuObjects objMenuPage = new CustomerMenuAndSubmenuObjects();
+			objMenuPage.profileIcon.click();
+			objMenuPage.signOutLink.click();
 	}
 	}
 }
