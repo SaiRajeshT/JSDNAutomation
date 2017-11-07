@@ -13,9 +13,12 @@ public class ScriptingPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(linkText="Manage")
+	public WebElement manageLink;
+	
 	
 	@FindBy(partialLinkText="scripting")
-	public WebElement Scripting;
+	public WebElement scriptingLink;
 	
 	@FindBy(xpath="//a[@title='Add Script']")
 	public WebElement addScript;
