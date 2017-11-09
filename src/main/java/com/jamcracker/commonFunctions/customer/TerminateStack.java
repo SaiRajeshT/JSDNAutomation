@@ -1,11 +1,10 @@
 package com.jamcracker.commonFunctions.customer;
 
-import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.jamcracker.objectRepository.customer.AppstackPage;
-import com.jamcracker.objectRepository.customer.InstancesPage;
 import com.jamcracker.utilities.HandleDropDown;
 import com.jamcracker.utilities.TestBase;
 

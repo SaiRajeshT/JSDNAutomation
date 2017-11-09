@@ -2,10 +2,14 @@ package com.jamcracker.commonFunctions.marketplace;
 
 import java.io.File;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.testng.Reporter;
+
 import com.jamcracker.objectRepository.marketplace.SetUpPage;
+import com.jamcracker.utilities.TestBase;
 import com.jamcracker.utilities.TwoWindowsSwitch;
 
-public class StoreInvoiceSettings {
+public class StoreInvoiceSettings extends TestBase{
 	
 	private SetUpPage objSetUpPage = SetUpPage.getInstance();
 	private final static StoreInvoiceSettings instance = new StoreInvoiceSettings();
@@ -17,16 +21,29 @@ public class StoreInvoiceSettings {
 		return instance;
 	}
 
-	public void invoicePageSetup() {
+	public void invoicePageSetup() throws Exception {
 		objSetUpPage.uploadLogoLink.click();
 		// Switching to upload logo page
 		TwoWindowsSwitch.getWindowHandles();
 		TwoWindowsSwitch.switchToChild();
+		try {
+			driver.get("javascript:document.getElementById('overridelink').click();");
+		} catch (Exception e) {
+			Reporter.log("Browser is not Internet Explorer");
+		}
 		objSetUpPage.invoiceLogoBrowseButton.sendKeys(System.getProperty("user.dir") + File.separator + "Data" + File.separator
 				+ "Logos" + File.separator + "CompanyLogo.JPG");
 		objSetUpPage.submitButton.click();
 		TwoWindowsSwitch.switchToParent();
-		objSetUpPage.saveAndNextButton.click();
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		try {
+			js.executeScript("arguments[0].scrollIntoView(true);",objSetUpPage.saveAndNextButton);
+			objSetUpPage.saveAndNextButton.click();
+		} catch (Exception e) {
+			js.executeScript("arguments[0].scrollIntoView(true);",objSetUpPage.saveAndNextButton);
+			objSetUpPage.saveAndNextButton.click();
+		}
 
 	}
 

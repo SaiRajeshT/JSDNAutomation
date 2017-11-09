@@ -45,7 +45,7 @@ public class TC004StoreBranding extends TestBase
 	
 	
   @Test
-  public void storeBranding() 
+  public void storeBranding() throws Exception 
   
   {
 	  	String mpAdminEmail =  getData("TestData.xls", "CredentialsSheet", "Email Address", 3);

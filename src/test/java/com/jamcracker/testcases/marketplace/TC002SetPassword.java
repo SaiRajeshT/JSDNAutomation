@@ -50,7 +50,7 @@ public class TC002SetPassword extends TestBase
 	@AfterMethod
 	public void teardown()
 	{
-		//driver.quit();
+		driver.quit();
 	}
 	
 

@@ -20,6 +20,11 @@ public class StoreBranding extends TestBase
 		//Switching to upload logo page
 		TwoWindowsSwitch.getWindowHandles();
 		TwoWindowsSwitch.switchToChild();
+		try {
+			driver.get("javascript:document.getElementById('overridelink').click();");
+		} catch (Exception e) {
+			Reporter.log("Browser is not Internet Explorer");
+		}
 		objSetUpPage.browseButton.sendKeys(System.getProperty("user.dir")+File.separator+"Data"+File.separator+"Logos"+File.separator+"CompanyLogo.JPG");
 		objSetUpPage.submitButton.click();
 		TwoWindowsSwitch.switchToParent();
@@ -27,7 +32,7 @@ public class StoreBranding extends TestBase
 		HandleDropDown.selectDDLByVisibletext(objSetUpPage.themeDropdown,theme);
 		/*Select select = new Select(objSetUpPage.themeDropdown);
 		String selectedText = select.getFirstSelectedOption().getText();*/
-	String selectedText=	HandleDropDown.getSelectedValue(objSetUpPage.themeDropdown);
+		String selectedText=	HandleDropDown.getSelectedValue(objSetUpPage.themeDropdown);
 		if(theme.equalsIgnoreCase(selectedText))
 		 Reporter.log(selectedText +" Theme Successfully Theme configured to store.");
 		else

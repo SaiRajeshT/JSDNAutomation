@@ -21,7 +21,7 @@ public class StoreEmailNotificationSetUp
 			,String supportEmailSignature,String contentRequestEmail,String supportFromAddress)
 	{
 		try{
-		objSetUpPage.customerEmailNotificationLink.click();
+		//objSetUpPage.customerEmailNotificationLink.click();
 		objSetUpPage.storeEmailSignatureTextBox.clear();
 		objSetUpPage.storeEmailSignatureTextBox.sendKeys(emailSignature);
 		

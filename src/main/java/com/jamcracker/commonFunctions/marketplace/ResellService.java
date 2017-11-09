@@ -5,6 +5,7 @@ import org.testng.Reporter;
 
 import com.jamcracker.objectRepository.store.CatalogPage;
 import com.jamcracker.objectRepository.store.MarketplacePage;
+import com.jamcracker.utilities.HandleDropDown;
 import com.jamcracker.utilities.SwitchFrame;
 import com.jamcracker.utilities.TestBase;
 import com.jamcracker.utilities.TwoWindowsSwitch;
@@ -22,13 +23,16 @@ public class ResellService extends TestBase {
 			objMarketplacePage.globalSearchTextBox.sendKeys(serviceName);
 			objMarketplacePage.searchIconTextBox.click();
 			explicitWait(objMarketplacePage.collapseLink);
-			Thread.sleep(9000);
+			Thread.sleep(5000);
+			explicitWait(objMarketplacePage.getResellButton(serviceName));
 			objMarketplacePage.getResellButton(serviceName).click();
 			TwoWindowsSwitch.getWindowHandles();
 			TwoWindowsSwitch.switchToChild();
+			explicitWait(objMarketplacePage.pendingResellButton);
 			objMarketplacePage.pendingResellButton.click();
 			TwoWindowsSwitch.switchToParent();
-			objMarketplacePage.selectService(serviceName).click();
+			explicitWait(objMarketplacePage.selectOfferCheckbox(serviceName, offerName));
+			objMarketplacePage.selectOfferCheckbox(serviceName, offerName).click();
 			objMarketplacePage.completeResellButton.click();
 			Thread.sleep(9000);
 			TwoWindowsSwitch.getWindowHandles();
@@ -37,7 +41,7 @@ public class ResellService extends TestBase {
 			objCatalogPage.catalogLink.click();*/
 			objMarketplacePage.goToCatalogButton.click();
 			TwoWindowsSwitch.switchToParent();
-			objCatalogPage.isEditServiceElementExist(offerName);
+			/*objCatalogPage.isEditServiceElementExist(offerName);
 			
 			
 			if(!objCatalogPage.isNextElementExist()|| objCatalogPage.isEditServiceElementExist(offerName)){
@@ -52,8 +56,13 @@ public class ResellService extends TestBase {
 					explicitWaitToClickable(objCatalogPage.customizeCatalogButton);
 				}
 				objCatalogPage.getEditService(offerName).click();
-			}
+			}*/
 			
+			objCatalogPage.searchTextBox.sendKeys(offerName);
+			HandleDropDown.selectDDLByValue(objCatalogPage.searchStringDropDown, "OFFER_NAME");
+			objCatalogPage.goButton.click();
+			explicitWait(objCatalogPage.getEditService(offerName));
+			objCatalogPage.getEditService(offerName).click();
 			
 
 
@@ -83,7 +92,13 @@ public class ResellService extends TestBase {
 		    
 			  //Verifying whether service successfully resold or not
 		   try{
-		    if(!objCatalogPage.isNextElementExist()){
+			   
+			objCatalogPage.searchTextBox.sendKeys(offerName);
+			HandleDropDown.selectDDLByValue(objCatalogPage.searchStringDropDown, "OFFER_NAME");
+			objCatalogPage.goButton.click();
+			Assert.assertEquals(objCatalogPage.getresellStatus(offerName).getText(),"Yes","Service resell is not successfull");
+			Reporter.log("Service Resell is completed");
+		    /*if(!objCatalogPage.isNextElementExist()){
 				   Assert.assertEquals(objCatalogPage.getresellStatus(offerName).getText(),"Yes","Service resell is not successfull");
 				   Reporter.log("Service Resell is completed");
 		    }
@@ -97,7 +112,8 @@ public class ResellService extends TestBase {
 				}
 				Assert.assertEquals(objCatalogPage.getresellStatus(offerName).getText(),"Yes");
 				Reporter.log("Service Resell is completed");
-		    }}
+		    }*/
+			}
 		   catch(Exception e)
 		   {
 			   Reporter.log("<p style='color:red'> Service is not resold to store. Please check the issue </p>");
