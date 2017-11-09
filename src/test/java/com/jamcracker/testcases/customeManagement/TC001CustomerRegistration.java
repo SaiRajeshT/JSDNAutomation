@@ -24,7 +24,7 @@ public class TC001CustomerRegistration extends TestBase {
 	@BeforeMethod
 	@Parameters({"browser","storeUrl"})
 	public void setUp(String browser, String url) {
-		init(browser, url);
+		init("chrome", "mntstore.jamcracker.com");
 	}
 
 	@Test(dataProvider = "customerRegistrationData")

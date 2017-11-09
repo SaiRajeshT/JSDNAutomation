@@ -13,7 +13,6 @@ import com.jamcracker.entity.service.Offers;
 import com.jamcracker.entity.service.Price;
 import com.jamcracker.entity.service.PricingInfo;
 import com.jamcracker.entity.service.ServicesInfo;
-import com.jamcracker.objectRepository.marketplace.MarketplaceHomePage;
 import com.jamcracker.objectRepository.marketplace.MyservicesPage;
 import com.jamcracker.objectRepository.marketplace.ServiceManagementPage;
 import com.jamcracker.utilities.HandleDropDown;

@@ -83,8 +83,6 @@ public class AppstackPage extends TestBase {
 	@FindBy(linkText="View Details")
 	public WebElement viewDetailsLink;
 	
-	@FindBy(xpath="//div[@id='header_popUpId']//following::span[text()='Confirm']")
-	public WebElement confirmButton;
 	
 	
 	public WebElement getStackActionLink(String stackName) {
@@ -125,46 +123,9 @@ public class AppstackPage extends TestBase {
 		}
 		return element;
 	}
-	
-	public WebElement getStoppedStack(String stackName) {
-		WebElement element = null;
-		
-		try {
-			element = driver.findElement(By.xpath("(//td[text()='"+stackName+"']//parent::tr//td//div[contains(text(),'Stopped')])[1]"));
-			return element;
-		} catch (Exception e) {
-
-		}
-		
-		try {
-			element = driver.findElement(By.xpath("(//tr[td[span[@title='"+stackName+"']]]//td//div[contains(text(),'Stopped')])[1]"));
-			return element;
-		} catch (Exception e) {
-
-		}
-		return element;
-	}
 				
 	
-	public WebElement getTerminatedStack(String stackName) {
-		WebElement element = null;
-		
-		try {
-			element = driver.findElement(By.xpath("(//td[text()='"+stackName+"']//parent::tr//td//div[contains(text(),'Terminated')])[1]"));
-			return element;
-		} catch (Exception e) {
-
-		}
-		
-		try {
-			element = driver.findElement(By.xpath("(//tr[td[span[@title='"+stackName+"']]]//td//div[contains(text(),'Terminated')])[1]"));
-			return element;
-		} catch (Exception e) {
-
-		}
-		return element;
-	}
-				
+	
 	
 	
 	
