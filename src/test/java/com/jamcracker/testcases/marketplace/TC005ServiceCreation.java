@@ -9,6 +9,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.jamcracker.commonFunctions.marketplace.MarketplaceLogin;
+import com.jamcracker.commonFunctions.marketplace.ServiceApprove;
 import com.jamcracker.commonFunctions.marketplace.ServiceCreation;
 import com.jamcracker.entity.service.ServicesInfo;
 import com.jamcracker.excel.reader.ReadServiceOfferSheet;
@@ -29,7 +30,7 @@ public class TC005ServiceCreation extends TestBase{
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init(browser, getURL());
+		init("chrome", getURL());
 	}
 //	@DataProvider(name="ServicesData")
 //	private String[][] getServiceCreationData()

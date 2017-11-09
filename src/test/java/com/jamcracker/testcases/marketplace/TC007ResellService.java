@@ -24,7 +24,7 @@ public class TC007ResellService extends TestBase {
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init("chrome", getURL());
+		init(browser, getURL());
 	}
 	
 	@DataProvider(name="resellData")

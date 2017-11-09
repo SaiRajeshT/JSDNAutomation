@@ -73,33 +73,5 @@ public class ResultsFromDB {
 	
 		return orderData;
 	}
-	
-	public static String getActorID(String provider) throws Exception {
-		long actorID = 0;
-		Connection con = SQLUtil.getConnection();
-		DatabaseMetaData dbMetaData = con.getMetaData();
-		String productType = dbMetaData.getDatabaseProductName();
-		if (con != null) {
-			String query = null;
-			if (productType.equals("PostgreSQL")) {
-				query = "select actor_id from jcp_organization where organization_short_name like ?";
-			} else {
-				query = "select actor_id from jcp_organization where organization_short_name like ?";
-			}
-
-			PreparedStatement stmt = con.prepareStatement(query);
-			stmt.setString(1, provider);
-
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				actorID = rs.getInt("actor_id");
-			}
-			SQLUtil.closeResultSet(rs);
-			SQLUtil.closePreparedStatement(stmt);
-		}
-		SQLUtil.closeConnection(con);
-		return Long.toString(actorID);
-	}
 
 }

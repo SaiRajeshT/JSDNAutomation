@@ -26,13 +26,10 @@ public class MarketplacePage extends TestBase {
 	
 	
 	public WebElement getResellButton(String serviceName){
-	String objxpath = "//div[table[tbody[tr[td[text()='needsSubstitution']]]]]//following-sibling::div//span[text()='Resell']//parent::a";
-	/*//div[table[tbody[tr[td[text()='<REPLACE>']]]]]//following-sibling::div//span[text()='Resell']//parent::a	
-	objxpath = objxpath.replace("needsSubstitution", serviceName);
+	String objxpath = "//div[table[tbody[tr[td[text()='<REPLACE>']]]]]//following-sibling::div//span[text()='Resell']//parent::a";
+	objxpath = objxpath.replaceAll("<REPLACE>", serviceName);
 	System.out.println(objxpath);
-	return driver.findElement(By.xpath(objxpath));*/
-	return driver.findElement(By.xpath(objxpath.replace("needsSubstitution", serviceName)));
-	}
+	return driver.findElement(By.xpath(objxpath));}
 	
 	@FindBy(linkText="Collapse")
 	public WebElement collapseLink;
@@ -51,10 +48,6 @@ public class MarketplacePage extends TestBase {
 		String objxpath = "//td[text()='<REPLACE>']//preceding-sibling::td[2]//input";
 		objxpath = objxpath.replaceAll("<REPLACE>", serviceName);
 		return driver.findElement(By.xpath(objxpath));
-	}
-	
-	public WebElement selectOfferCheckbox(String serviceName, String offerName) {
-		return driver.findElement(By.xpath("//td[text()='"+offerName+"']//preceding-sibling::td[contains(text(),'"+serviceName+"')]//preceding-sibling::td//input[@type='checkbox']"));
 	}
 	
 

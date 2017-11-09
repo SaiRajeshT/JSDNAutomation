@@ -1,14 +1,10 @@
 package com.jamcracker.commonFunctions.marketplace;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.testng.Reporter;
-
 import com.jamcracker.objectRepository.marketplace.SetUpPage;
-import com.jamcracker.utilities.TestBase;
 import com.jamcracker.utilities.TwoWindowsSwitch;
 
 
-public class StoreSearchPreference extends TestBase
+public class StoreSearchPreference 
 {
 	private StoreSearchPreference()
 	{
@@ -29,30 +25,8 @@ public class StoreSearchPreference extends TestBase
 		objSetUpPage.finishButton.click();
 		TwoWindowsSwitch.getWindowHandles();
 		TwoWindowsSwitch.switchToChild();
-		try {
-			driver.get("javascript:document.getElementById('overridelink').click();");
-		} catch (Exception e) {
-			Reporter.log("Browser is not Internet Explorer");
-		}
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		try {
-			explicitWait(objSetUpPage.submitStoreApproveButton);
-			js.executeScript("arguments[0].scrollIntoView(true);",objSetUpPage.submitStoreApproveButton);
-			objSetUpPage.submitStoreApproveButton.click();
-		} catch (Exception e) {
-			explicitWait(objSetUpPage.submitStoreApproveButton);
-			js.executeScript("arguments[0].scrollIntoView(true);",objSetUpPage.submitStoreApproveButton);
-			objSetUpPage.submitStoreApproveButton.click();
-		}
-		try {
-			explicitWait(objSetUpPage.browseMarketplaceButton);
-			js.executeScript("arguments[0].scrollIntoView(true);",objSetUpPage.browseMarketplaceButton);
-			objSetUpPage.browseMarketplaceButton.click();
-		} catch (Exception e) {
-			explicitWait(objSetUpPage.browseMarketplaceButton);
-			js.executeScript("arguments[0].scrollIntoView(true);",objSetUpPage.browseMarketplaceButton);
-			objSetUpPage.browseMarketplaceButton.click();
-		}
+		objSetUpPage.submitStoreApproveButton.click();
+		objSetUpPage.browseMarketplaceButton.click();
 		//objSetUpPage.submitButton.click();
 		TwoWindowsSwitch.switchToParent();
 		
