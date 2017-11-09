@@ -29,7 +29,7 @@ public class TC005ServiceCreation extends TestBase{
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init("chrome", getURL());
+		init(browser, getURL());
 	}
 //	@DataProvider(name="ServicesData")
 //	private String[][] getServiceCreationData()
