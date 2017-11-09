@@ -10,10 +10,10 @@ public class CustomerAdminLogin extends TestBase {
 	public void customerAdminLogin(String username, String password) {
 		storeHome.signInLink.click();
 		try {
-			explicitWait(storeHome.signInSection);
+			explicitWait(storeHome.usernameTextBox);
 		} catch (Exception e) {
 			storeHome.signInLink.click();
-			explicitWait(storeHome.signInSection);
+			explicitWait(storeHome.usernameTextBox);
 		}
 		storeHome.usernameTextBox.sendKeys(username);
 		storeHome.passwordTextBox.sendKeys(password);

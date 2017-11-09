@@ -81,14 +81,5 @@ public class CatalogPage extends TestBase {
 		objxpath = objxpath.replaceAll("<REPLACE>", offerName);
 		return driver.findElement(By.xpath(objxpath));
 	}
-	
-	@FindBy(id="searchValue")
-	public WebElement searchTextBox;
-	
-	@FindBy(id="searchString")
-	public WebElement searchStringDropDown;
-	
-	@FindBy(xpath="//button[contains(text(),'Go')]")
-	public WebElement goButton;
 
 }

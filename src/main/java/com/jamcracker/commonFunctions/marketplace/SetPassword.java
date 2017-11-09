@@ -29,7 +29,7 @@ public class SetPassword extends TestBase
 			resetPasswordPageObj.confirmPasswordTextBox.sendKeys(newPassword);
 			HandleDropDown.selectDDLByVisibletext(resetPasswordPageObj.securityQuestionDropDown, secQuestion);
 			resetPasswordPageObj.securityAnswerTextBox.sendKeys(secAnswer);
-			//Thread.sleep(10000);
+			Thread.sleep(10000);
 			resetPasswordPageObj.saveAndContinueButton.click();
 			resetPasswordPageObj.acceptRadioButton.click();
 			resetPasswordPageObj.continueButton.click();

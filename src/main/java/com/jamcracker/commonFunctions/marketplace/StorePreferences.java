@@ -25,7 +25,7 @@ public class StorePreferences
 			String showPublisherInfo,String manageCommercialContent, String showAnalyticStatistics,
 			String overrideServiceDependency,String itemLevelSAD,String accessHelpDesk)
 	{
-		//objSetUpPage.preferencesLink.click();
+		objSetUpPage.preferencesLink.click();
 // Selecting or unselecting Delete company option based on the input from excel sheet
 		try 
 		{
