@@ -40,12 +40,12 @@ public class TC004StoreBranding extends TestBase
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init(browser, getURL());
+		init("chrome", getURL());
 	}
 	
 	
   @Test
-  public void storeBranding() 
+  public void storeBranding() throws Exception 
   
   {
 	  	String mpAdminEmail =  getData("TestData.xls", "CredentialsSheet", "Email Address", 3);
