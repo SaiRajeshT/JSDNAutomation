@@ -19,7 +19,7 @@ public class TC001VerifyScriptPage extends TestBase
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init("chrome",getURL());
+		init(browser,getURL());
 	}
 	
 	@DataProvider(name = "ScriptData")

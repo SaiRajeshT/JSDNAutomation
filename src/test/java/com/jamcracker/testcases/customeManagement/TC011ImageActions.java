@@ -24,7 +24,7 @@ public class TC011ImageActions extends TestBase {
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init("chrome",getURL());
+		init(browser,getURL());
 	}
 	
 	@DataProvider(name = "ImageData")

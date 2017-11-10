@@ -23,7 +23,7 @@ public class TC007IAASAction extends TestBase {
 	@BeforeClass
 	@Parameters({ "browser" })
 	public void setUp(String browser) {
-		init("chrome", getURL());
+		init(browser, getURL());
 	}
 
 	@DataProvider(name = "StartInstanceData")

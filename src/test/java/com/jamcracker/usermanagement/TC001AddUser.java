@@ -21,14 +21,13 @@ public class TC001AddUser extends TestBase{
 		@BeforeClass
 		@Parameters({ "browser" })
 		public void setUp(String browser) {
-			init("chrome", getURL());
+			init(browser, getURL());
 		}
 		
 		@DataProvider(name="UserData")
-			public String[][] getUserData()
-			{
-				return getData("User Creation.xls", "Users");
-			}
+		public String[][] getUserData(){
+			return getData("User Creation.xls", "Users");
+		}
 
 @Test (priority=1)
 public void customerLogin(){

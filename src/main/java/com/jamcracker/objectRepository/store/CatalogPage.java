@@ -90,5 +90,14 @@ public class CatalogPage extends TestBase {
 	
 	@FindBy(xpath="//button[contains(text(),'Go')]")
 	public WebElement goButton;
+	
+	@FindBy(name="_iframe-consentDiv")
+	 public WebElement consentFrame;
+	 
+	 @FindBy(xpath="//input[@value='Yes']")
+	 public WebElement yesButton;
+	 
+	 @FindBy(xpath="//input[@value='No']")
+	 public WebElement noButton;
 
 }

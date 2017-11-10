@@ -28,7 +28,7 @@ public class TC006PlaceStackOrder extends TestBase
 	@Parameters({"browser"})
 	public void setUp(String browser)
 	{
-		init("chrome", getURL());
+		init(browser, getURL());
 	}
 
 @DataProvider(name="StackOrdersData")

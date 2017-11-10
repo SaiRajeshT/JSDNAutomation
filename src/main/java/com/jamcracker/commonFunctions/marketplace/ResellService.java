@@ -88,6 +88,13 @@ public class ResellService extends TestBase {
 			objCatalogPage.retailPriceTextBox.clear();
 			objCatalogPage.retailPriceTextBox.sendKeys(retailPrice);
 		    objCatalogPage.saveButton.click();
+		    try {
+		        SwitchFrame.elementSwitch(objCatalogPage.consentFrame);
+		        objCatalogPage.noButton.click();
+		        SwitchFrame.defaultSwitch();
+		    } catch (Exception e) {
+		        Reporter.log("No consent alert is available");
+		    }
 		    explicitWait(objCatalogPage.customizeCatalogButton);
 		    
 			  //Verifying whether service successfully resold or not

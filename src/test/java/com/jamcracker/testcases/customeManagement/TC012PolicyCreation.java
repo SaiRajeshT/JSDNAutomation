@@ -31,7 +31,7 @@ public class TC012PolicyCreation extends TestBase {
 	@BeforeMethod
 	@Parameters({"browser","storeUrl"})
 	public void setUp(String browser, String url) {
-		init("chrome", "https://clrstore.jamcracker.com");
+		init(browser, url);
 	}
 	
 	@Test(dataProvider="restrictPolicyCreationData")

@@ -19,7 +19,7 @@ public class TC010DeleteVolumeSnapshot extends TestBase{
 	@BeforeClass
 	@Parameters({ "browser" })
 	public void setUp(String browser) {
-		init("chrome", getURL());
+		init(browser, getURL());
 	}
 
 	@DataProvider(name = "VolumeData")

@@ -54,7 +54,7 @@ public class MarketplacePage extends TestBase {
 	}
 	
 	public WebElement selectOfferCheckbox(String serviceName, String offerName) {
-		return driver.findElement(By.xpath("//td[text()='"+offerName+"']//preceding-sibling::td[contains(text(),'"+serviceName+"')]//preceding-sibling::td//input[@type='checkbox']"));
+		  return driver.findElement(By.xpath("//td[@title='"+offerName+"']//preceding-sibling::td[@title='"+serviceName+"']//preceding-sibling::td//input[@type='checkbox']"));
 	}
 	
 
