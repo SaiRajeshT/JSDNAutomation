@@ -8,15 +8,12 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.jamcracker.commonFunctions.customer.AddUser;
-import com.jamcracker.commonFunctions.customer.AssginSubscription;
 import com.jamcracker.commonFunctions.customer.CustomerAdminLogin;
 import com.jamcracker.commonFunctions.customer.CustomerLogout;
 import com.jamcracker.utilities.TestBase;
 
 public class TC001AddUser extends TestBase {
 	int count = 0;
-	String loginEmail;
-	String loginPassword;
 	ArrayList<String> al = new ArrayList<String>();
 
 	private String getURL() {
