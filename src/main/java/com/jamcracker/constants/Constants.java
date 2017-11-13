@@ -16,5 +16,7 @@ public interface Constants {
 	public final static String IMAGE_DELETE_MESSAGE= "Delete action is initiated for image ";
 	public final static String IP_SUCCESS_MESSAGE="Successfully obtained a new Static Public IP address from";
 	public static final String MANAGE_SCRIPT_PAGE_TITLE="Manage Scripts";
+	
+	public static final String SERVICE_ASSIGN_MESSAGE="Service provisioned to user(s) successfully.";
 
 }

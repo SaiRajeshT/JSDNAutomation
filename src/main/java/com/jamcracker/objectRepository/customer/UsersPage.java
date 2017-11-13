@@ -52,7 +52,7 @@ public class UsersPage extends TestBase {
 	public WebElement saveAndNextButton;
 	
 	
-	public WebElement getAssignSubscription(String email)
+	public WebElement getAction(String email)
 	{
 		return driver.findElement(By.xpath("//td[text()='"+email+"']//following-sibling::td//span[contains(text(),'Actions')]"));
 	}
@@ -87,12 +87,26 @@ public class UsersPage extends TestBase {
 	@FindBy(linkText="Assign Subscriptions")
 	public WebElement assignSubscription;
 	
+	@FindBy(linkText="View Subscriptions")
+	public WebElement viewSubscription;
+	
+	
 	@FindBy(xpath="//div[@class='notify-msg']")
 	public WebElement successMsgBar;
 	
 	@FindBy(id="phoneid")
 	public WebElement phoneName;
 	
+	@FindBy(xpath="//div[@class='notify-msg']")
+	public WebElement successMsg;
+	
+	@FindBy(id="table_search")
+	public WebElement userSearchTextBox;
+	
+	public String getofferStatus(String offerName)
+	{
+		return driver.findElement(By.xpath("//td[text()='"+offerName+"']//following-sibling::td//span")).getText();
+	}
 	
 	
 	
