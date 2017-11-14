@@ -1,4 +1,4 @@
-package ansibleScripts;
+package com.jamcracker.testcases.ansibleScripts;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
