@@ -49,7 +49,7 @@ public class StartInstance extends TestBase {
 			long startTime = (System.currentTimeMillis()) / 1000;
 			while (test) {
 				if ((System.currentTimeMillis() / 1000) - startTime > timeout) {
-					Reporter.log("<p style='color:red'>Waited for"+timeout+" Seconds.Instance status did not go to Running.Please check the issue.<p>");
+					Reporter.log("<p style='color:red'>Waited for"+timeout+" Seconds.Instance status did not go to Running.Please check the issue.</p>");
 					Assert.fail();
 					break;
 				}

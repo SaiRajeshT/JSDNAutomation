@@ -45,13 +45,13 @@ public class ScriptingPage extends TestBase {
 	@FindBy(xpath="//div[@id='addScriptUsing']//textarea")
 	public WebElement scriptAreaTextBox;
 	
-	@FindBy(xpath="//form[@id='addscriptAction']//span[text()='Save']")
+	@FindBy(id="addScripting-submit")
 	public WebElement scriptSaveButton;
 	
-	@FindBy(xpath="//form[@id='addscriptAction']//span[text()='Execute']")
+	@FindBy(id="addScripting-execute")
 	public WebElement scriptExecuteButton;
 	
-	@FindBy(xpath="//form[@id='addscriptAction']//span[text()='Cancel']")
+	@FindBy(id="addScripting-reset")
 	public WebElement scriptCancelButton;
 	
 	@FindBy(xpath="//div[@id='viewDetailsVol']//img[@class='mSettingIcn']")
@@ -70,6 +70,11 @@ public class ScriptingPage extends TestBase {
 	public WebElement scriptAction(String scriptName){
 		
 		return driver.findElement(By.xpath("//table[@id='viewDetailsVol_main']//div[text()='"+scriptName+"']//parent::td//following-sibling::td[contains(text(),'Action')]"));
+	}
+	
+	public String getScriptStatus(String scriptName)
+	{
+		return driver.findElement(By.xpath("//td[div[text()='"+scriptName+"']]//following-sibling::td[6]")).getText();
 	}
 	
 	

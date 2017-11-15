@@ -6,6 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.jamcracker.commonFunctions.customer.AddSaveScript;
 import com.jamcracker.commonFunctions.customer.VerifyManageScript;
 import com.jamcracker.utilities.TestBase;
 
@@ -28,16 +29,26 @@ public class TC001VerifyScriptPage extends TestBase
 	
 
 
-	@Test(dataProvider = "ScriptData",priority=1)
-	public void verifyScriptPage()
-	{ 
+	@Test(dataProvider = "ScriptData")
+	public void scriptPageScenarios(String executable,String scenario,String email, 
+			String password,String scriptType,String provider,String resource,
+			String template,String scriptName,String script)
+	{ 	
+		switch(scenario)
+		{
+			case "Verify Script Page" :
+				VerifyManageScript.verifyScriptPage();
+				break;
+			
+			case "Add and Save Script" :
+				AddSaveScript.addScript(provider, resource, template, scriptName, script);
+				break;
+			
 		
-		VerifyManageScript objVerifyScriptPage = new VerifyManageScript();
-		objVerifyScriptPage.verifyScriptPage();
-		
+		}
 	}
 	
-	@Test(dataProvider = "ScriptData",priority=2)
+	/*@Test(dataProvider = "ScriptData",priority=2)
 	public void testAddScript() 
 	{
 		
@@ -89,7 +100,7 @@ public class TC001VerifyScriptPage extends TestBase
 		
 	}
 	
-	
+	*/
 	
 	
 

@@ -9,20 +9,20 @@ import com.jamcracker.utilities.TestBase;
 
 public  class  VerifyManageScript extends TestBase {
 	
-	ScriptingPage objScriptPage = new ScriptingPage();
 	
-    public void verifyScriptPage()
+    public static void verifyScriptPage()
     {
     	try{
-    	objScriptPage.manageLink.click();
-    	objScriptPage.scriptingLink.click();
+    		ScriptingPage objScriptPage = new ScriptingPage();
+    		objScriptPage.manageLink.click();
+    		objScriptPage.scriptingLink.click();
     	if(driver.getTitle().equals(Constants.MANAGE_SCRIPT_PAGE_TITLE))
     	{
     		Reporter.log("Successfully Navigated to Manage Script Page");
     	}
     	
     	else{
-    		Reporter.log("<p style='color:red'>Issue while login to Manage script. Look in to the issue. </p>");
+    		Reporter.log("<p style='color:red'>Issue while Navigating to Manage script Page. Look in to the issue. </p>");
     		Assert.fail();
     	}
     	
@@ -30,6 +30,8 @@ public  class  VerifyManageScript extends TestBase {
     	
     	catch(Exception e)
     	{
+    		Reporter.log("<p style='color:red'>Issue while Navigating to Manage script Page. Look in to the issue. </p>");
+    		Assert.fail();
     		e.printStackTrace();
     	}
     }
