@@ -17,18 +17,12 @@ import com.jamcracker.utilities.TestBase;
 
 public class TC006PlaceStackOrder extends TestBase
 {
-	private String getURL() 
-	{
-		return getData("TestData.xls", "URLSheet", "URL", 4);
-	}
-
-
-	
+		
 	@BeforeMethod
-	@Parameters({"browser"})
-	public void setUp(String browser)
+	@Parameters({"browser","storeUrl"})
+	public void setUp(String browser, String url)
 	{
-		init(browser, getURL());
+		init(browser, url);
 	}
 
 @DataProvider(name="StackOrdersData")

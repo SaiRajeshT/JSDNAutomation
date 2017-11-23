@@ -16,14 +16,10 @@ import com.jamcracker.utilities.TestBase;
 @Listeners(com.jamcracker.listeners.TestListener.class)
 public class TC007IAASAction extends TestBase {
 
-	private String getURL() {
-		return getData("TestData.xls", "URLSheet", "URL", 4);
-	}
-
 	@BeforeClass
-	@Parameters({ "browser" })
-	public void setUp(String browser) {
-		init(browser, getURL());
+	@Parameters({ "browser","storeUrl" })
+	public void setUp(String browser, String url) {
+		init(browser, url);
 	}
 
 	@DataProvider(name = "StartInstanceData")

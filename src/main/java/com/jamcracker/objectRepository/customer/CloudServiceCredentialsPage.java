@@ -1,5 +1,6 @@
 package com.jamcracker.objectRepository.customer;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -44,5 +45,35 @@ public class CloudServiceCredentialsPage extends TestBase {
 	
 	@FindBy(id="accountIDLabelMessage")
 	public WebElement accountIDLabel;
+	
+	public WebElement authorizationStatus(String accountId) {
+		return driver.findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td//span[@title='Waiting for Authorization']"));
+	}
+	
+	public WebElement activeStatus(String accountId) {
+		return driver.findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td[contains(text(),'Active')]"));
+	}
+	
+	@FindBy(id="table_search")
+	public WebElement searchBox;
+	
+	@FindBy(xpath="//div[contains(text(),'Go')]")
+	public WebElement goButton;
+	
+	public WebElement actionLink(String accountId) {
+		return driver.findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td[contains(@class,'lastaction')]//span"));
+	}
+	
+	@FindBy(linkText="Validate")
+	public WebElement validateLink;
+	
+	@FindBy(name="BUCKETNAME")
+	public WebElement bucketNameTextBox;
+	
+	@FindBy(name="usageFileName")
+	public WebElement usageFileNameTextBox;
+	
+	@FindBy(id="isvAccountType")
+	public WebElement accountTypeDropDown;
 
 }
