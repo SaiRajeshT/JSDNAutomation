@@ -13,6 +13,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
+
 public class TestBase {
 	
 	public static WebDriver driver;
@@ -50,7 +54,8 @@ public class TestBase {
 		if(browser.equalsIgnoreCase("firefox")) {
 			capability = DesiredCapabilities.firefox();
 			capability.setAcceptInsecureCerts(true);
-			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/Drivers/geckodriver.exe");
+			//System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/Drivers/geckodriver.exe");
+			FirefoxDriverManager.getInstance().setup();
 			driver = new FirefoxDriver(capability);
 			/*FirefoxProfile profile = new FirefoxProfile();
 			profile.setAcceptUntrustedCertificates(true);
@@ -61,10 +66,12 @@ public class TestBase {
 		else if (browser.equalsIgnoreCase("chrome")) {
 			capability = DesiredCapabilities.chrome();
 			capability.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
+			ChromeDriverManager.getInstance().setup();
 			driver = new ChromeDriver(capability);
 		} else if (browser.equalsIgnoreCase("ie")) {
-			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "/Drivers/IEDriverServer.exe");
+			//System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "/Drivers/IEDriverServer.exe");
+			InternetExplorerDriverManager.getInstance().arch32().setup();
 			driver = new InternetExplorerDriver();
 		}
 	}

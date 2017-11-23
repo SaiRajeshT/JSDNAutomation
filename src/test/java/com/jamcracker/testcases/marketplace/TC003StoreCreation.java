@@ -17,11 +17,6 @@ import com.jamcracker.utilities.TestBase;
 
 public class TC003StoreCreation extends TestBase
 {
-	private String getURL() 
-	{
-		return getData("TestData.xls", "URLSheet", "URL", 3);
-	}
-	
 	@DataProvider(name="storeCreationData")
 	private String[][] getStoreCreationData()
 	{
@@ -29,10 +24,10 @@ public class TC003StoreCreation extends TestBase
 	}
 	
 	@BeforeMethod
-	@Parameters({"browser"})
-	public void setUp(String browser)
+	@Parameters({"browser", "mpUrl"})
+	public void setUp(String browser, String url)
 	{
-		init(browser, getURL());
+		init(browser, url);
 	}
 	
 	
