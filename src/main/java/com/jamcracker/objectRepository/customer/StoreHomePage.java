@@ -21,10 +21,10 @@ public class StoreHomePage extends TestBase {
 	@FindBy(linkText="Sign In")
 	public WebElement signInLink;
 	
-	@FindBy(xpath="//input[@id='edit-name--2']")
+	@FindBy(name="name")
 	public WebElement usernameTextBox;
 	
-	@FindBy(xpath="//input[@id='edit-pass--2']")
+	@FindBy(name="pass")
 	public WebElement passwordTextBox;
 	
 	@FindBy(xpath="//input[@id='edit-submit--2']")

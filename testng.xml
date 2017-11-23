@@ -6,35 +6,31 @@
 
 <test name="Marketplace Sanity chrome Test" preserve-order="true" enabled="true">
 	   <parameter name="browser" value="chrome"></parameter>
+	   <parameter name="payAccUrl" value="https://www.sanitymkt.com"></parameter>
 	   <parameter name="sourceMpUrl" value="https://www.monthlymkt.com"></parameter>
 	   <parameter name="sourceStoreUrl" value="https://store.sourcestore.com/cms/user/login"></parameter>
-	   <parameter name="storeUrl" value="https://clrstore.jamcracker.com"></parameter>
+	   <parameter name="storeUrl" value="https://mntstore.jamcracker.com"></parameter>
 	
 	<classes>
- 		
  		<class name="com.jamcracker.testcases.customeManagement.TC001CustomerRegistration"></class>
  		<class name="com.jamcracker.testcases.customeManagement.TC002SetPassword"></class>
  		<class name="com.jamcracker.testcases.customeManagement.TC003OrderNew"></class>
  		<class name="com.jamcracker.testcases.customeManagement.TC004OrderMore"></class>
  		<class name="com.jamcracker.testcases.customeManagement.TC005OrderLess"></class>
- 							
+ 		<class name="com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC007IAASAction"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC008VolumeAction"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC009CreateVolumeSnapshot"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC010DeleteVolumeSnapshot"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC010ResizeInstance"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC011ImageActions"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC012PolicyCreation"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC013StaticIpAddress"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC014StackAction"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC015AddAWSPayingAccount"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC016AddAWSLinkedAccount"></class>
+ 		<class name="com.jamcracker.testcases.customeManagement.TC017AddOpenstackAccount"></class>	 							
 	</classes>
 </test>
-
-<test name="Marketplace Sanity Firefox Test" preserve-order="true" enabled="false">
-	  <parameter name="browser" value="firefox"></parameter>
-	
-	<classes>
-		<!--<class name ="com.jamcracker.testcases.marketplace.TC001CreateMarketplace"></class>
-		<class name ="com.jamcracker.testcases.marketplace.TC002SetPassword"></class>
-		<class name ="com.jamcracker.testcases.marketplace.TC003StoreCreation"></class>
-		<class name ="com.jamcracker.testcases.marketplace.TC004StoreBranding"></class>
-		<class name ="com.jamcracker.testcases.marketplace.TC005ServiceCreation"></class>
-		<class name ="com.jamcracker.testcases.marketplace.TC006StoreAdminSetPassword"></class>
-		<class name ="com.jamcracker.testcases.marketplace.TC007ResellService"></class>	-->	
-		
-	</classes>
-</test>
-
 
 </suite>
