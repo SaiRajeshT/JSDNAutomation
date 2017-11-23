@@ -76,7 +76,7 @@ public class AddExecuteScript extends TestBase {
 			Reporter.log("<p style='color:red'>Issue while selecting values from template dropdown.</p>");
 		}
 		objScriptPage.scriptNameTextBox.sendKeys(scriptName);
-		objScriptPage.scriptAreaTextBox.sendKeys(script);
+		objScriptPage.addscriptAreaTextBox.sendKeys(script);
 		objScriptPage.scriptExecuteButton.click();
 		
 		objScriptPage.scriptSearchTextBox.sendKeys(scriptName);
@@ -97,7 +97,8 @@ public class AddExecuteScript extends TestBase {
 		else if(objScriptPage.getScriptStatus(scriptName).equalsIgnoreCase("Failed"))
 		{
 			Reporter.log("<p style='color:red'>Script execution Failed. Look in to the logs for more information.</p>");
-			objScriptPage.scriptAction(scriptName).click();
+			objScriptPage.getscriptAction(scriptName).click();
+			objScriptPage.viewLogLink.click();
 			Assert.fail();
 		}
 		}		

@@ -76,7 +76,7 @@ public class AddSaveScript extends TestBase {
 			Reporter.log("<p style='color:red'>Issue while selecting values from template dropdown.</p>");
 		}
 		objScriptPage.scriptNameTextBox.sendKeys(scriptName);
-		objScriptPage.scriptAreaTextBox.sendKeys(script);
+		objScriptPage.addscriptAreaTextBox.sendKeys(script);
 		objScriptPage.scriptSaveButton.click();
 		
 		objScriptPage.scriptSearchTextBox.sendKeys(scriptName);
