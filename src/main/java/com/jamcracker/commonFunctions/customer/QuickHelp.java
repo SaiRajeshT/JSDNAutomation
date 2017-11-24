@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import org.testng.Reporter;
@@ -10,27 +11,36 @@ import com.jamcracker.utilities.TwoWindowsSwitch;
 
 public class QuickHelp extends TestBase {
 
-	public static void verifyquickHelp(LinkedList<String> linksList, LinkedList<String>helpText)
+	public static void verifyquickHelp(ArrayList<String> linksList, ArrayList<String>helpText)
 	{
 		QuickHelpPage objQuickHelp = new QuickHelpPage();
 		objQuickHelp.quickHelpLink.click();
+		int count  =0;
 		for(String str : linksList)
 		{
 			if(driver.getPageSource().contains(str))
 			{
-				Reporter.log(str+ " Is displayed in " +driver.getTitle());
+				Reporter.log(str+ " Is displayed in " +driver.getTitle()+ "Page.");
 				objQuickHelp.getLink(str).click();
 			}
-			int count  =0;
+			
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			TwoWindowsSwitch.getWindowHandles();
 			TwoWindowsSwitch.switchToChild();
 			if(driver.getPageSource().contains(helpText.get(count)))
 			{
+				System.out.println(driver.getTitle());
+				Reporter.log("Navigated to "+driver.getTitle()+" Page." );
 				Reporter.log(helpText.get(count) + " Is Displayed in online help document");
 			}
-			
 			driver.close();
 			TwoWindowsSwitch.switchToParent();
+			count++;
 		}
 		
 	}
