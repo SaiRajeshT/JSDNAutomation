@@ -1,7 +1,6 @@
 package com.jamcracker.testcases.customerquickhelp;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
@@ -16,8 +15,8 @@ import com.jamcracker.utilities.TestBase;
 @Listeners(com.jamcracker.listeners.TestListener.class)
 public class TC001InstancePageQuickHelp extends TestBase {
 
-	ArrayList<String> linksList;
-	ArrayList<String> textList;
+	
+	
 	private String getURL() {
 		return getData("TestData.xls", "URLSheet", "URL", 4);
 	}
@@ -28,20 +27,19 @@ public class TC001InstancePageQuickHelp extends TestBase {
 		init("Chrome", getURL());
 	}
 	
-	private String[]  getQuickhelpLinks()
+	private ArrayList<String>  getQuickhelpLinks()
 	{
-		linksList = ExcelcolumnReader.extractExcelContentByColumnIndex("Quick help Links", "Links", 1);
-	  String[] quickHelpLinks =linksList.toArray(new String[linksList.size()]);
-	  
-	  return quickHelpLinks;
+		ArrayList<String> linksList;
+		linksList = ExcelcolumnReader.extractExcelContentByColumnIndex("Quick help Links.xls", "Links", 1);
+	    return linksList;
 	}
 
-	private String[] getonlineText()
+	private ArrayList<String> getonlineText()
 	{
-		textList = ExcelcolumnReader.extractExcelContentByColumnIndex("Quick help Links", "Links", 2);
-		  String[] onlineHelpText =textList.toArray(new String[textList.size()]);
+		ArrayList<String> textList;
+		textList = ExcelcolumnReader.extractExcelContentByColumnIndex("Quick help Links.xls", "Links", 2);
+		return textList;
 		  
-		  return onlineHelpText;
 	}
 																	
 	@Test
@@ -53,18 +51,8 @@ public class TC001InstancePageQuickHelp extends TestBase {
 		objinstancePage.manageLink.click();
 		objinstancePage.instancesLink.click();
 		explicitWait(objinstancePage.searchTextBox);
-		LinkedList<String> l1  = new LinkedList<String>();
-		l1.add("Search instances");
-		l1.add("Manage instances");
-		l1.add("Launch vendor console");
-		
-		LinkedList<String> l2  = new LinkedList<String>();
-		l2.add("Search for Specific Instances");
-		l2.add("Managing Instances");
-		l2.add("Launching Vendor Console");
-		
-		//QuickHelp.verifyquickHelp(l1, l2);
-		QuickHelp.verifyquickHelp(linksList,textList);
+	    //QuickHelp.verifyquickHelp(l1, l2);
+		QuickHelp.verifyquickHelp(getQuickhelpLinks(),getonlineText());
 		
 		
 	}

@@ -1,7 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import org.testng.Reporter;
 
@@ -25,7 +24,7 @@ public class QuickHelp extends TestBase {
 			}
 			
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
