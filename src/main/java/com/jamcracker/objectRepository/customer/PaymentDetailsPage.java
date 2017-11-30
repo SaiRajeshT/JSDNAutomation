@@ -1,5 +1,6 @@
 package com.jamcracker.objectRepository.customer;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -24,8 +25,28 @@ public class PaymentDetailsPage extends TestBase {
 	@FindBy(id="billingMapPAC")
 	public WebElement pacRadioButton;
 	
-	@FindBy(id="btnProceed")
+	@FindBy(linkText="Lookup")
+	public WebElement bugetLookUpLink;
+	
+	@FindBy(id="continueBtn")
+	public WebElement budgetExceedOkButton;
+	
+	@FindBy(id="Search_panel_div")
+	public WebElement budgetSearchTextBox;
+	
+	public void selectBudgetRadioButton(String budgetCode)
+	{
+		 driver.findElement(By.xpath("//input[@id='B0006']")).click();
+	}
+	
+	//@FindBy(id="btnProceed")
+	@FindBy(xpath="(//button[@id='btnProceed'])[1]")
 	public WebElement proceedButton;
+	
+	@FindBy(xpath="(//button[@id='btnProceed'])[2]")
+	public WebElement budgetConfirmButton;
+	
+	
 	
 	@FindBy(xpath="//td[div[@id='header_popUpId']]/div/div/div/div/div/div/button[@id='authorizeBtn']")
 	public WebElement authorizeButton;

@@ -1,5 +1,6 @@
 package com.jamcracker.objectRepository.customer;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,6 +18,18 @@ public class OrderReceiptPage extends TestBase {
 	
 	@FindBy(xpath="//div[@id='orderPaymentDetails']//p[contains(text(),'Order Number')]//following-sibling::p")
 	public WebElement orderNumberText;
+	
+	public String getOrderNumber()
+	{
+		try{
+			 return driver.findElement(By.xpath("//div[@id='orderPaymentDetails']//p[contains(text(),'Order Number')]//following-sibling::p")).getText();
+			
+		}
+		catch(Exception e)
+		{
+			return driver.findElement(By.xpath("//div[@id='orderPaymentDetails']//p[contains(text(),'Request Number')]//following-sibling::p")).getText();	
+		}
+	}
 	
 	@FindBy(xpath="//div[@class='notify-msg']")
 	public WebElement orderNotifyMsg;
