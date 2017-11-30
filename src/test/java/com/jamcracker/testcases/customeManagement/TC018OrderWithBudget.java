@@ -20,7 +20,7 @@ public class TC018OrderWithBudget extends TestBase {
 	@BeforeMethod
 	@Parameters({"browser","storeUrl"})
 	public void setUp(String browser, String url) {
-		init("chrome", "https://entstore1.jamcracker.com");
+		init(browser, url);
 	}
 
 	@Test(dataProvider = "orderNewData")

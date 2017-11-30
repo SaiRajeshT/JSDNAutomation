@@ -20,7 +20,7 @@ public class TC003OrderNew extends TestBase {
 	@BeforeMethod
 	@Parameters({"browser","storeUrl"})
 	public void setUp(String browser, String url) {
-		init("chrome", url);
+		init(browser, url);
 	}
 
 	@Test(dataProvider = "orderNewData")
@@ -37,7 +37,7 @@ public class TC003OrderNew extends TestBase {
 
 	@AfterMethod
 	public void tearDown() {
-		//closeBrowser();
+		closeBrowser();
 	}
 
 }
