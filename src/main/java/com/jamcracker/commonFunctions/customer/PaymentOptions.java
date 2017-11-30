@@ -66,6 +66,8 @@ public class PaymentOptions extends TestBase {
 		} catch (Exception e) {
 			Reporter.log("PAC Radio Button is not available", true);
 		}
+		
+		js.executeScript("arguments[0].scrollIntoView(true);",objPDpage.proceedButton);
 		objPDpage.proceedButton.click();
 	}
 

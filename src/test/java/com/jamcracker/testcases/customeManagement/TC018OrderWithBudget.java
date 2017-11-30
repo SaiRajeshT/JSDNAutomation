@@ -10,7 +10,7 @@ import com.jamcracker.commonFunctions.customer.CustomerAdminLogin;
 import com.jamcracker.commonFunctions.customer.OrderNew;
 import com.jamcracker.utilities.TestBase;
 
-public class TC018BudgetOrderNew extends TestBase {
+public class TC018OrderWithBudget extends TestBase {
 
 	@DataProvider(name = "orderNewData")
 	public String[][] getOrderPlaceData() {
@@ -20,23 +20,27 @@ public class TC018BudgetOrderNew extends TestBase {
 	@BeforeMethod
 	@Parameters({"browser","storeUrl"})
 	public void setUp(String browser, String url) {
-		init(browser, url);
+		init("chrome", "https://entstore1.jamcracker.com");
 	}
 
 	@Test(dataProvider = "orderNewData")
-	public void testOrderNew(String email, String password, String serviceName, String offerName, String offerCode,
-			String quantity, String paymentMethod) throws Exception {
+	public void testOrderNew(String executable,String email, String password, String serviceName, String offerName, String offerCode,
+			String quantity, String paymentMethod,String budgetCode) throws Exception {
 
-		CustomerAdminLogin custLogin = new CustomerAdminLogin();
-		custLogin.customerAdminLogin(email, password);
-		OrderNew orderNew = new OrderNew();
-		orderNew.orderNew(serviceName, offerName, offerCode, quantity, paymentMethod);
+		if(executable.equalsIgnoreCase("Y"))
+		{
+				CustomerAdminLogin custLogin = new CustomerAdminLogin();
+				 custLogin.customerAdminLogin(email, password);
+	
+			
+		 OrderNew orderNew = new OrderNew();
+		 orderNew.orderNew(serviceName, offerName, offerCode, quantity, paymentMethod,budgetCode); }
 
 	}
 
 	@AfterMethod
 	public void tearDown() {
-		closeBrowser();
+		//closeBrowser();
 	}
 
 }
