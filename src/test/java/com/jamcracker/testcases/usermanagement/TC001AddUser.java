@@ -23,7 +23,7 @@ public class TC001AddUser extends TestBase {
 	@BeforeClass
 	@Parameters({ "browser" })
 	public void setUp(String browser) {
-		init("chrome", getURL());
+		init(browser, getURL());
 	}
 
 	@DataProvider(name = "UserData")
@@ -45,11 +45,10 @@ public void testaddUser(String executable,String custEmail,String password,Strin
 		if(count ==0){
 		loginObj.customerAdminLogin(custEmail, password);
 		objAddUser.addUser(firstName, lastName, email, phone, role, department);
-		CustomerLogout.logOut();
 
 				}
 		else
-		{	
+		{	//Performing this to check last time logged in customer email id and current row customer email id's are same or not
 			if(custEmail.equalsIgnoreCase(al.get(count-1)))
 			{
 				objAddUser.addUser(firstName, lastName, email, phone, role, department);

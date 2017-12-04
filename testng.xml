@@ -9,7 +9,7 @@
 	   <parameter name="payAccUrl" value="https://www.sanitymkt.com"></parameter>
 	   <parameter name="sourceMpUrl" value="https://www.monthlymkt.com"></parameter>
 	   <parameter name="sourceStoreUrl" value="https://store.sourcestore.com/cms/user/login"></parameter>
-	   <parameter name="storeUrl" value="https://mntstore.jamcracker.com"></parameter>
+	   <parameter name="storeUrl" value="https://entstore1.jamcracker.com"></parameter>
 	
 	<classes>
  		<class name="com.jamcracker.testcases.customeManagement.TC001CustomerRegistration"></class>
