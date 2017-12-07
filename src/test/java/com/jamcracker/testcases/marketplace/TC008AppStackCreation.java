@@ -3,11 +3,13 @@ package com.jamcracker.testcases.marketplace;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.jamcracker.commonFunctions.marketplace.AppStackCreation;
 import com.jamcracker.utilities.TestBase;
+@Listeners(com.jamcracker.listeners.TestListener.class)
 
 public class TC008AppStackCreation extends TestBase {
 	
