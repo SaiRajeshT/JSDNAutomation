@@ -121,7 +121,7 @@ public class IaasStackOrder extends TestBase {
 		 SimpleDateFormat sdf = new SimpleDateFormat("ddMMMhhmmss");
 
 		 objStackLaunchPage.instanceNameTextBox.clear();
-		objStackLaunchPage.instanceNameTextBox.sendKeys(stackorderinfo.getInstanceName()+sdf.format(timestamp));
+		objStackLaunchPage.instanceNameTextBox.sendKeys(stackorderinfo.getInstanceName());
 		
 		switch(stackorderinfo.getVendors().toLowerCase())
 		{

@@ -26,10 +26,10 @@ public class TC005ServiceCreation extends TestBase{
 
 
 	@BeforeMethod
-	@Parameters({"browser"})
-	public void setUp(String browser)
+	@Parameters({"browser","targetMpUrl"})
+	public void setUp(String browser,String url)
 	{
-		init(browser, getURL());
+		init(browser, url);
 	}
 //	@DataProvider(name="ServicesData")
 //	private String[][] getServiceCreationData()
@@ -83,7 +83,7 @@ public class TC005ServiceCreation extends TestBase{
  
   @AfterMethod
   public void afterTest() {
-	 // driver.quit();
+	 driver.quit();
   }
 
 }

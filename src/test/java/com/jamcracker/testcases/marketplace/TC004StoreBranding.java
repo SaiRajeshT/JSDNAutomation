@@ -49,7 +49,7 @@ public class TC004StoreBranding extends TestBase {
 	}
 
 	@BeforeMethod
-	@Parameters({ "browser", "mpUrl" })
+	@Parameters({ "browser", "targetMpUrl" })
 	public void setUp(String browser, String url) {
 		init(browser, url);
 	}
@@ -165,7 +165,7 @@ public class TC004StoreBranding extends TestBase {
 
 	@AfterMethod
 	public void afterMethod() {
-		// driver.quit();
+		 driver.quit();
 	}
 
 }

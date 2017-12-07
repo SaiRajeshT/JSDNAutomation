@@ -37,8 +37,8 @@ public class TC007ResellService extends TestBase {
 	
 	@Test(dataProvider="resellData")
 	public void tc007resellService(String serviceName,String offerName,String retailPrice){
-		String resellerAdminEmail =  getData("TestData.xls", "CredentialsSheet", "Email Address", 4);
-		String resellerAdminPassword =  getData("TestData.xls", "CredentialsSheet", "Password", 4);
+		String resellerAdminEmail =  getData("TestData.xls", "CredentialsSheet", "Email Address", 5);
+		String resellerAdminPassword =  getData("TestData.xls", "CredentialsSheet", "Password", 5);
 		MarketplaceLogin objMarketplacLogin = new MarketplaceLogin();
 		objMarketplacLogin.login(resellerAdminEmail, resellerAdminPassword);
 		MarketplacePage objMarketplacePage = new MarketplacePage();

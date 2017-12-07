@@ -36,6 +36,7 @@ public class AddCloudCredentials extends TestBase {
 		objCloudCred.secretKeyTextBox.sendKeys(secretKey);
 		objCloudCred.accessKeyTextBox.clear();
 		objCloudCred.accessKeyTextBox.sendKeys(accessKey);
+		objCloudCred.saveButton.click();
 		authorizingCredentials(accountID);
 		
 	}

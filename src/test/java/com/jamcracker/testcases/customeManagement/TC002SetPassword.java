@@ -5,13 +5,14 @@ import java.util.ArrayList;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.jamcracker.commonFunctions.customer.SetPassword;
 import com.jamcracker.utilities.ExcelcolumnReader;
 import com.jamcracker.utilities.TestBase;
-
+@Listeners(com.jamcracker.listeners.TestListener.class)
 public class TC002SetPassword extends TestBase {
 
 	@DataProvider(name = "setPasswordData")

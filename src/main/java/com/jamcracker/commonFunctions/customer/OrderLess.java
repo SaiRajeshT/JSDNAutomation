@@ -47,7 +47,8 @@ public class OrderLess extends TestBase {
 		explicitWait(objSDpage.orderNotifyMsg);
 		String actualMessage = objSDpage.orderNotifyMsg.getText();
 		String expectedMessage = "Your subscription quantity has been updated successfully.";
-		Assert.assertEquals(actualMessage, expectedMessage);
+		Assert.assertEquals(actualMessage, expectedMessage,"Orderless order Failed");
+		Reporter.log("Orderless order placed successfully");
 				
 	}
 	

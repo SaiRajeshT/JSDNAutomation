@@ -1,11 +1,13 @@
 package com.jamcracker.testcases.customeManagement;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import com.jamcracker.commonFunctions.customer.CustomerAdminLogin;
+import com.jamcracker.commonFunctions.customer.CustomerLogout;
 import com.jamcracker.commonFunctions.customer.GetStaticIp;
 import com.jamcracker.utilities.TestBase;
 
@@ -33,9 +35,16 @@ public class TC013StaticIpAddress extends TestBase{
 		if (executable.equalsIgnoreCase("y")) {
 			custLogin.customerAdminLogin(email, password);
 			objStaticIp.getStaticIp(provider,region,network);
-		
+			CustomerLogout.logOut();
+
 	}
 	
 	}
 
+	@AfterClass
+	public void close()
+	{
+		closeBrowser();
+
+	}
 }

@@ -28,8 +28,10 @@ public class GetStaticIp extends TestBase {
 			 provider= objStaticIp.getDropDownValue(provider);
 			HandleDropDown.selectDDLByVisibletext(objStaticIp.providerDropdown, provider);
 			explicitWait((objStaticIp.regionDropDown));
+			objStaticIp.regionDropDown.click();
 			HandleDropDown.selectDDLByVisibletext(objStaticIp.regionDropDown,region);
 			try{
+				objStaticIp.networkDropDown.click();
 			HandleDropDown.selectDDLByVisibletext(objStaticIp.networkDropDown, network);}
 			catch(NoSuchElementException e){}
 			objStaticIp.staticIpConfirmButton.click();
@@ -38,6 +40,7 @@ public class GetStaticIp extends TestBase {
 			objStaticIp.searchTextBox.click();
 			objStaticIp.searchTextBox.clear();
 			objStaticIp.searchTextBox.sendKeys(provider);
+			Thread.sleep(2000);
 			objStaticIp.searchTextBox.sendKeys(Keys.ENTER);
 			
 			ipAddress= objStaticIp.getIp();

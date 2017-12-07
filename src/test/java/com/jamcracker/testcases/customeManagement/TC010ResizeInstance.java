@@ -1,5 +1,6 @@
 package com.jamcracker.testcases.customeManagement;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
@@ -7,6 +8,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.jamcracker.commonFunctions.customer.CustomerAdminLogin;
+import com.jamcracker.commonFunctions.customer.CustomerLogout;
 import com.jamcracker.commonFunctions.customer.ResizeInstance;
 import com.jamcracker.utilities.TestBase;
 
@@ -35,13 +37,19 @@ public  void resizeInstance(String executable,String email,String password,Strin
 		custLogin.customerAdminLogin(email, password);
 		ResizeInstance.resizeInstance(instName,flavor);
 		
-		//CustomerLogout.logOut();
+		CustomerLogout.logOut();
 		
 		
 	}
 	
 	
 }
-	
+
+@AfterClass
+public void close()
+{
+	closeBrowser();
+
+}
 
 }

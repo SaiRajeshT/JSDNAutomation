@@ -15,6 +15,7 @@ import com.jamcracker.utilities.TestBase;
 @Listeners(com.jamcracker.listeners.TestListener.class)
 public class TC006StoreAdminSetPassword extends TestBase {
 	
+	//Getting Marketplace url to reset the password
 	private String getURL() 
 	{
 		return getData("TestData.xls", "URLSheet", "URL", 3);

@@ -3,6 +3,7 @@ package com.jamcracker.testcases.customeManagement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -11,12 +12,13 @@ import com.jamcracker.commonFunctions.customer.CustomerLogout;
 import com.jamcracker.commonFunctions.customer.EnterpriseAdminLogin;
 import com.jamcracker.commonFunctions.marketplace.MarketplaceLogin;
 import com.jamcracker.utilities.TestBase;
+@Listeners(com.jamcracker.listeners.TestListener.class)
 
 public class TC015AddAWSPayingAccount extends TestBase{
 	
 	@DataProvider(name = "AWSPaying")
 	public String[][] getAwsPaying() {
-		return getData("CloudCredentials.xls", "AWSPaying");
+		return getData("Iaas Stack Orders.xls", "AWSPaying");
 	}	
 	
 	@BeforeMethod

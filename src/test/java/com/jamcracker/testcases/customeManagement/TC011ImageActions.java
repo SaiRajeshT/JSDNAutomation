@@ -1,5 +1,6 @@
 package com.jamcracker.testcases.customeManagement;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
@@ -54,8 +55,11 @@ public class TC011ImageActions extends TestBase {
 		}
 	}
 	
-	
-	
-	
+	@AfterClass
+	public void close()
+	{
+		closeBrowser();
+
+	}
 
 }

@@ -1,5 +1,6 @@
 package com.jamcracker.testcases.customeManagement;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
@@ -56,5 +57,11 @@ public class TC014StackAction extends TestBase {
 			objMenuPage.profileIcon.click();
 			objMenuPage.signOutLink.click();
 	}
+	}
+	@AfterClass
+	public void close()
+	{
+		closeBrowser();
+
 	}
 }

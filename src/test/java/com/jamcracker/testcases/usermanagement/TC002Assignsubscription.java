@@ -2,6 +2,7 @@ package com.jamcracker.testcases.usermanagement;
 
 import java.util.ArrayList;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -67,5 +68,10 @@ public void testAssignSubscription(String executable, String custEmail, String p
 		count++;
 		VerifySubscriptionStatus.verifySubscriptionStatus(email, offerName);
 	}
+}
+@AfterClass
+public void close()
+{
+	closeBrowser();
 }
 }

@@ -208,26 +208,37 @@ public WebElement getSize(String size)
 	
 	public WebElement getInstanceActionLink(String instName) {
 		WebElement  a = null;
+		//Instance action link without monitoring
 		try {
 			a= driver.findElement(By.xpath("(//td[text()='" + instName + "']//parent::tr//td[contains(@class,'lastaction')]//img)[1]"));
 		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
-		
+		//xpath for lengthy instance name and monitor not enabled
 		if(a == null)
 		try {
 			a = driver.findElement(By.xpath("(//tr[td[span[@title='" + instName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
 		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 
 		}
+		//xpath for monitoring enabled instnace action link
 		if(a == null)
 		try {
 			a = driver.findElement(By.xpath("(//tr[td[div[text()='" + instName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
 		} catch (NoSuchElementException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 
 		}
+		
+		//xpath for lengthy instance name and monitor  enabled
+		if(a == null){
+		try {
+			a = driver.findElement(By.xpath("(//tr[td[span[@title='" + instName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
+		} catch (NoSuchElementException e) {
+			//e.printStackTrace();
+
+		}}
 
 		return a;
 	}
@@ -267,6 +278,20 @@ public WebElement getSize(String size)
 		} catch (Exception e) {
 
 		}
+		
+		// lengthy instance name without monitoring icon
+					try {
+						element = driver.findElement(By.xpath("(//tr[td[span[@title='"+instName+"']]]//td//div[text()='Stopped'])[1]"));
+					} catch (Exception e) {
+
+					}
+					// lengthy instance name with monitoring icon		
+					try{
+						element =  driver.findElement(By.xpath("(//tr[td[div[span[@title='"+instName+"']]]]//td//div[text()='Stopped'])[1]"));
+						
+					} catch (Exception e) {
+
+					}
 
 		return element;
 	
@@ -284,7 +309,7 @@ public WebElement getSize(String size)
 			} catch (Exception e) {
 
 			}
-			
+			// lengthy instance name without monitoring icon
 			try {
 				element = driver.findElement(By.xpath("(//tr[td[span[@title='"+instName+"']]]//td//div[text()='Running'])[1]"));
 			} catch (Exception e) {

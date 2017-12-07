@@ -1,5 +1,7 @@
 package com.jamcracker.testcases.customeManagement;
 
+import org.junit.After;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
@@ -34,8 +36,18 @@ public class TC007IAASAction extends TestBase {
 		SshAction objssh = new SshAction();
 
 		CustomerAdminLogin custLogin = new CustomerAdminLogin();
+		CustomerMenuAndSubmenuObjects objMenuPage = new CustomerMenuAndSubmenuObjects();
 
 		if (executable.equalsIgnoreCase("y")) {
+			try{
+				driver.navigate().refresh();
+				objMenuPage.profileIcon.click();
+				objMenuPage.signOutLink.click();
+			}
+			catch(Exception e)
+			{
+				
+			}
 			custLogin.customerAdminLogin(email, Password);
 
 			switch (action.toLowerCase()) {
@@ -56,13 +68,18 @@ public class TC007IAASAction extends TestBase {
 				
 			}
 		
-			CustomerMenuAndSubmenuObjects objMenuPage = new CustomerMenuAndSubmenuObjects();
 			objMenuPage.profileIcon.click();
 			objMenuPage.signOutLink.click();	
 		}
 		
 		
 		
+	}
+	@AfterClass
+	public void close()
+	{
+		closeBrowser();
+
 	}
 
 }

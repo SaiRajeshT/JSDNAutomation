@@ -25,7 +25,7 @@ public class MarketplaceCreation extends TestBase
 		superAdminMktPlacePage.marketplaceFNameTextBox.sendKeys(marketplaceFullName);
 		superAdminMktPlacePage.marketPlaceSNameTextBox.sendKeys(marketplaceShortName);
 		superAdminMktPlacePage.marketplaceAcronymTextBox.sendKeys(marketplaceAcronym);
-		superAdminMktPlacePage.createMarketplaceButton.click();
+	//	superAdminMktPlacePage.createMarketplaceButton.click();
 		SwitchFrame.defaultSwitch();
 		explicitWait(superAdminMktPlacePage.addMarketplaceLink);
 		if(superAdminMktPlacePage.getMarketplaceName(CompanyName).isDisplayed()){

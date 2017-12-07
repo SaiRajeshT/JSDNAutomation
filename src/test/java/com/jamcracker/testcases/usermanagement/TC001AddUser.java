@@ -2,6 +2,7 @@ package com.jamcracker.testcases.usermanagement;
 
 import java.util.ArrayList;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
@@ -65,6 +66,12 @@ public void testaddUser(String executable,String custEmail,String password,Strin
 
 	}
 	
+}
+
+@AfterClass
+public void close()
+{
+	closeBrowser();
 }
 
 }

@@ -20,6 +20,7 @@ public class StopInstance extends TestBase {
 			objinstancePage.searchTextBox.clear();
 			objinstancePage.searchTextBox.sendKeys(instName);
 			Thread.sleep(3000);
+			Assert.fail();
 			objinstancePage.searchTextBox.sendKeys(Keys.RETURN);
 
 			try {

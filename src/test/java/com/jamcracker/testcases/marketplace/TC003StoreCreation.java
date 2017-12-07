@@ -24,7 +24,7 @@ public class TC003StoreCreation extends TestBase
 	}
 	
 	@BeforeMethod
-	@Parameters({"browser", "mpUrl"})
+	@Parameters({"browser", "targetMpUrl"})
 	public void setUp(String browser, String url)
 	{
 		init(browser, url);

@@ -50,7 +50,7 @@ private StackOrder[] getStackOrderData()
 	@AfterMethod
 	public void aftermethod()
 	{
-		//driver.quit();
+		driver.quit();
 	}
 	
 }
