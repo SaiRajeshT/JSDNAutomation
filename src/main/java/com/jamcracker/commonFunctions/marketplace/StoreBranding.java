@@ -11,10 +11,12 @@ import com.jamcracker.utilities.TwoWindowsSwitch;
 
 public class StoreBranding extends TestBase
 {
-   public void storeBranding(String theme)
+   public void storeBranding(String theme,String companyAcronym)
    {
 		SetUpPage objSetUpPage = SetUpPage.getInstance();
 		explicitWait(objSetUpPage.storeURLTextBox);
+		objSetUpPage.storeURLTextBox.clear();
+		objSetUpPage.storeURLTextBox.sendKeys(companyAcronym+".jamcracker.com");
 		//objSetUpPage.storeURLTextBox.sendKeys(keysToSend);
 		objSetUpPage.uploadLogoLink.click();
 		//Switching to upload logo page
@@ -39,6 +41,9 @@ public class StoreBranding extends TestBase
 			Reporter.log("</p style='color:red'>Theme configuration for store is failed. Please check the issue. <p>");
 		
 		objSetUpPage.saveAndNextButton.click();
+		
+		//objSetUpPage.storeUrlYesButton.click();
+
 		
 		if(SetUpPage.getInstance().addTimezoneButton.isDisplayed())
 		{
