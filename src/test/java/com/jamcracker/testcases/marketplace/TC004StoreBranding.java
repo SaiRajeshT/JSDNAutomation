@@ -40,7 +40,7 @@ public class TC004StoreBranding extends TestBase {
 		ArrayList<String> companyAcronym = ExcelcolumnReader.extractExcelContentByColumnIndex("TestData.xls", "Store Creation Sheet", 3);
 		String[] companyAcronymData = companyAcronym.toArray(new String[companyAcronym.size()]);
 
-		LinkedList<String> listobj = new LinkedList<>();
+		LinkedList<String> listobj = new LinkedList<String>();
 		for (int i = 0; i < emailistData.length; i++) {
 			listobj.add(emailistData[i] + "," + companyNameData[i] + "," + companyAcronymData[i]);
 		}

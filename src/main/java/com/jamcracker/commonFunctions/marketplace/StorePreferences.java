@@ -6,7 +6,7 @@ import com.jamcracker.objectRepository.marketplace.SetUpPage;
 
 public class StorePreferences 
 {
-	private static SetUpPage objSetUpPage=SetUpPage.getInstance();
+	//private static SetUpPage objSetUpPage=SetUpPage.getInstance();
 	
 	//private final static StorePreferences instance = new StorePreferences();
 
@@ -25,6 +25,7 @@ public class StorePreferences
 			String showPublisherInfo,String manageCommercialContent, String showAnalyticStatistics,
 			String overrideServiceDependency,String itemLevelSAD,String accessHelpDesk)
 	{
+		SetUpPage objSetUpPage=SetUpPage.getInstance();
 		//objSetUpPage.preferencesLink.click();
 // Selecting or unselecting Delete company option based on the input from excel sheet
 		try 

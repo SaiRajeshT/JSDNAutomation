@@ -5,22 +5,24 @@ import com.jamcracker.objectRepository.marketplace.SetUpPage;
 public class StoreEmailNotificationSetUp
 
 {
-	 private static SetUpPage  objSetUpPage =  SetUpPage.getInstance();
-	private final static StoreEmailNotificationSetUp instance = new StoreEmailNotificationSetUp();
+	 //private static SetUpPage  objSetUpPage =  SetUpPage.getInstance();
+	//private final static StoreEmailNotificationSetUp instance = new StoreEmailNotificationSetUp();
 
 	private StoreEmailNotificationSetUp() {
 	}
 
 	public static StoreEmailNotificationSetUp getInstance()
 	{
-		return instance;
+		return new StoreEmailNotificationSetUp();
 	}
 
 	
 	public  void emailPageSetup(String emailSignature,String storeRegisterEmail,String emailId, String notificationFromAddress
 			,String supportEmailSignature,String contentRequestEmail,String supportFromAddress)
 	{
+		SetUpPage  objSetUpPage =  SetUpPage.getInstance();
 		try{
+			
 		//objSetUpPage.customerEmailNotificationLink.click();
 		objSetUpPage.storeEmailSignatureTextBox.clear();
 		objSetUpPage.storeEmailSignatureTextBox.sendKeys(emailSignature);

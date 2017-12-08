@@ -9,11 +9,11 @@ import com.jamcracker.objectRepository.marketplace.SetUpPage;
 
 public class StorePolicies 
 {
-	static SetUpPage objSetUpPage = SetUpPage.getInstance();
+	//static SetUpPage objSetUpPage = SetUpPage.getInstance(); Execution is failed by saying session closed or kiled
 
 	public static void testPrivacyPolicyUpload()
 	{
-	
+		SetUpPage objSetUpPage = SetUpPage.getInstance();
 		//objSetUpPage.storePolicyLink.click();
 		objSetUpPage.privacyPolicyEditIcon.click();
 		objSetUpPage.FileRadionButton.click();
@@ -37,7 +37,8 @@ public class StorePolicies
 	
 	public static void testSecurityStatementUpload()
 	{
-	
+		SetUpPage objSetUpPage = SetUpPage.getInstance();
+
 		objSetUpPage.securityEditIcon.click();
 		objSetUpPage.FileRadionButton.click();
 		objSetUpPage.upLoadFile.sendKeys(System.getProperty("user.dir")+File.separator+"Data"+File.separator+"SlaAndPolicies"+File.separator+"SecurityStatement.html");

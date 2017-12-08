@@ -6,9 +6,10 @@ import com.jamcracker.objectRepository.marketplace.SetUpPage;
 
 public class StoreAvailableServiceSelection
 {
-	static SetUpPage  objSetUpPage = SetUpPage.getInstance();
+	//static SetUpPage  objSetUpPage = SetUpPage.getInstance();
 	public static void  selectSerivces(String select)
 	{
+		SetUpPage  objSetUpPage = SetUpPage.getInstance();
 		if(select.equalsIgnoreCase("Yes"))
 		{
 			try{

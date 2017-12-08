@@ -11,17 +11,19 @@ import com.jamcracker.utilities.TwoWindowsSwitch;
 
 public class StoreInvoiceSettings extends TestBase{
 	
-	private SetUpPage objSetUpPage = SetUpPage.getInstance();
-	private final static StoreInvoiceSettings instance = new StoreInvoiceSettings();
+	//private SetUpPage objSetUpPage = SetUpPage.getInstance();
+	//private final static StoreInvoiceSettings instance = new StoreInvoiceSettings();
 	private StoreInvoiceSettings() {
 
 	}
 
 	public static   StoreInvoiceSettings getInstance() {
-		return instance;
+		return new StoreInvoiceSettings();
 	}
 
 	public void invoicePageSetup() throws Exception {
+		
+		 SetUpPage objSetUpPage = SetUpPage.getInstance();
 		objSetUpPage.uploadLogoLink.click();
 		// Switching to upload logo page
 		TwoWindowsSwitch.getWindowHandles();

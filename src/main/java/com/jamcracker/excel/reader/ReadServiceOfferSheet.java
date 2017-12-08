@@ -240,7 +240,7 @@ public class ReadServiceOfferSheet {
 				
 				if(row.getCell(j) != null){
 					
-					 Price price  = new Price();
+					Price price  = new Price();
 					 
 					 price.setVendorSalePrice(row.getCell(j).getStringCellValue());
 					 price.setVendorSetupFee(row.getCell(j+1).getStringCellValue());

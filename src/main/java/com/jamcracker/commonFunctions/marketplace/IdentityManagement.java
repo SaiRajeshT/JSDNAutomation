@@ -7,9 +7,10 @@ import com.jamcracker.objectRepository.marketplace.SetUpPage;
 public class IdentityManagement
 {
 	
-	static SetUpPage  objSetUpPage = SetUpPage.getInstance();
+	//static SetUpPage  objSetUpPage = SetUpPage.getInstance();
 	public static void testIdentityManagement(String identiyManagement)
 	{
+		SetUpPage  objSetUpPage = SetUpPage.getInstance();
 		if (identiyManagement.equalsIgnoreCase("NO"))
 		{
 			objSetUpPage.identityMgmtNoRadioButton.click();

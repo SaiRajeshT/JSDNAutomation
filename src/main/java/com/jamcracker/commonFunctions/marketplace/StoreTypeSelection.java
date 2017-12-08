@@ -6,10 +6,13 @@ import com.jamcracker.objectRepository.marketplace.SetUpPage;
 
 public class StoreTypeSelection 
 {
-	static SetUpPage  objSetUpPage = SetUpPage.getInstance();
+	//static SetUpPage  objSetUpPage = SetUpPage.getInstance(); 
+	//org.openqa.selenium.NoSuchSessionException: Session ID is null. Using WebDriver after calling quit()?
+
 	
 	public static void testStoreSelect(String storeType,String budget)
 	{
+		SetUpPage  objSetUpPage = SetUpPage.getInstance();
 		if(storeType.equalsIgnoreCase("E"))
 		{
 			objSetUpPage.enterpriseRadioButton.click();

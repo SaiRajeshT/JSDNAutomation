@@ -15,17 +15,18 @@ public class StoreSearchPreference extends TestBase
 		
 	}
 	
-	private static  SetUpPage objSetUpPage = SetUpPage.getInstance();
-	private final static StoreSearchPreference instance = new StoreSearchPreference();
+	//private static  SetUpPage objSetUpPage = SetUpPage.getInstance();
+	//private final static StoreSearchPreference instance = new StoreSearchPreference();
 	
 	public static StoreSearchPreference getInstance()
 	{
-		return instance;
+		return  new StoreSearchPreference();
 	}
 
 	//Configuring Final search preference and submitting store for approval
 	public  void storeSearchPreference()
 	{
+		 SetUpPage objSetUpPage = SetUpPage.getInstance();
 		objSetUpPage.finishButton.click();
 		TwoWindowsSwitch.getWindowHandles();
 		TwoWindowsSwitch.switchToChild();

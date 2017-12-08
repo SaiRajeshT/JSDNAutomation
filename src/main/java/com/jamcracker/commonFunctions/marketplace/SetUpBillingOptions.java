@@ -11,7 +11,7 @@ import com.jamcracker.utilities.TestBase;
 
 public class SetUpBillingOptions extends TestBase
 {
-	private static SetUpPage  objSetUpPage =  SetUpPage.getInstance();
+	//private static SetUpPage  objSetUpPage =  SetUpPage.getInstance();
 	
 	private static SetUpBillingOptions instance;
 
@@ -25,7 +25,7 @@ public class SetUpBillingOptions extends TestBase
 		if(instance == null){
 			instance  = new SetUpBillingOptions();
 		}
-		return instance;
+		return new SetUpBillingOptions();
 	}
 
 
@@ -35,6 +35,7 @@ public class SetUpBillingOptions extends TestBase
 			String numberOfAlerts,String intervalBwnAlert,String screenShotName)
 
 	{
+		 SetUpPage  objSetUpPage =  SetUpPage.getInstance();
 	
 
 		try
@@ -62,10 +63,12 @@ public class SetUpBillingOptions extends TestBase
 				{
 				 case "credit card": 
 					System.out.println("inside credit card switch");
+					Thread.sleep(1000);
 					objSetUpPage.creditCardCheckBox.click();
 					HandleDropDown.selectDDLByVisibletext(objSetUpPage.creditPaymentGateWayDropDown, creditCardPaymentGateway);
+					if(creditCardPaymentGateway.equalsIgnoreCase("Braintree")){
 					HandleDropDown.selectDDLByVisibletext(objSetUpPage.brainTreeDaysBtwnRetriesDropDown, daysBetweenRetries);
-					HandleDropDown.selectDDLByVisibletext(objSetUpPage.brainTreeNumberOfPaymentAttemptsDropDown, numberOfPaymentAttempts);
+					HandleDropDown.selectDDLByVisibletext(objSetUpPage.brainTreeNumberOfPaymentAttemptsDropDown, numberOfPaymentAttempts);}
 					Reporter.log(paymentMethod + " Payment method is selected");
 
 					break;
@@ -90,7 +93,8 @@ public class SetUpBillingOptions extends TestBase
 		
 			catch(Exception e)
 			{
-				Reporter.log(paymentMethod + "<p style='color:red'>Payment method is not selected. Please check the issue.</p>");
+				e.printStackTrace();
+				Reporter.log("<p style='color:red'>"+paymentMethod + "Payment method is not selected. Please check the issue.</p>");
 				CaptureScreenshot.screenshot(driver,screenShotName,testClassName,packageName);
 			}
 		
