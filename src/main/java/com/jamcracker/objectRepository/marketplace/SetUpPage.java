@@ -223,6 +223,9 @@ public class SetUpPage extends TestBase
 	@FindBy(name="dstoreLoginURL")
 	public WebElement storeURLTextBox;
 	
+	@FindBy(xpath="//div[@id='storeURLChanged']//input[@value='Yes']")
+	public WebElement storeUrlYesButton;
+	
 	@FindBy(linkText="Store Policies")
 	public WebElement storePolicyLink;
 	

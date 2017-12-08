@@ -80,7 +80,7 @@ public class TC004StoreBranding extends TestBase {
 		// Performing Store Branding
 		StoreBranding storeBrandObj = new StoreBranding();
 		String theme = getData("TestData.xls", "Store Branding", "Theme to be configured", 2);
-		storeBrandObj.storeBranding(theme);
+		storeBrandObj.storeBranding(theme,companyAcronym);
 
 		// Performing Regional Settings for Store
 		ArrayList<String> languages = ExcelcolumnReader.extractExcelContentByColumnIndex("TestData.xls", "Store Branding", 3);
