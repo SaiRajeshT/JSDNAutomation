@@ -54,6 +54,12 @@ public class CloudServiceCredentialsPage extends TestBase {
 		return driver.findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td[contains(text(),'Active')]"));
 	}
 	
+	public WebElement authorizationFailed(String accountId)
+	{
+		return driver.findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td//span[@title='Authorization Failed']"));
+
+	}
+	
 	@FindBy(id="table_search")
 	public WebElement searchBox;
 	
