@@ -68,5 +68,9 @@ public class CLoudCredentialsPage extends TestBase {
 	public WebElement credStatus(String accountID) {
 		return driver.findElement(By.xpath("//tr[td[@title='"+accountID+"']]//td[text()='Active']"));
 	}
+	
+	public WebElement credFailedStatus(String accountID) {
+		return driver.findElement(By.xpath("//tr[td[@title='"+accountID+"']]//td[text()='Authorization Failed']"));
+	}
 
 }

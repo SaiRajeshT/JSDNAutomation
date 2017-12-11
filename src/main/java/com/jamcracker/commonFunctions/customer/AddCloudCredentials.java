@@ -54,7 +54,17 @@ public class AddCloudCredentials extends TestBase {
 			addDetails(cloudProvider, accountID, userName, password, secretKey, accessKey, bucketName, usageFileName);
 			SwitchFrame.defaultSwitch();
 			objCloudCred.validateIcon(accountID).click();
-			Assert.assertTrue(objCloudCred.credStatus(accountID).isDisplayed());
+			//Assert.assertTrue(objCloudCred.credStatus(accountID).isDisplayed());
+			try{
+				objCloudCred.credStatus(accountID).isDisplayed();
+				Reporter.log("account activated successfully.");
+			}
+			catch(Exception e)
+			{
+				objCloudCred.credFailedStatus(accountID).isDisplayed();
+				Reporter.log("<p style = 'color:red'>Payee account cloud credentials authorization is failed. Check the account details and reconfigure the account.</p>");
+				Assert.fail();
+			}
 			break;
 
 		case "Store":
@@ -161,12 +171,22 @@ public class AddCloudCredentials extends TestBase {
 				break;
 			}
 			try {
+				
 				if (objCloudCred.activeStatus(accountId).isDisplayed()) {
 					test1 = false;
 					Reporter.log("Cloud Credentials are in Active Status.");
 				}
+				
+			
+				
 			} catch (Exception e) {
 				Thread.sleep(3000);
+				if (objCloudCred.authorizationFailed(accountId).isDisplayed())
+				{
+					Reporter.log("<p style = 'color:red'>Cloud credentials authorization is failed. Check the account details and reconfigure the account.</p>");
+					Assert.fail();
+					break;
+				}
 				explicitWait(objCloudCred.searchBox);
 				objCloudCred.searchBox.clear();
 				objCloudCred.searchBox.sendKeys(accountId);
