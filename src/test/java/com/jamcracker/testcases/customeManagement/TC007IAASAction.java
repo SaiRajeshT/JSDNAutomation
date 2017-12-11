@@ -1,6 +1,5 @@
 package com.jamcracker.testcases.customeManagement;
 
-import org.junit.After;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
