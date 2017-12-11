@@ -231,10 +231,11 @@ public class ReadServiceOfferSheet {
 			
 			ServiceSourceData sourceData = new ServiceSourceData();
 			Map<Integer, Price> currPrice = new HashMap<Integer, Price>();
-			
-			sourceData.setServiceName(row.getCell(0).getStringCellValue());
-			sourceData.setOfferName(row.getCell(1).getStringCellValue());
-			sourceData.setServiceType(row.getCell(2).getStringCellValue());
+			sourceData.setEmail(row.getCell(0).getStringCellValue().trim());
+			sourceData.setPassword(row.getCell(1).getStringCellValue().trim());
+			sourceData.setServiceName(row.getCell(2).getStringCellValue().trim());
+			sourceData.setOfferName(row.getCell(3).getStringCellValue().trim());
+			sourceData.setServiceType(row.getCell(4).getStringCellValue().trim());
 			
 			for (int j = 5; j < 41; j+=5) {
 				

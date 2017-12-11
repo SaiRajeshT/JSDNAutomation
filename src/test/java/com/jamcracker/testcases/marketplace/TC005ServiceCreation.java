@@ -18,15 +18,15 @@ import com.jamcracker.utilities.SwitchFrame;
 import com.jamcracker.utilities.TestBase;
 @Listeners(com.jamcracker.listeners.TestListener.class)
 public class TC005ServiceCreation extends TestBase{
-	
+	/*
 	private String getURL() 
 	{
 		return getData("TestData.xls", "URLSheet", "URL", 3);
-	}
+	}*/
 
 
 	@BeforeMethod
-	@Parameters({"browser","targetMpUrl"})
+	@Parameters({"browser","sourceMpUrl"})
 	public void setUp(String browser,String url)
 	{
 		init(browser, url);
@@ -50,8 +50,8 @@ public class TC005ServiceCreation extends TestBase{
   {
 	 try{
 	  //Login to marketplace
-		String mpAdminEmail =  getData("TestData.xls", "CredentialsSheet", "Email Address", 3);
-		String mpAdminPassword =  getData("TestData.xls", "CredentialsSheet", "Password", 3);
+		String mpAdminEmail =  getData("TestData.xls", "CredentialsSheet", "Email Address", 4);
+		String mpAdminPassword =  getData("TestData.xls", "CredentialsSheet", "Password", 4);
 		MarketplaceLogin mpLoginObj = new MarketplaceLogin();
 		mpLoginObj.login(mpAdminEmail,mpAdminPassword);
 		

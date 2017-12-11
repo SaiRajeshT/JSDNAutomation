@@ -21,21 +21,21 @@ public class TC002Assignsubscription extends TestBase {
 	ArrayList<String> al = new ArrayList<String>();
 
 
-	private String getURL() {
+/*	private String getURL() {
 		return getData("User Creation.xls", "CredentialsSheet", "URL", 2);
-	}
+	}*/
 	
 	
 
 	@BeforeClass
-	@Parameters({ "browser" })
-	public void setUp(String browser) {
-		init("chrome", getURL());
+	@Parameters({ "browser","storeUrl" })
+	public void setUp(String browser,String url) {
+		init(browser, url);
 	}
 	
 	@DataProvider(name="UserData")
 	public String[][] getUserData(){
-		return getData("User Creation.xls", "Assign service");
+		return getData("CustomerCreationData.xls", "Assign service");
 	}
 
 
