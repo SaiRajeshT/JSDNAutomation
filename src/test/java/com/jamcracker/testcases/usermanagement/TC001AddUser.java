@@ -19,19 +19,19 @@ public class TC001AddUser extends TestBase {
 	int count = 0;
 	ArrayList<String> al = new ArrayList<String>();
 
-	private String getURL() {
+/*	private String getURL() {
 		return getData("User Creation.xls", "CredentialsSheet", "URL", 2);
-	}
+	}*/
 
 	@BeforeClass
-	@Parameters({ "browser" })
-	public void setUp(String browser) {
-		init(browser, getURL());
+	@Parameters({ "browser" ,"storeUrl"})
+	public void setUp(String browser,String url) {
+		init(browser, url);
 	}
 
 	@DataProvider(name = "UserData")
 	public String[][] getUserData() {
-		return getData("User Creation.xls", "Users");
+		return getData("CustomerCreationData.xls", "Users");
 	}
 
 @Test(dataProvider="UserData",priority=1)
