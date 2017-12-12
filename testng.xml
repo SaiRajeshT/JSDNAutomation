@@ -18,10 +18,10 @@
 		<class name="com.jamcracker.testcases.marketplace.TC003StoreCreation"></class>
 		<class name="com.jamcracker.testcases.marketplace.TC004StoreBranding"></class>
 		<class name="com.jamcracker.testcases.marketplace.TC005ServiceCreation"></class>
+		<class name="com.jamcracker.testcases.marketplace.TC010ServiceSourcing"></class> 
 		<class name="com.jamcracker.testcases.marketplace.TC006StoreAdminSetPassword"></class>
 		<class name="com.jamcracker.testcases.marketplace.TC009CmsStoreConfiguration"></class> 
 		<class name="com.jamcracker.testcases.marketplace.TC007ResellService"></class>
-<!-- 	<class name="com.jamcracker.testcases.marketplace.TC010ServiceSourcing"></class> -->
  		<class name="com.jamcracker.testcases.customeManagement.TC001CustomerRegistration"></class>
  		<class name="com.jamcracker.testcases.customeManagement.TC002SetPassword"></class>
  		<class name="com.jamcracker.testcases.customeManagement.TC015AddAWSPayingAccount"></class>
