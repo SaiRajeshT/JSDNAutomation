@@ -165,10 +165,10 @@ public class SetUpPage extends TestBase
 	@FindBy(id="autoBRAINTREE_GATEWAY_ID")
 	public WebElement brainTreeAutomaticCheckBox;
 	
-	@FindBy(id="700008_option")
+	@FindBy(xpath="//label[text()='TM Payment Gateway']//preceding-sibling::input[@type='checkbox']")
 	public WebElement tmPaymentChcekBox;
 	
-	@FindBy(xpath="(//label[text()='Customer Self Service']//preceding-sibling::input)[1]")
+	@FindBy(xpath="//tr[td[label[text()='TM Payment Gateway']]]//following-sibling::tr//label[text()='Customer Self Service']//preceding-sibling::input")
 	public WebElement customerSelfServiceCheckBox;
 	
 	@FindBy(id="700000")

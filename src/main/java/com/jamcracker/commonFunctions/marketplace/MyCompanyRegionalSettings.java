@@ -103,6 +103,12 @@ public class MyCompanyRegionalSettings extends TestBase
 		regionalSettingsObj.saveButton.click();
 		
 		Reporter.log("My company regional settings is completed for Marketplace users");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		TwoWindowsSwitch.switchToParent();
 
 		

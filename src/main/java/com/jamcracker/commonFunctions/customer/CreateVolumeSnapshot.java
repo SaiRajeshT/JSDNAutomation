@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
@@ -72,6 +73,7 @@ public class CreateVolumeSnapshot extends TestBase {
 		}
 
 		catch (Exception e) {
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			e.printStackTrace();
 
 		}

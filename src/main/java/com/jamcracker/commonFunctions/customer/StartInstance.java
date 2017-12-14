@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.testng.Reporter;
@@ -28,10 +29,10 @@ public class StartInstance extends TestBase {
 
 			} catch (Exception e) {
 
-				Assert.fail();
 			}
 
 			objinstancePage.startLink.click();
+			Reporter.log("Clicked on start link for instance.");
 			if (driver.getPageSource().contains(
 					"Starting the Instance. This may take a few minutes to have the VM up and running.") == true) {
 				Reporter.log("Instance started successfully.");
@@ -74,6 +75,7 @@ public class StartInstance extends TestBase {
 			}
 		} catch (Exception emsg) {
 			emsg.printStackTrace();
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(emsg)+"</p>");
 			Assert.fail();
 		}
 	}

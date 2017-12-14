@@ -1,6 +1,8 @@
 package com.jamcracker.testcases.marketplace;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -76,6 +78,7 @@ public class TC011ServiceCreationAtTgtMkt extends TestBase{
 	 catch(Exception e)
 	 {
 		 e.printStackTrace();
+		Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 		 Assert.fail();
 	 }
 		

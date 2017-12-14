@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.testng.Reporter;
@@ -81,6 +82,7 @@ public class StartStack extends TestBase {
 		catch(Exception e)
 		{
 			e.printStackTrace();
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 			
 		}

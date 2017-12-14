@@ -1,6 +1,7 @@
 package com.jamcracker.commonFunctions.customer;
 
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
@@ -51,7 +52,7 @@ public class GetStaticIp extends TestBase {
 			}
 			else{
 				Reporter.log("<p style ='color:red'>Issue while obtaining IP address.</p>");
-				//Assert.fail();
+				Assert.fail();
 			}
 		
 			System.out.println(ipAddress);
@@ -64,6 +65,7 @@ public class GetStaticIp extends TestBase {
 	 {
 		 e.printStackTrace();
 		 Assert.fail();
+		 Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 	 }
 	return ipAddress;
 	 

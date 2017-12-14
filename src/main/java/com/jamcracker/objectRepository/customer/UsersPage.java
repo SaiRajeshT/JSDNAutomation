@@ -63,6 +63,9 @@ public class UsersPage extends TestBase {
 	}
 	
 	
+	@FindBy(name="cancel")
+	public WebElement cancelButton;
+	
 	@FindBy(id="siteDropDown")
 	public WebElement siteDropDown;
 	

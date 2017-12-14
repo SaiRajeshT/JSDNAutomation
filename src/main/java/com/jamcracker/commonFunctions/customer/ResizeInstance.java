@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.testng.Reporter;
@@ -78,7 +79,7 @@ public class ResizeInstance extends TestBase
 	}
 		}
 		catch (Exception e1)
-		{
+		{	Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e1)+"</p>");
 			Assert.fail();
 			e1.printStackTrace();
 		}

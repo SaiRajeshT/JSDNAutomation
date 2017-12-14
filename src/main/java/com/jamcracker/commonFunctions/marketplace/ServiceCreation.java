@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -425,6 +426,7 @@ public class ServiceCreation extends TestBase {
 
 		catch (NoSuchElementException e) {
 			System.out.println("Element not found exception " + e.getMessage());
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			e.printStackTrace();
 			Assert.fail();
 
@@ -432,6 +434,7 @@ public class ServiceCreation extends TestBase {
 
 		catch (Exception e) {
 			System.out.println("Unknown Exception " + e.getMessage());
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			e.printStackTrace();
 		}
 
@@ -463,6 +466,7 @@ public class ServiceCreation extends TestBase {
 		{
 			System.out.println("Element not found exception " + e.getMessage());
 			e.printStackTrace();
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 			
 		}

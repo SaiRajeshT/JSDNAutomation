@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.testng.Reporter;
@@ -63,6 +64,8 @@ public class DeleteImage extends TestBase {
 	catch (Exception e)
 	{
 		Reporter.log("<p style='color:red'>Issue while deleting Image please look in to the issue.<p>");
+		Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
+		Assert.fail();
 		
 	}
 		

@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -27,6 +28,7 @@ public class SshAction extends TestBase {
 			Thread.sleep(2000);
 			objinstancePage.getInstanceActionLink(instName).click();
 			objinstancePage.launchSshLink.click();
+			Reporter.log("Clicked on launch ssh link. waiting for ssh page to open.");
 			Thread.sleep(10000);
 			TwoWindowsSwitch.getWindowHandles();
 			TwoWindowsSwitch.switchToChild();
@@ -50,8 +52,8 @@ public class SshAction extends TestBase {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			Reporter.log("issue while performing launch ssh");
-
+			Reporter.log("<p style='color:red'issue while performing launch ssh.<p>");
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 		}
 

@@ -3,6 +3,7 @@ package com.jamcracker.commonFunctions.marketplace;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -36,6 +37,7 @@ public class StoreRegionalSetting
 		}catch(NoSuchElementException ne){
 			Reporter.log(defaultLanguage + " <p style='color:red'> Default Language is Not selected for store.Please check the issue.</p>");
 			ne.printStackTrace();
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(ne)+"</p>");
 			Assert.fail();
 		}
 
@@ -85,6 +87,7 @@ public class StoreRegionalSetting
 		} catch (Exception e) {
 			Reporter.log("<p style='color:red'> Default Timezone is not selected Please check the  issue.</p>");
 			e.printStackTrace();
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 		}
 		
@@ -121,6 +124,7 @@ public class StoreRegionalSetting
 		} catch (Exception e) 
 		{
 			Reporter.log(defaultDateFormat + "<p style='color:Red'> Default DateFormat is not selected please check the issue </p>");
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 
 		}

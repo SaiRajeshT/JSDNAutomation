@@ -14,10 +14,10 @@ import com.jamcracker.commonFunctions.customer.CustomerAdminLogin;
 import com.jamcracker.commonFunctions.customer.CustomerLogout;
 import com.jamcracker.commonFunctions.customer.VerifySubscriptionStatus;
 import com.jamcracker.utilities.TestBase;
-@Listeners(com.jamcracker.listeners.TestListener.class)
+@Listeners({com.jamcracker.listeners.TestListener.class,com.jamcracker.listeners.JyperionListener.class})
 
 public class TC002Assignsubscription extends TestBase {
-	int count = 0;
+	 int count = 0;
 	ArrayList<String> al = new ArrayList<String>();
 
 
@@ -49,14 +49,15 @@ public void testAssignSubscription(String executable, String custEmail, String p
 		CustomerAdminLogin loginObj = new CustomerAdminLogin();
 		AssginSubscription objAssignUser = new AssginSubscription();
 		if(count ==0){
+			count++;
 		loginObj.customerAdminLogin(custEmail, password);
 		objAssignUser.assignSubscription(email, offerName);
 
 				}
 		else
-		{	
+		{	count++;
 			if(custEmail.equalsIgnoreCase(al.get(count-1)))
-			{
+			{	
 				objAssignUser.assignSubscription(email, offerName);
 				
 			}
@@ -67,7 +68,7 @@ public void testAssignSubscription(String executable, String custEmail, String p
 				
 			}
 		}
-		count++;
+		
 		VerifySubscriptionStatus.verifySubscriptionStatus(email, offerName);
 	}
 }

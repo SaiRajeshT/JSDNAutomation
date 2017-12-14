@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -79,6 +80,7 @@ public class DetachAndTerminateVolume extends TestBase {
 		catch (Exception e) {
 			e.printStackTrace();
 			Reporter.log("<p style='color:red'> Detach and Terminate Volume is failed. please look in to the issue.</p>");
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 		}
 

@@ -1,6 +1,7 @@
 package com.jamcracker.commonFunctions.customer;
 
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -41,7 +42,7 @@ public class VerifySubscriptionStatus extends TestBase{
 		
 		catch(Exception e)
 		{
-			e.printStackTrace();
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 		}
 		

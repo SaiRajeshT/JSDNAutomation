@@ -367,27 +367,6 @@ public class MarketplaceBranding extends TestBase
 			objMpHomePage.myCompanyLink.click();
 			//ThreeWindowsSwitch.switchToParent();
 			
-			
-			
-			
-			
-
-			
-			
-			
-			
-			
-		
-			
-			
-
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 		

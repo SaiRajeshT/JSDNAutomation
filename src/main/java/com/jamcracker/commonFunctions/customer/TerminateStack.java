@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -29,7 +30,8 @@ public class TerminateStack extends TestBase {
 			} catch (Exception e) {
 				
 				Reporter.log("<p style='color:red'>Action link is not clickable. Please look in to the issue.</p>");
-				Assert.fail();
+				Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
+				//Assert.fail();
 			}
 
 			objstackPage.terminateLink.click();
@@ -83,6 +85,7 @@ public class TerminateStack extends TestBase {
 		catch(Exception e)
 		{
 			e.printStackTrace();
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 			
 		}

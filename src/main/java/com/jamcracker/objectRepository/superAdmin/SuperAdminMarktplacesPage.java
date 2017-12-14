@@ -67,6 +67,11 @@ public class SuperAdminMarktplacesPage extends TestBase
 		return driver.findElement(By.xpath(activateObjPath));
 	}
 	
+	public WebElement verifyActivate(String companyAcronym )
+	{
+		return driver.findElement(By.xpath("//td[text()='"+companyAcronym+"']//following-sibling::td//img[@title='Registration activated']"));
+	}
+	
 	
 	@FindBy(linkText="Logout")
 	public WebElement logOutLInk;

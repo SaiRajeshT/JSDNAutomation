@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.testng.Reporter;
@@ -20,7 +21,6 @@ public class StopInstance extends TestBase {
 			objinstancePage.searchTextBox.clear();
 			objinstancePage.searchTextBox.sendKeys(instName);
 			Thread.sleep(3000);
-			Assert.fail();
 			objinstancePage.searchTextBox.sendKeys(Keys.RETURN);
 
 			try {
@@ -72,6 +72,8 @@ public class StopInstance extends TestBase {
 			}
 		} catch (Exception emsg) {
 			emsg.printStackTrace();
+			Reporter.log("<p style='color:red'>Issue while stopping instance.Please look in to the issue.</p>");
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(emsg)+"</p>");
 			Assert.fail();
 		}
 	}

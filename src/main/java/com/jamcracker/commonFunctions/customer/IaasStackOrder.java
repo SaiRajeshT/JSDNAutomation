@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
@@ -211,6 +212,7 @@ public class IaasStackOrder extends TestBase {
 		{
 			Reporter.log("<p style='color:red'>Issue while selecting configuration for stack while placing order for aws Provider.</p>");
 			e.printStackTrace();
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 		}
 			
@@ -317,6 +319,7 @@ public class IaasStackOrder extends TestBase {
 			{
 				Reporter.log("<p style='color:red'>Issue while selecting configuration for stack while placing order for Azure provider.</p>");
 				e1.printStackTrace();
+				Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e1)+"</p>");
 				Assert.fail();
 			}
 			
@@ -385,6 +388,7 @@ public class IaasStackOrder extends TestBase {
 			{
 				Reporter.log("<p style='color:red'>Issue while selecting configuration for stack while placing order for Openstack provider.</p>");
 				e2.printStackTrace();
+				Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e2)+"</p>");
 				Assert.fail();
 			}
 				
@@ -478,6 +482,7 @@ public class IaasStackOrder extends TestBase {
 					if(objAppStackPage.getAppStackStatus(stackorderinfo.getStackName()).equalsIgnoreCase("Error")){
 					 test= false;
 					Reporter.log("Appstack status  Present in Error status");
+					
 					Assert.fail();}
 				}
 			  
@@ -502,6 +507,7 @@ public class IaasStackOrder extends TestBase {
 	
 	catch(Exception e)
 	{
+		Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 		Assert.fail();
 	}
 	

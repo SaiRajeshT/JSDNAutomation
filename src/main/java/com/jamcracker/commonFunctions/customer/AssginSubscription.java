@@ -1,10 +1,13 @@
 package com.jamcracker.commonFunctions.customer;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.TestNG;
 
+import com.gargoylesoftware.htmlunit.javascript.host.Set;
 import com.jamcracker.constants.Constants;
 import com.jamcracker.objectRepository.customer.UsersPage;
 import com.jamcracker.utilities.TestBase;
@@ -16,18 +19,35 @@ public class AssginSubscription extends TestBase{
 	public void assignSubscription (String email,String offerName)
 	{
 		try{
+			
 			UsersPage objUserPage = new UsersPage();
-		
+		driver.navigate().refresh();
 		objUserPage.manageLink.click();
 		objUserPage.UsersLink.click();
 		objUserPage.userSearchTextBox.clear();
 		objUserPage.userSearchTextBox.sendKeys(email);
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		objUserPage.userSearchTextBox.sendKeys(Keys.ENTER);
 		objUserPage.getAction(email).click();
 		objUserPage.assignSubscription.click();
 		explicitWait(objUserPage.assignSubscriptionSearchTextBox);
-		objUserPage.selectOfferCheckBox(offerName).click();
+	//	objUserPage.selectOfferCheckBox(offerName).click();
+		try{
+			if(objUserPage.selectOfferCheckBox(offerName).isDisplayed())
+			{
+				objUserPage.selectOfferCheckBox(offerName).click();
+			}
+		}
+		catch(Exception e)
+		{
+			Reporter.log("<p style='color:red'>Offer is not avialable in the store.</p>");
+			objUserPage.cancelButton.click();	
+		}
 		js = (JavascriptExecutor)driver;
 		js.executeScript("arguments[0].scrollIntoView(true);", objUserPage.saveAndNextButton);
 		objUserPage.saveAndNextButton.click();
@@ -35,12 +55,16 @@ public class AssginSubscription extends TestBase{
 		{
 			Reporter.log("Service Assign intiated for user " + email );
 		}
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 		
-		catch(Exception e)
+	catch(Exception e)
 		{
-			e.printStackTrace();
+		Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 		}
 		

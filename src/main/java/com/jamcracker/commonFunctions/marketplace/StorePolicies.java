@@ -2,6 +2,7 @@ package com.jamcracker.commonFunctions.marketplace;
 
 import java.io.File;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -29,6 +30,7 @@ public class StorePolicies
 		catch(Exception e)
 		{
 			Reporter.log("<p style='color:Red'> Privacy policy not uploaded. Please check the issue.</p>");
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 		}
 		
@@ -53,6 +55,7 @@ public class StorePolicies
 		catch(Exception e)
 		{
 			Reporter.log("<p style='color:Red'> Security Statememnt is not uploaded. Please check the issue.</p>");
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 		}
 		

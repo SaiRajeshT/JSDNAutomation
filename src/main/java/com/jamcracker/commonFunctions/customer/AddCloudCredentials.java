@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.customer;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -63,6 +64,7 @@ public class AddCloudCredentials extends TestBase {
 			{
 				objCloudCred.credFailedStatus(accountID).isDisplayed();
 				Reporter.log("<p style = 'color:red'>Payee account cloud credentials authorization is failed. Check the account details and reconfigure the account.</p>");
+				Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 				Assert.fail();
 			}
 			break;
@@ -184,6 +186,7 @@ public class AddCloudCredentials extends TestBase {
 				if (objCloudCred.authorizationFailed(accountId).isDisplayed())
 				{
 					Reporter.log("<p style = 'color:red'>Cloud credentials authorization is failed. Check the account details and reconfigure the account.</p>");
+					Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 					Assert.fail();
 					break;
 				}

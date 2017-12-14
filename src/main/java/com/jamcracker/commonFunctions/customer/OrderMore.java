@@ -36,7 +36,8 @@ public class OrderMore extends TestBase {
 		ShoppingCartPage objSCpage = new ShoppingCartPage();
 		explicitWait(objSCpage.shoppingCartPage);
 		js.executeScript("arguments[0].scrollIntoView(true);",objSCpage.checkoutButton);
-		explicitWait(objSCpage.checkoutButton);
+		explicitWaitToClickable(objSCpage.checkoutButton);
+		//(objSCpage.checkoutButton);
 		objSCpage.checkoutButton.click();
 		PaymentDetailsPage objPDpage = new PaymentDetailsPage();
 		explicitWait(objPDpage.paymentDetailsPage);

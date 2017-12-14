@@ -1,5 +1,8 @@
 package com.jamcracker.commonFunctions.marketplace;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.testng.Reporter;
+
 import com.jamcracker.objectRepository.marketplace.SetUpPage;
 
 public class StoreEmailNotificationSetUp
@@ -47,7 +50,9 @@ public class StoreEmailNotificationSetUp
 		}
 		catch(Exception e)
 		{
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			System.out.println(e.getMessage());
+			
 		}
 		objSetUpPage.saveAndNextButton.click();
 
