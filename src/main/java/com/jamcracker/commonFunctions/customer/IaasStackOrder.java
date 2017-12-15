@@ -423,7 +423,12 @@ public class IaasStackOrder extends TestBase {
 		js.executeScript("window.scrollBy(0, -1900);");
 		
 		SwitchFrame.elementSwitch(objCatalogPage.launchstackFrame);
-
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		objStackLaunchPage.stackLaunchButton.click();
 		
 	

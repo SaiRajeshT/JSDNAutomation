@@ -41,6 +41,20 @@ public class ExcelcolumnReader
                             case Cell.CELL_TYPE_STRING:
                                 columndata.add(cell.getStringCellValue());
                                 break;
+                             
+                            case Cell.CELL_TYPE_FORMULA:
+    						        System.out.println("Formula is " + cell.getCellFormula());
+    						        switch(cell.getCachedFormulaResultType()) {
+    						            case Cell.CELL_TYPE_NUMERIC:
+    						                System.out.println("Last evaluated as: " + cell.getNumericCellValue());
+    						                columndata.add(String.valueOf(cell.getNumericCellValue()).trim());
+    						                break;
+    						            case Cell.CELL_TYPE_STRING:
+    						                System.out.println("Last evaluated as \"" + cell.getRichStringCellValue() + "\"");
+    						                columndata.add(cell.getRichStringCellValue().toString().trim());
+    						                break;
+    						        
+    						     }
                             }
                         }
                     }

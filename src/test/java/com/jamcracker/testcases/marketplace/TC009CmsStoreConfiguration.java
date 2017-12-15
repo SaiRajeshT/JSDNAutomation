@@ -16,7 +16,7 @@ public class TC009CmsStoreConfiguration extends TestBase {
 
 	@DataProvider(name = "cmsStoreData")
 	public String[][] getCmsStoreData() {
-		return getData("CMSStoreConfigData.xls", "CmsStoresSheet");
+		return getData("TestData.xls", "CmsStoresSheet");
 	}
 
 	@BeforeMethod
@@ -26,7 +26,7 @@ public class TC009CmsStoreConfiguration extends TestBase {
 	}
 
 	@Test(dataProvider = "cmsStoreData")
-	public void testCMSStoreConfiguration(String domain, String name, String storeType, String siteName,
+	public void testCMSStoreConfiguration(String name,String domain, String storeType, String siteName,
 			String emailAddress, String defaultLanguage) {
 		DrupalAdminLogin daLogin = new DrupalAdminLogin();
 		daLogin.drupalAdminLogin();

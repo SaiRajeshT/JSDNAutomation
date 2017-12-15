@@ -184,6 +184,9 @@ public class MyservicesPage extends TestBase {
 
 	@FindBy(name = "resell")
 	public WebElement resellCheckbox;
+	
+	@FindBy(name="source")
+	public WebElement sourceCheckbox;
 
 	@FindBy(id = "selectAllRS")
 	public WebElement selectAllCheckbox;

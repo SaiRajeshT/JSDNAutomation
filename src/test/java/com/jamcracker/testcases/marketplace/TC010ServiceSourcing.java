@@ -26,8 +26,8 @@ public class TC010ServiceSourcing extends TestBase {
 	
 	@DataProvider(name="serviceSourceData")
 	public ServiceSourceData[] getServiceSourceData() {
-		ReadServiceOfferSheet reader = new ReadServiceOfferSheet(System.getProperty("user.dir") + File.separator + "Data" + File.separator + "ServiceSourcing.xls");
-		return reader.getServiceSourceData("TestData.xls", "SourceServiceSheet");
+		ReadServiceOfferSheet reader = new ReadServiceOfferSheet(System.getProperty("user.dir") + File.separator + "Data" + File.separator + "Service Creation TestData.xls");
+		return reader.getServiceSourceData("Service Creation TestData.xls", "SourceServiceSheet");
 	}
 	
 	@Test(dataProvider = "serviceSourceData")

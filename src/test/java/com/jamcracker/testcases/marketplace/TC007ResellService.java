@@ -32,7 +32,7 @@ public class TC007ResellService extends TestBase {
 	@DataProvider(name="resellData")
 	private String[][] getResellData()
 	{
-		return getData("TestData.xls","ServiceResellSheet");
+		return getData("Service Creation TestData.xls","ServiceResellSheet");
 
 	}
 

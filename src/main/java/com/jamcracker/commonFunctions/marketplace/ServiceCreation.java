@@ -442,11 +442,17 @@ public class ServiceCreation extends TestBase {
 	
 	public void activitiesPage()
 	{
-		try{
+		
 			objMyServicesPage.resellCheckbox.click();
 			objMyServicesPage.selectAllCheckbox.click();
 			objMyServicesPage.requestQuoteCheckbox.click();
 			objMyServicesPage.saveAndNextButton.click();
+			try{
+				objMyServicesPage.sourceCheckbox.click();
+			}
+			catch(Exception e)
+			{
+			}
 			try{
 				objMyServicesPage.activitiesContinueButton.click();
 			}
@@ -461,20 +467,10 @@ public class ServiceCreation extends TestBase {
 				Reporter.log(
 						"<p style='color:red'>Issue while configuring activities page. Please look in to the issue</p>");
 			}
-		}
-		catch(NoSuchElementException e)
-		{
-			System.out.println("Element not found exception " + e.getMessage());
-			e.printStackTrace();
-			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
-			Assert.fail();
-			
-		}
 		
-		catch (Exception e) {
-			System.out.println("Unknown Exception " + e.getMessage());
-			e.printStackTrace();
-		}
+		
+		
+	
 		
 	}
 	

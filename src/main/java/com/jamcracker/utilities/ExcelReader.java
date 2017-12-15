@@ -51,6 +51,27 @@ public class ExcelReader {
 			{
 				return String.valueOf(cell.getNumericCellValue()).trim();
 			} 
+			
+			else if((cell.getCellType() == Cell.CELL_TYPE_BOOLEAN))
+			{
+			 return String.valueOf(cell.getBooleanCellValue()).trim();
+			}
+			else
+			{
+				 if(cell.getCellType() == Cell.CELL_TYPE_FORMULA) {
+				        System.out.println("Formula is " + cell.getCellFormula());
+				        switch(cell.getCachedFormulaResultType()) {
+				            case Cell.CELL_TYPE_NUMERIC:
+				                System.out.println("Last evaluated as: " + cell.getNumericCellValue());
+				                return String.valueOf(cell.getNumericCellValue()).trim();
+				                //break;
+				            case Cell.CELL_TYPE_STRING:
+				                System.out.println("Last evaluated as \"" + cell.getRichStringCellValue() + "\"");
+				                return cell.getRichStringCellValue().toString().trim();
+				                //break;
+				        }
+				     }
+			}
 				
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -92,10 +113,28 @@ public class ExcelReader {
 						String cellText = String.valueOf(cell.getNumericCellValue()).trim();
 						dataSets[i - 1][j] = cellText;
 					}
-					//If the cell is Boolean value, then this if condition will execute
-					else {
+					else if((cell.getCellType() == Cell.CELL_TYPE_BOOLEAN))
+					{
 						dataSets[i - 1][j] = String.valueOf(cell.getBooleanCellValue()).trim();
 					}
+					else
+					{
+						 if(cell.getCellType() == Cell.CELL_TYPE_FORMULA) {
+						        System.out.println("Formula is " + cell.getCellFormula());
+						        switch(cell.getCachedFormulaResultType()) {
+						            case Cell.CELL_TYPE_NUMERIC:
+						                System.out.println("Last evaluated as: " + cell.getNumericCellValue());
+						                dataSets[i - 1][j]=String.valueOf(cell.getNumericCellValue()).trim();
+						                break;
+						            case Cell.CELL_TYPE_STRING:
+						                System.out.println("Last evaluated as \"" + cell.getRichStringCellValue() + "\"");
+						                dataSets[i - 1][j]=cell.getRichStringCellValue().toString().trim();
+						                break;
+						        }
+						     }
+					}
+					//If the cell is Boolean value, then this if condition will execute
+					
 					}
 				}
 			}
