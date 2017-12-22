@@ -27,7 +27,7 @@ public void setUp(String browser, String url)
 
 @DataProvider(name = "resizeInstanceData")
 public String[][] getInstanceData() {
-	return getData("Iaas Stack Orders.xls", "Resize sheet");}
+	return getData("CustomerData.xls", "Resize sheet");}
 @Test(dataProvider="resizeInstanceData")	
 public  void resizeInstance(String executable,String email,String password,String instName,String flavor){
 	

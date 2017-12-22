@@ -17,7 +17,7 @@ public class TC016AddAWSLinkedAccount extends TestBase {
 	
 	@DataProvider(name = "AWSLinked")
 	public String[][] getAwsLinked() {
-		return getData("Iaas Stack Orders.xls", "AWSLinked");
+		return getData("CustomerData.xls", "AWSLinked");
 	}
 	
 	@BeforeMethod

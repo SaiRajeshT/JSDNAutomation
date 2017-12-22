@@ -15,7 +15,7 @@ public class TC004OrderMore extends TestBase {
 
 	@DataProvider(name = "orderMoreData")
 	public String[][] getOrderPlaceData() {
-		return getData("OrdersData.xls", "OrderMoreSheet");
+		return getData("CustomerData.xls", "OrderMoreSheet");
 	}
 
 	@BeforeMethod

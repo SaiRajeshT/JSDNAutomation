@@ -26,7 +26,7 @@ public class TC011ImageActions extends TestBase {
 	
 	@DataProvider(name = "ImageData")
 	public String[][] getInstanceData() {
-	return getData("Iaas Stack Orders.xls", "Images");}
+	return getData("CustomerData.xls", "Images");}
 	
 	@Test(dataProvider="ImageData")
 	public void imageCreation(String executable, String action, String email, String Password, String instName,String imageName,String imageDesc)

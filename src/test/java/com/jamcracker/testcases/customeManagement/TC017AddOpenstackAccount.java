@@ -17,7 +17,7 @@ public class TC017AddOpenstackAccount extends TestBase {
 	
 	@DataProvider(name = "Openstack")
 	public String[][] getOpenstackCredentials() {
-		return getData("Iaas Stack Orders.xls", "Openstack");
+		return getData("CustomerData.xls", "Openstack");
 	}
 	
 	@BeforeMethod

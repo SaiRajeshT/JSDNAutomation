@@ -35,7 +35,7 @@ public class TC002Assignsubscription extends TestBase {
 	
 	@DataProvider(name="UserData")
 	public String[][] getUserData(){
-		return getData("CustomerCreationData.xls", "Assign service");
+		return getData("CustomerData.xls", "Assign service");
 	}
 
 

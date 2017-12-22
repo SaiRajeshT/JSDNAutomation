@@ -23,7 +23,7 @@ public class TestBase {
 	ExcelReader reader;
 	DesiredCapabilities capability;
 	static WebDriverWait wait;
-	public static int explicitTimeout = 20;
+	public static int explicitTimeout = 30;
 	public static int implicitTimeout = 10;
 	public static  String packageName;
 	public static int timeout =  600;

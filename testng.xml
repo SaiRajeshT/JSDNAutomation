@@ -6,6 +6,7 @@
 
 <test name="Marketplace Sanity chrome Test" preserve-order="true" enabled="true">
 	   <parameter name="browser" value="chrome"></parameter>
+	   <parameter name="superAdminPivotPathUrl" value="https://superadmin.jamcracker.com/pivotpath/"></parameter>
 	   <parameter name="targetMpUrl" value="https://www.mptest2.com"></parameter>
 	   <parameter name="payAccUrl" value="https://www.mptest2.com"></parameter>
 	   <parameter name="sourceMpUrl" value="https://www.monthlymkt.com"></parameter>
@@ -15,6 +16,7 @@
 	<classes>
 <!-- 		<class name="com.jamcracker.testcases.marketplace.TC001CreateMarketplace"></class> -->
 <!-- 		<class name="com.jamcracker.testcases.marketplace.TC002SetPassword"></class> -->
+		<class name="com.jamcracker.testcases.marketplace.TC012DisableCaptcha"></class>
 		<class name="com.jamcracker.testcases.marketplace.TC003StoreCreation"></class>
 		<class name="com.jamcracker.testcases.marketplace.TC004StoreBranding"></class>
 		<class name="com.jamcracker.testcases.marketplace.TC005ServiceCreation"></class>
@@ -40,6 +42,8 @@
  		<class name="com.jamcracker.testcases.usermanagement.TC001AddUser"></class>
  		<class name="com.jamcracker.testcases.usermanagement.TC002Assignsubscription"></class>
  		 <class name="com.jamcracker.testcases.customeManagement.TC012PolicyCreation"></class>
+ 		 <class name="com.jamcracker.testcases.customeManagement.TC012PolicyCreation"></class>
+ 		 <class name="com.jamcracker.testcases.marketplace.TC012EnableCaptcha"></class>
 <!--  		<class name="com.jamcracker.testcases.customeManagement.TC018OrderWithBudget"></class> -->
  		
  	 							

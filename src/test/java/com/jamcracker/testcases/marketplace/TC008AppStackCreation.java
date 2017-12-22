@@ -25,7 +25,7 @@ public class TC008AppStackCreation extends TestBase {
 	
 	@DataProvider(name="stackCreationData")
 	public String[][] getStackCreationData() {
-		return getData("StackCreationData.xls", "StackTemplateSheet");
+		return getData("TestData.xls", "StackTemplateSheet");
 	}
 	
 	@DataProvider(name="mpAdminEmail")
@@ -48,8 +48,8 @@ public class TC008AppStackCreation extends TestBase {
 	@Test(dataProvider="stackCreationData")
 	public void testAppStackCreation(String runMode, String sName, String sDescription, String iName, String sgName, String sType, String chefType) throws Exception {
 		
-		String[][] tagsData = getData("StackCreationData.xls", "TagsSheet");
-		String[][] vendors = getData("StackCreationData.xls", "StackSupportVendorsSheet");
+		String[][] tagsData = getData("TestData.xls", "TagsSheet");
+		String[][] vendors = getData("TestData.xls", "StackSupportVendorsSheet");
 		AppStackCreation appStack = new AppStackCreation();
 		appStack.appStackCreation(getMpEmail(),getMpPassword(),runMode, sName, sDescription, iName, sgName, sType, chefType, tagsData, vendors);
 				

@@ -23,7 +23,7 @@ public class TC013StaticIpAddress extends TestBase{
 
 	@DataProvider(name = "StaticIp")
 	public String[][] getInstanceData() {
-		return getData("Iaas Stack Orders.xls", "Static Public Ip address");
+		return getData("CustomerData.xls", "Static Public Ip address");
 	}
 	@Test(dataProvider = "StaticIp")
 	public void staticIp(String executable,String email, String password, String provider, String region, String network)

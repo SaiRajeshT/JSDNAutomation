@@ -17,8 +17,8 @@ public class TC005OrderLess extends TestBase {
 	
 	@DataProvider(name = "orderLessData")
 	public OrderLessData[] getOrderLessData() {
-		OrderLessReader reader = new OrderLessReader(System.getProperty("user.dir") + "/Data/OrdersData.xls");
-		return reader.getOrderLessData("OrdersData.xls", "OrderLessSheet");
+		OrderLessReader reader = new OrderLessReader(System.getProperty("user.dir") + "/Data/CustomerData.xls");
+		return reader.getOrderLessData("CustomerData.xls", "OrderLessSheet");
 	}
 
 	@BeforeMethod

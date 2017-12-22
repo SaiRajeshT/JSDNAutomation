@@ -234,10 +234,11 @@ public class ReadServiceOfferSheet {
 			sourceData.setEmail(row.getCell(0).getStringCellValue().trim());
 			sourceData.setPassword(row.getCell(1).getStringCellValue().trim());
 			sourceData.setServiceName(row.getCell(2).getStringCellValue().trim());
-			sourceData.setOfferName(row.getCell(3).getStringCellValue().trim());
-			sourceData.setServiceType(row.getCell(4).getStringCellValue().trim());
+			sourceData.setTgtServiceName(row.getCell(3).getStringCellValue().trim());
+			sourceData.setOfferName(row.getCell(4).getStringCellValue().trim());
+			sourceData.setServiceType(row.getCell(5).getStringCellValue().trim());
 			
-			for (int j = 5; j < 41; j+=5) {
+			for (int j = 6; j < 42; j+=5) {
 				
 				if(row.getCell(j) != null){
 					

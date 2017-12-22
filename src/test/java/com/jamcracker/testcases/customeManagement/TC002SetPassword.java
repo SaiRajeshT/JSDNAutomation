@@ -17,7 +17,7 @@ public class TC002SetPassword extends TestBase {
 
 	@DataProvider(name = "setPasswordData")
 	public String[] getSetPasswordData() {
-		ArrayList<String> emailist = ExcelcolumnReader.extractExcelContentByColumnIndex("CustomerCreationData.xls",
+		ArrayList<String> emailist = ExcelcolumnReader.extractExcelContentByColumnIndex("CustomerData.xls",
 				"CustomerRegistrationSheet", 3);
 		String[] emailistData = emailist.toArray(new String[emailist.size()]);
 		return emailistData;
@@ -32,9 +32,9 @@ public class TC002SetPassword extends TestBase {
 	@Test(dataProvider = "setPasswordData")
 	public void testSetpassword(String email) {
 
-		String password = getData("CustomerCreationData.xls", "SetPasswordSheet", "New Password", 2);
-		String secQues = getData("CustomerCreationData.xls", "SetPasswordSheet", "Security Question", 2);
-		String secAns = getData("CustomerCreationData.xls", "SetPasswordSheet", "Security Answer", 2);
+		String password = getData("CustomerData.xls", "SetPasswordSheet", "New Password", 2);
+		String secQues = getData("CustomerData.xls", "SetPasswordSheet", "Security Question", 2);
+		String secAns = getData("CustomerData.xls", "SetPasswordSheet", "Security Answer", 2);
 		SetPassword setPassword = new SetPassword();
 		setPassword.setPassword(email, password, secQues, secAns);
 
