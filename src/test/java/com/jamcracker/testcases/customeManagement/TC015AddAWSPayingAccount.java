@@ -18,7 +18,7 @@ public class TC015AddAWSPayingAccount extends TestBase{
 	
 	@DataProvider(name = "AWSPaying")
 	public String[][] getAwsPaying() {
-		return getData("Iaas Stack Orders.xls", "AWSPaying");
+		return getData("CustomerData.xls", "AWSPaying");
 	}	
 	
 	@BeforeMethod

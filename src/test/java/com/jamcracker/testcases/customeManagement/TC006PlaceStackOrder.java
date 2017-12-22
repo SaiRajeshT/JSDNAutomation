@@ -28,7 +28,7 @@ public class TC006PlaceStackOrder extends TestBase
 @DataProvider(name="StackOrdersData")
 private StackOrder[] getStackOrderData()
 {
-	ExcelStackOrderReader readStackOrderData = new ExcelStackOrderReader("./Data/Iaas Stack Orders.xls");
+	ExcelStackOrderReader readStackOrderData = new ExcelStackOrderReader("./Data/CustomerData.xls");
 	return readStackOrderData.getExcelData("Stack Orders");
 }
 

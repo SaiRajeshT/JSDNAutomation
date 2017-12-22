@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.marketplace;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -188,6 +189,7 @@ public class CMSStoreConfiguration extends TestBase {
 			}
 		} catch (Exception e) {
 			Reporter.log("Logo not uploaded successfully for "+name+" domain");
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 		}
 		Reporter.log("CMS configuration for the store "+domain+" is successful");

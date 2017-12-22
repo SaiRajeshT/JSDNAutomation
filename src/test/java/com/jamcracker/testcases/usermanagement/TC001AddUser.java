@@ -31,7 +31,7 @@ public class TC001AddUser extends TestBase {
 
 	@DataProvider(name = "UserData")
 	public String[][] getUserData() {
-		return getData("CustomerCreationData.xls", "Users");
+		return getData("CustomerData.xls", "Users");
 	}
 
 @Test(dataProvider="UserData",priority=1)

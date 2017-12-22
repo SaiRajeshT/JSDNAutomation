@@ -64,8 +64,8 @@ public class GetStaticIp extends TestBase {
 	 catch(Exception e)
 	 {
 		 e.printStackTrace();
-		 Assert.fail();
 		 Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
+		 Assert.fail();
 	 }
 	return ipAddress;
 	 

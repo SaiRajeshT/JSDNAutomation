@@ -11,6 +11,7 @@ public class AddUser extends TestBase{
 	public void addUser(String firstName,String lastName,String email, String phone,String role,String department)
 	{
 		UsersPage objAddUserPage = new UsersPage();
+		explicitWaitToClickable(objAddUserPage.manageLink);
 		objAddUserPage.manageLink.click();
 		objAddUserPage.UsersLink.click();
 		explicitWait(objAddUserPage.addUserLink);

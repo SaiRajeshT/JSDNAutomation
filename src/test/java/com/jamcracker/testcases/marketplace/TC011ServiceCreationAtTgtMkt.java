@@ -43,8 +43,8 @@ public class TC011ServiceCreationAtTgtMkt extends TestBase{
 	@DataProvider(name="ServicesData")
 	private ServicesInfo[] getServiceCreationData()
 	{
-		ReadServiceOfferSheet readServiceOfferSheet = new ReadServiceOfferSheet("./Data/Service Creation TestData.xls");
-		return readServiceOfferSheet.getDataFromSheet("Service Creation TestData.xls","ServicesInformation","Offer Details");
+		ReadServiceOfferSheet readServiceOfferSheet = new ReadServiceOfferSheet("./Data/TestData.xls");
+		return readServiceOfferSheet.getDataFromSheet("TestData.xls","ServicesInformation","Offer Details");
 	} 
 	
   @Test(dataProvider="ServicesData")

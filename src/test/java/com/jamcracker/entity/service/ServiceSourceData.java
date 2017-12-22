@@ -7,6 +7,7 @@ public class ServiceSourceData {
 	private String email;
 	private String password;
 	private String serviceName;
+	private String tgtServiceName;
 	private String offerName;
 	private String serviceType;
 	private Map<Integer, Price> price;
@@ -46,6 +47,12 @@ public class ServiceSourceData {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public String getTgtServiceName() {
+		return tgtServiceName;
+	}
+	public void setTgtServiceName(String tgtServiceName) {
+		this.tgtServiceName = tgtServiceName;
 	}
 	
 }

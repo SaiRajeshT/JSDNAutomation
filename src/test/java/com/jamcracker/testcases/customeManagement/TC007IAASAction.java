@@ -25,7 +25,7 @@ public class TC007IAASAction extends TestBase {
 
 	@DataProvider(name = "StartInstanceData")
 	public String[][] getInstanceData() {
-		return getData("Iaas Stack Orders.xls", "Instances sheet"); }// passing file name and sheet name
+		return getData("CustomerData.xls", "Instances sheet"); }// passing file name and sheet name
 																	
 	@Test(dataProvider = "StartInstanceData")
 	public void iaasAction(String executable, String action, String email, String Password, String instName,String imageName) {

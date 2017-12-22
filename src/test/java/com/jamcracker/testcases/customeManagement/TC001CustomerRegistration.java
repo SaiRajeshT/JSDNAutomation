@@ -18,8 +18,8 @@ public class TC001CustomerRegistration extends TestBase {
 
 	@DataProvider(name = "customerRegistrationData")
 	public CustomerCreationData[] getStackCreationData() {
-		CustomerCreationReader reader = new CustomerCreationReader(System.getProperty("user.dir") + File.separator + "Data" + File.separator + "CustomerCreationData.xls");
-		return reader.getCustomerCreationData("CustomerCreationData.xls", "CustomerRegistrationSheet");
+		CustomerCreationReader reader = new CustomerCreationReader(System.getProperty("user.dir") + File.separator + "Data" + File.separator + "CustomerData.xls");
+		return reader.getCustomerCreationData("CustomerData.xls", "CustomerRegistrationSheet");
 	}
 
 	@BeforeMethod

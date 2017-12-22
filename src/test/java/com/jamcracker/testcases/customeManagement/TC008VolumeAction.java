@@ -29,7 +29,7 @@ public class TC008VolumeAction extends TestBase {
 
 	@DataProvider(name = "VolumeData")
 	public String[][] getInstanceData() {
-		return getData("Iaas Stack Orders.xls", "Volumes");
+		return getData("CustomerData.xls", "Volumes");
 	}
 
 	@Test(dataProvider = "VolumeData")

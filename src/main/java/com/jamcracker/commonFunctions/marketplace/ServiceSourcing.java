@@ -33,7 +33,7 @@ public class ServiceSourcing extends TestBase {
 
 		objMyServ.sourceServiceRadioButton.click();
 		objMyServ.continueButton.click();
-
+	
 		HandleDropDown.selectDDLByVisibletext(objMyServ.serviceToSourceDropDown, serviceSource.getServiceName());
 		HandleDropDown.selectDDLByVisibletext(objMyServ.offerNameDropDown, serviceSource.getOfferName());
 		
@@ -96,7 +96,7 @@ public class ServiceSourcing extends TestBase {
 			HandleAlert.acceptAlert();
 		} catch (Exception e) {
 			objMyServ.serviceNameTextBox.clear();
-			objMyServ.serviceNameTextBox.sendKeys(serviceSource.getServiceName() + "_srcd");
+			objMyServ.serviceNameTextBox.sendKeys(serviceSource.getTgtServiceName());
 
 			objMyServ.addSlaTextBox.click();
 			TwoWindowsSwitch.getWindowHandles();

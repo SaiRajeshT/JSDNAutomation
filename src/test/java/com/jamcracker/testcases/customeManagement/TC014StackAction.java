@@ -26,7 +26,7 @@ public class TC014StackAction extends TestBase {
 
 	@DataProvider(name = "StacksData")
 	public String[][] getTerminateStackData() {
-		return getData("Iaas Stack Orders.xls", "Stack Actions");
+		return getData("CustomerData.xls", "Stack Actions");
 	}
 
 	@Test(dataProvider = "StacksData")
