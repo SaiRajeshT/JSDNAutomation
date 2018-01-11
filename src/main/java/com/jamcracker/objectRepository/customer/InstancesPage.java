@@ -178,6 +178,16 @@ public class InstancesPage extends TestBase{
 	@FindBy(id="description")
 	public WebElement volSnapShotDescriptionTextBox;
 	
+	public WebElement getVolumeCheckBox(String volumeName)
+	{
+		return driver.findElement(By.xpath("//td[p[@title='"+volumeName+"']]//preceding-sibling::td//input[@type='checkbox']"));
+	}
+	
+	public WebElement getVolumeSnapshotTextBox(String volumeName)
+	{
+		return driver.findElement(By.xpath("//td[p[@title='"+volumeName+"']]//following-sibling::td//input[@name='volSnapName[]']"));
+	}
+	
 public String getVolumeStatus(String volumeName){
 	String value = null;
 	try{
@@ -355,10 +365,10 @@ public WebElement getSize(String size)
 	}
 		
 	
-	public String getImageStatus(String instName)
+	public String getImageStatus(String imageName)
 	{
 		
-	 return driver.findElement(By.xpath("//tr[td[text()='"+instName+"']]//td[6]")).getText();
+	 return driver.findElement(By.xpath("//tr[td[text()='"+imageName+"']]//td[6]")).getText();
 	}
 	
 	public WebElement getVolumeActionLink(String volumeName)

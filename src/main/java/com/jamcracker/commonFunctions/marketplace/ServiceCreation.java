@@ -329,6 +329,7 @@ public class ServiceCreation extends TestBase {
 		catch (Exception e) {
 			System.out.println("Unknown Exception " + e.getMessage());
 			e.printStackTrace();
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 		}
 
@@ -436,6 +437,7 @@ public class ServiceCreation extends TestBase {
 			System.out.println("Unknown Exception " + e.getMessage());
 			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			e.printStackTrace();
+			Assert.fail();
 		}
 
 	}

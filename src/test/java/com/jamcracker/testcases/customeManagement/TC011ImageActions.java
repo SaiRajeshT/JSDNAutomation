@@ -29,7 +29,7 @@ public class TC011ImageActions extends TestBase {
 	return getData("CustomerData.xls", "Images");}
 	
 	@Test(dataProvider="ImageData")
-	public void imageCreation(String executable, String action, String email, String Password, String instName,String imageName,String imageDesc)
+	public void imageCreation(String executable, String action, String email, String Password, String instName,String imageName,String imageDesc,String volumeName, String volumeSnapshotName)
 	{
 		CustomerAdminLogin custLogin = new CustomerAdminLogin();
 		ImageCreation objImageCreation = new ImageCreation();
@@ -43,11 +43,18 @@ public class TC011ImageActions extends TestBase {
 				objImageCreation.imageCreation(instName, imageName,imageDesc);
 			}
 			
-			if(action.equalsIgnoreCase("Delete Image"))
+			else if(action.equalsIgnoreCase("Delete Image"))
 			{		
 			
 				custLogin.customerAdminLogin(email, Password);
 				objDeleteImage.deleteImage(imageName);
+			}
+			
+			else
+			{
+				custLogin.customerAdminLogin(email, Password);
+				objImageCreation.imageCreationwithVolume(instName, imageName, imageDesc, volumeName, volumeSnapshotName);
+				
 			}
 			
 			CustomerLogout.logOut();
