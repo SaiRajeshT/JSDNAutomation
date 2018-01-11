@@ -2,6 +2,7 @@ package com.jamcracker.commonFunctions.marketplace;
 
 import java.util.ArrayList;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.testng.Reporter;
 
 import com.jamcracker.objectRepository.marketplace.SetUpPage;
@@ -96,6 +97,7 @@ public class SetUpBillingOptions extends TestBase
 				e.printStackTrace();
 				Reporter.log("<p style='color:red'>"+paymentMethod + "Payment method is not selected. Please check the issue.</p>");
 				CaptureScreenshot.screenshot(driver,screenShotName,testClassName,packageName);
+				Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			}
 		
 		}
@@ -110,7 +112,16 @@ public class SetUpBillingOptions extends TestBase
 		//objSetUpPage.itemizedInvoiceCheckbox.click();
 		//Need to check from excel whether do we need to configure or not
 		objSetUpPage.saveAndNextButton.click();
-		Reporter.log("Billing Page Configuration is completed successfully");
+		try{
+			objSetUpPage.deleteCompaniesCheckbox.isDisplayed();
+			Reporter.log("Billing Page Configuration is completed successfully");
+		}
+		catch(Exception e)
+		{
+			Reporter.log("Issue in Billing page configuration");
+			
+		}
+		
 		
 		
 	}

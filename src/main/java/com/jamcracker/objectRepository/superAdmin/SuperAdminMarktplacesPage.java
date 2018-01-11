@@ -15,6 +15,9 @@ public class SuperAdminMarktplacesPage extends TestBase
 	}
 	@FindBy(xpath = "//a[text()='Add Marketplace']")
 	public WebElement addMarketplaceLink;
+	
+	@FindBy(id="cancel")
+	public WebElement cancelButton;
 
 	@FindBy(xpath = "//input[@name='marketplaceURL']")
 	public WebElement marketplaceUrlTextBox;

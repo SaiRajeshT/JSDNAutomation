@@ -37,7 +37,7 @@ public class ExcelStackOrderReader {
 	public StackOrder[] getExcelData(String orderSheet)
 	
 	{
-		Map<String , List<SecurityGroup>> mapSecurityGroup =  readSecurityGroup("Security Groups");
+		Map<String , List<SecurityGroup>> mapSecurityGroup =  readSecurityGroup("Security Groups"); // To read the security group and store the information in MAP
 		List<StackOrder> stackOrdersInfo = new ArrayList<StackOrder>();
 		try {
 			  sheet = workbook.getSheet(orderSheet);
@@ -87,7 +87,7 @@ public class ExcelStackOrderReader {
 				stackOrder.setNetworkInterfaceName(row.getCell(24).getStringCellValue().trim());
 				stackOrder.setSubNetName(row.getCell(25).getStringCellValue().trim());
 				if(row.getCell(26)!= null){
-				stackOrder.setPrivateIp(row.getCell(25).getStringCellValue().trim());}
+				stackOrder.setPrivateIp(row.getCell(26).getStringCellValue().trim());}
 				if(row.getCell(27)!=null){
 				stackOrder.setPublicIp(row.getCell(27).getStringCellValue().trim());}
 				stackOrder.setSecurityGroups(mapSecurityGroup.get(stackOrder.getInstanceName()));
@@ -106,6 +106,7 @@ public class ExcelStackOrderReader {
 		
 		}
 	
+	// To read the security group and store the information in MAP
 	public Map<String , List<SecurityGroup>> readSecurityGroup(String sheetName)
 	{
 		sheet = workbook.getSheet(sheetName);

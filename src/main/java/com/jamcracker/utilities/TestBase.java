@@ -12,7 +12,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
-
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
@@ -99,6 +98,12 @@ public class TestBase {
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
+	public static void explicitWaitInvisible(WebElement element){
+		wait = new WebDriverWait(driver, explicitTimeout);
+		//wait.until(ExpectedConditions.visibilityOf(element));
+		wait.until(ExpectedConditions.invisibilityOf(element));
+	}
+	
 	public void manualWait(WebElement element, int time) {
 		wait = new WebDriverWait(driver, time);
 		wait.until(ExpectedConditions.visibilityOf(element));
@@ -107,6 +112,21 @@ public class TestBase {
 	public static void explicitWaitToClickable(WebElement element) {
 		wait = new WebDriverWait(driver, explicitTimeout);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+	
+	public static void explicitWaitFrameToLoad(WebElement element)
+	{
+		wait = new WebDriverWait(driver, explicitTimeout);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
+		
+	}
+	
+	public static void waitTillFrameLoad(WebElement element){
+		
+		 wait =new WebDriverWait(driver, explicitTimeout);
+		 wait.ignoring(org.openqa.selenium.StaleElementReferenceException.class);
+		 wait.ignoring(org.openqa.selenium.WebDriverException.class);
+        wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
 }

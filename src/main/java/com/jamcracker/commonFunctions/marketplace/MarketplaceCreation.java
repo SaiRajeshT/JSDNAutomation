@@ -1,11 +1,13 @@
 package com.jamcracker.commonFunctions.marketplace;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.jamcracker.objectRepository.superAdmin.SuperAdminMarktplacesPage;
 import com.jamcracker.utilities.SwitchFrame;
 import com.jamcracker.utilities.TestBase;
+import com.jamcracker.utilities.WaitTillElementDisplayed;
 
 public class MarketplaceCreation extends TestBase
 {
@@ -13,7 +15,9 @@ public class MarketplaceCreation extends TestBase
 	{
 		try{
 		SuperAdminMarktplacesPage superAdminMktPlacePage = new SuperAdminMarktplacesPage();
+		System.out.println(driver.getTitle());
 		superAdminMktPlacePage.addMarketplaceLink.click();
+		Thread.sleep(3000);
 		SwitchFrame.nameIdSwitch("_iframe-addmp");
 		explicitWait(superAdminMktPlacePage.marketplaceUrlTextBox);
 		superAdminMktPlacePage.marketplaceUrlTextBox.sendKeys(marketplaceURL);
@@ -27,18 +31,30 @@ public class MarketplaceCreation extends TestBase
 		superAdminMktPlacePage.marketplaceAcronymTextBox.sendKeys(marketplaceAcronym);
 		superAdminMktPlacePage.createMarketplaceButton.click();
 		SwitchFrame.defaultSwitch();
-		explicitWait(superAdminMktPlacePage.addMarketplaceLink);
-		if(superAdminMktPlacePage.getMarketplaceName(CompanyName).isDisplayed()){
-			Reporter.log("Marketplace creation is  successfull");
+		/*while(true){
+		try{
+			superAdminMktPlacePage.getMarketplaceName(CompanyName).isDisplayed();
+			break;
+			}
 			
+		catch(Exception e)
+		{
+			e.printStackTrace();
 		}
+		}
+		*/
+		if(WaitTillElementDisplayed.elementdisplayed(superAdminMktPlacePage.getMarketplaceName(CompanyName))==true){
+		//explicitWaitToClickable(superAdminMktPlacePage.logOutLInk);
+		Reporter.log("Marketplace creation is  successfull");}
 		}
 		
 		catch(Exception e)
 		{
-			Reporter.log("Issue while creating Marketplace.Please look in to the issue");
-			Assert.fail();
 			e.printStackTrace();
+			Reporter.log("Issue while creating Marketplace.Please look in to the issue");
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
+			Assert.fail();
+			
 			
 		}
 	}

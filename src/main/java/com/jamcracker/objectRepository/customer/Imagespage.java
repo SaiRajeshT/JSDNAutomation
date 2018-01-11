@@ -24,6 +24,9 @@ import com.jamcracker.utilities.TestBase;
 		@FindBy(xpath="//div[contains(text(),'Showing:')]")
 		public WebElement showingText;
 		
+		@FindBy(linkText="Create Instance")
+		public WebElement createInstanceLink;
+		
 		@FindBy(linkText="Delete")
 		public WebElement deleteLink;
 		
@@ -33,8 +36,14 @@ import com.jamcracker.utilities.TestBase;
 		@FindBy(id="table_search")
 		public WebElement searchTextBox;
 		
+		@FindBy(xpath="//div[text()='Go']")
+		public WebElement goButton;
+		
 		@FindBy(xpath="//div[@id='header_popUpId']//following-sibling::div//button[@name='btcancel']//span[text()='Cancel']")
 		public WebElement deleteImageCancelButton;
+		
+		
+	
 		
 		public WebElement getImageActionLink(String imageName){
 			WebElement element = null;

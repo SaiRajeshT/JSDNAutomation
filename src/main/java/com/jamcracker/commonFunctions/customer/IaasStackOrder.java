@@ -475,16 +475,17 @@ public class IaasStackOrder extends TestBase {
 				}
 				
 					explicitWait(objAppStackPage.showingText);
-				if(objAppStackPage.getAppStackStatus(stackorderinfo.getStackName())!=null)
+				String stackstatus = objAppStackPage.getAppStackStatus(stackorderinfo.getStackName());
+				if(stackstatus!=null)
 				{
-				 if((objAppStackPage.getAppStackStatus(stackorderinfo.getStackName()).equalsIgnoreCase("Running"))){
+				 if(stackstatus.equalsIgnoreCase("Running")){
 				 test= false;
 				Reporter.log("Appstack status  Present in Running status");
 				break;}}
 				
-				if(objAppStackPage.getAppStackStatus(stackorderinfo.getStackName())!=null)
+				if(stackstatus!=null)
 				{
-					if(objAppStackPage.getAppStackStatus(stackorderinfo.getStackName()).equalsIgnoreCase("Error")){
+					if(stackstatus.equalsIgnoreCase("Error")){
 					 test= false;
 					Reporter.log("Appstack status  Present in Error status");
 					
