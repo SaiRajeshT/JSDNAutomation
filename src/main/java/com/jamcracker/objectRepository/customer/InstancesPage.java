@@ -313,25 +313,30 @@ public WebElement getSize(String size)
 			} catch (Exception e) {
 
 			}
-
+			
+			if(element == null){
 			try {
 				element = driver.findElement(By.xpath("(//tr[td[div[text()='"+instName+"']]]//parent::tr//td//div[text()='Running'])[1]"));
 			} catch (Exception e) {
 
-			}
+			}}
+			
 			// lengthy instance name without monitoring icon
+			if(element == null){
 			try {
 				element = driver.findElement(By.xpath("(//tr[td[span[@title='"+instName+"']]]//td//div[text()='Running'])[1]"));
 			} catch (Exception e) {
 
-			}
+			}}
 			
+			
+			if(element == null){
 			try{
 				element =  driver.findElement(By.xpath("(//tr[td[div[span[@title='"+instName+"']]]]//td//div[text()='Running'])[1]"));
 				
 			} catch (Exception e) {
 
-			}
+			}}
 
 			return element;
 		}

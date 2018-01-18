@@ -123,7 +123,7 @@ public class ExcelInstFromImageReader {
 						secRules.setPortStart(ruledetails[1]);
 						secRules.setPortEnd(ruledetails[2]);
 						secRules.setIpAddress(ruledetails[3]);
-						secRules.setSubnetMask(ruledetails[1]);	
+						secRules.setSubnetMask(ruledetails[4]);	
 						rules.add(secRules);
 					}
 					securityGroup.setRules(rules);

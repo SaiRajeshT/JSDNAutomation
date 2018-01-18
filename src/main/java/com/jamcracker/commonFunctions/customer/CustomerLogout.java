@@ -11,10 +11,12 @@ public static void logOut()
 {
 	try{
 	CustomerMenuAndSubmenuObjects objMenuPage = new CustomerMenuAndSubmenuObjects();
+	driver.navigate().refresh();
 	explicitWaitToClickable(objMenuPage.profileIcon);
 	Thread.sleep(3000);
 	objMenuPage.profileIcon.click();
 	objMenuPage.signOutLink.click();
+	Reporter.log("Successfully Logged out");
 	}
 	
 	catch(Exception e)

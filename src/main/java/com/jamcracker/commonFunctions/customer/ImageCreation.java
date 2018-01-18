@@ -2,10 +2,8 @@ package com.jamcracker.commonFunctions.customer;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.testng.Reporter;
-
 import com.jamcracker.constants.Constants;
 import com.jamcracker.objectRepository.customer.CustomerMenuAndSubmenuObjects;
 import com.jamcracker.objectRepository.customer.InstancesPage;
@@ -152,7 +150,7 @@ public class ImageCreation extends TestBase {
 			boolean test1 = true;
 			long startTime1 = (System.currentTimeMillis()) / 1000;
 			while (test1) {
-				if ((System.currentTimeMillis() / 1000) - startTime > timeout) {
+				if ((System.currentTimeMillis() / 1000) - startTime1 > timeout) {
 					Reporter.log("<p style='color:red'>Waited for" + timeout
 							+ " Seconds.Volume Snapshot status did not go to Active.Please check the issue.</p>");
 					Assert.fail();
@@ -181,7 +179,7 @@ public class ImageCreation extends TestBase {
 		}
 		
 		catch (Exception e1)
-		{
+		{  	
 			e1.printStackTrace();
 			Reporter.log("<p style='color:red'>Issue while creating image, please look in to the issue.<p>");
 			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e1)+"</p>");

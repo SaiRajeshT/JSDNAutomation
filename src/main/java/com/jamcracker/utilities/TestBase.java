@@ -53,8 +53,8 @@ public class TestBase {
 		if(browser.equalsIgnoreCase("firefox")) {
 			capability = DesiredCapabilities.firefox();
 			capability.setAcceptInsecureCerts(true);
-			//System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/Drivers/geckodriver.exe");
-			FirefoxDriverManager.getInstance().setup();
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/Drivers/geckodriver.exe");
+			//FirefoxDriverManager.getInstance().setup();
 			driver = new FirefoxDriver(capability);
 			/*FirefoxProfile profile = new FirefoxProfile();
 			profile.setAcceptUntrustedCertificates(true);

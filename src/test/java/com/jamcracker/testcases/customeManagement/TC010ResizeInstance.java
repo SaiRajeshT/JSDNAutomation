@@ -1,6 +1,7 @@
 package com.jamcracker.testcases.customeManagement;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
@@ -34,15 +35,22 @@ public  void resizeInstance(String executable,String email,String password,Strin
 	CustomerAdminLogin custLogin = new CustomerAdminLogin();
 
 	if (executable.equalsIgnoreCase("y")) {
+
 		custLogin.customerAdminLogin(email, password);
 		ResizeInstance.resizeInstance(instName,flavor);
 		
-		CustomerLogout.logOut();
+		
 		
 		
 	}
 	
 	
+}
+
+@AfterMethod
+public void logout()
+{
+	CustomerLogout.logOut();
 }
 
 @AfterClass

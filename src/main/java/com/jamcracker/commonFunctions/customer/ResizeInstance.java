@@ -61,6 +61,9 @@ public class ResizeInstance extends TestBase
 					{
 						e.printStackTrace();
 						Reporter.log("<p style='color:red'>Instance Resize is not completed. Please look in to the issue</p>.");
+						Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
+						Assert.fail();
+
 					}
 					
 				}
@@ -80,8 +83,9 @@ public class ResizeInstance extends TestBase
 		}
 		catch (Exception e1)
 		{	Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e1)+"</p>");
-			Assert.fail();
 			e1.printStackTrace();
+			Assert.fail();
+
 		}
 	}	
 }

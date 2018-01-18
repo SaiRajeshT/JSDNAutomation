@@ -73,9 +73,10 @@ public class CreateVolumeSnapshot extends TestBase {
 		}
 
 		catch (Exception e) {
+			Reporter.log("<p style='color:red'> Issue while creating volume snapshot for"+volumeName);
 			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			e.printStackTrace();
-
+			Assert.fail();
 		}
 	}
 }

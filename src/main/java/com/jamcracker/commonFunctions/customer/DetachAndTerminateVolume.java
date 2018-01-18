@@ -64,7 +64,7 @@ public class DetachAndTerminateVolume extends TestBase {
 					if (objinstancePage.getExistingVolumeStatus(volumeName) == false) {
 						//objinstancePage.existingVolumeSearchBox.sendKeys(volumeName);
 						objinstancePage.closePouUp.click();
-						Reporter.log("Detach volume is successfull.");
+						Reporter.log("Detach and Terminate volume is successfull.");
 					}
 					else{
 						Reporter.log("<p style='color:red'> Detach and Terminate Volume is failed. please look in to the issue.</p>");

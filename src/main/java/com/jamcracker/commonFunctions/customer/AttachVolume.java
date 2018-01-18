@@ -15,6 +15,7 @@ public class AttachVolume extends TestBase {
 		try{
 			
 			InstancesPage objinstancePage = new InstancesPage();
+			explicitWaitToClickable(objinstancePage.manageLink);
 			objinstancePage.manageLink.click();
 			objinstancePage.instancesLink.click();
 			explicitWait(objinstancePage.searchTextBox);
@@ -64,13 +65,14 @@ public class AttachVolume extends TestBase {
 					
 					if(objinstancePage.getVolumeStatus(volumeName).equalsIgnoreCase("Available"))
 					{
-						Reporter.log("Volume created successfully and present in available status");
+						Reporter.log("Volume " +volumeName+"  Attached  successfully to instance "+instName+" and present in available status");
+						
 						test=false;
 					}
 					
 					if(objinstancePage.getVolumeStatus(volumeName).equalsIgnoreCase("Error"))
 					{
-						Reporter.log("<p style='color:red'>Volume Went to error status. Please check the issue.</p>");
+						Reporter.log("<p style='color:red'>Volume "+volumeName+" Went to error status. Please check the issue.</p>");
 						test=false;
 					}
 					

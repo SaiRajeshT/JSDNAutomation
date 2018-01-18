@@ -115,7 +115,7 @@ public class ExcelStackOrderReader {
 		for(int i=1; i<=totalrows ; i++)
 		{
 			row = sheet.getRow(i);
-			String instanceName = row.getCell(0).getStringCellValue();
+			String instanceName = row.getCell(0).getStringCellValue().trim();
 			if(mapSec.get(instanceName) == null){
 				mapSec.put(instanceName, new ArrayList<SecurityGroup>());
 			}
@@ -143,7 +143,7 @@ public class ExcelStackOrderReader {
 				secRules.setPortStart(ruledetails[1]);
 				secRules.setPortEnd(ruledetails[2]);
 				secRules.setIpAddress(ruledetails[3]);
-				secRules.setSubnetMask(ruledetails[1]);	
+				secRules.setSubnetMask(ruledetails[4]);	
 				rules.add(secRules);
 			}
 			 
