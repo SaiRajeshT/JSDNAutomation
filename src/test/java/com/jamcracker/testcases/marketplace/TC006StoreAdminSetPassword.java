@@ -34,10 +34,10 @@ public class TC006StoreAdminSetPassword extends TestBase {
 	
 	
 	@BeforeMethod
-	@Parameters({"browser"})
-	public void setUp(String browser)
+	@Parameters({"browser","targetMpUrl"})
+	public void setUp(String browser,String url)
 	{
-		init(browser, getURL());
+		init(browser, url);
 	}
 	
 	  @Test(dataProvider="setPasswordData")

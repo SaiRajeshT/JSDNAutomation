@@ -1,5 +1,6 @@
 package com.jamcracker.commonFunctions.pivotpath;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.testng.Reporter;
 
 import com.jamcracker.objectRepository.marketplace.PivotpathPages;
@@ -9,7 +10,9 @@ public class EnableCaptcha extends TestBase{
 	
 	public static void captchaEnable(String acronym)
 	{
-		PivotpathPages objPivotpath = new PivotpathPages();
+		try{
+			PivotpathPages objPivotpath = new PivotpathPages();
+		
 		explicitWait(objPivotpath.administrationLink);
 		objPivotpath.administrationLink.click();
 		objPivotpath.memberOrgLink.click();
@@ -32,7 +35,14 @@ public class EnableCaptcha extends TestBase{
 		
 		
 		objPivotpath.SaveButton.click();
-		
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			Reporter.log("<p style='color:red'>issue while Enabling the captcha for "+ acronym+ ".<p>");
+			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
+			//Assert.fail();
+		}
 		
 		
 		

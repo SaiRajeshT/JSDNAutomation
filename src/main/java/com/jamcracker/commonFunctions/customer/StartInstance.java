@@ -75,6 +75,7 @@ public class StartInstance extends TestBase {
 			}
 		} catch (Exception emsg) {
 			emsg.printStackTrace();
+			Reporter.log("<p style='color:red'>Issue while starting the server. Please look in to the issue.</p>");
 			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(emsg)+"</p>");
 			Assert.fail();
 		}

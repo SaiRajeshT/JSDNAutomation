@@ -1,6 +1,7 @@
 package com.jamcracker.testcases.customeManagement;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
@@ -14,7 +15,6 @@ import com.jamcracker.commonFunctions.customer.CustomerLogout;
 import com.jamcracker.commonFunctions.customer.DeleteVolumeSnapshot;
 import com.jamcracker.commonFunctions.customer.DetachAndTerminateVolume;
 import com.jamcracker.commonFunctions.customer.DetachVolume;
-import com.jamcracker.objectRepository.customer.CustomerMenuAndSubmenuObjects;
 import com.jamcracker.utilities.TestBase;
 
 @Listeners(com.jamcracker.listeners.TestListener.class)
@@ -40,21 +40,11 @@ public class TC008VolumeAction extends TestBase {
 		DetachVolume volumeObj2 = new DetachVolume();
 		DetachAndTerminateVolume volumeObj3 = new DetachAndTerminateVolume();
 		CustomerAdminLogin custLogin = new CustomerAdminLogin();
-		CustomerMenuAndSubmenuObjects objMenuPage = new CustomerMenuAndSubmenuObjects();
 		CreateVolumeSnapshot objVolSnapshot = new CreateVolumeSnapshot();
 		DeleteVolumeSnapshot objdelSnapshot = new DeleteVolumeSnapshot();
 
 		if (executable.equalsIgnoreCase("y")) {
 			
-			try{
-				driver.navigate().refresh();
-				objMenuPage.profileIcon.click();
-				objMenuPage.signOutLink.click();
-			}
-			catch(Exception e)
-			{
-				
-			}
 			custLogin.customerAdminLogin(email, Password);
 			
 			switch(action.toLowerCase()){
@@ -83,6 +73,11 @@ public class TC008VolumeAction extends TestBase {
 		}
 	}
 	
+	@AfterMethod
+	public void logout()
+	{
+		CustomerLogout.logOut();
+	}
 	@AfterClass
 	public void close()
 	{

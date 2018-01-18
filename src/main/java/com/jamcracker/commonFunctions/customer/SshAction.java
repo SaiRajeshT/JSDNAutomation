@@ -52,7 +52,7 @@ public class SshAction extends TestBase {
 		} catch (Exception e) {
 			
 			e.printStackTrace();
-			Reporter.log("<p style='color:red'issue while performing launch ssh.<p>");
+			Reporter.log("<p style='color:red'>issue while performing launch ssh.<p>");
 			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			Assert.fail();
 		}

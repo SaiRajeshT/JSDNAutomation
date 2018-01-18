@@ -26,7 +26,7 @@ public class TC012EnableCaptcha extends TestBase {
 	}
 	
 	@Test
-	public void disableCaptcha()
+	public void enableCaptcha()
 	{
 		String organization =  getData("TestData.xls", "CredentialsSheet", "Pivot Path Login", 2);
 		String userName =  getData("TestData.xls", "CredentialsSheet", "Pivot Path Login", 3);

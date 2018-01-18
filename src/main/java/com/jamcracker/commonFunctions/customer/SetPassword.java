@@ -1,6 +1,7 @@
 package com.jamcracker.commonFunctions.customer;
 
 import org.testng.Assert;
+import org.testng.Reporter;
 
 import com.jamcracker.objectRepository.customer.CustomerMenuAndSubmenuObjects;
 import com.jamcracker.objectRepository.customer.SetPasswordPage;
@@ -34,6 +35,7 @@ public class SetPassword extends TestBase {
 		String actualMessage = passwordPage.passwordNotifyMsg.getText();
 		String expectedMessage = "Your password has been updated successfully.";
 		Assert.assertEquals(actualMessage, expectedMessage);
+		Reporter.log("Reset Password successfull for Email Id : " +email);
 		
 	}
 

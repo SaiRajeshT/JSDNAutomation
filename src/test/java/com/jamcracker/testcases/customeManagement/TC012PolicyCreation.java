@@ -40,7 +40,7 @@ public class TC012PolicyCreation extends TestBase {
 	public void testRestrictPolicyCreation(PolicyCreationData pcData) {
 		
 		CustomerAdminLogin custAdmin = new CustomerAdminLogin();
-		custAdmin.customerAdminLogin("storeuser111@gmail.com", "Root123#");
+		custAdmin.customerAdminLogin("testnew5994@gmail.com", "Root123#");
 		PolicyCreation policy = new PolicyCreation();
 		policy.policyCreation(pcData);
 		
@@ -58,7 +58,7 @@ public class TC012PolicyCreation extends TestBase {
 	
 	@AfterMethod
 	public void tearDown() {
-		closeBrowser();
+		//closeBrowser();
 	}
 
 }

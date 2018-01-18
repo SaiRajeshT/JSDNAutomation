@@ -101,6 +101,7 @@ public  class TerminateServer extends TestBase {
 		catch(Exception emsg)
 		{
 			emsg.printStackTrace();
+			Reporter.log("<p style='color:red'>Issue while Terminating server.</p>");
 			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(emsg)+"</p>");
 			Assert.fail();
 		}

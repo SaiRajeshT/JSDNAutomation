@@ -91,7 +91,7 @@ public class CustomerCreation extends TestBase {
 		String actualTitle = driver.getTitle();
 		String expectedTitle = "Registration Success";
 		Assert.assertEquals(actualTitle, expectedTitle);
-		Reporter.log("Customer Registration Successful", true);
+		Reporter.log("Customer with Name" + ccData.getCompanyName()+ " and Email Id "+ccData.getEmail()+" Registration is Successful ", true);
 	}
 
 }

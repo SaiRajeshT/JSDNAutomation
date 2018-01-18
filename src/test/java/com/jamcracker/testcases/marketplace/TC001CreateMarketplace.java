@@ -27,16 +27,17 @@ public class TC001CreateMarketplace extends TestBase
 
 
 	
+	
 	@DataProvider(name="MarketplaceCreationData")
 	private String[][] getStackCreationData() {
 		return getData("TestData.xls", "MpCreationDataSheet");
 	}	
 		
 	@BeforeMethod
-	@Parameters({"browser"})
-	public void setUp(String browser)
+	@Parameters({"browser","superAdminUrl"})
+	public void setUp(String browser,String url)
 	{
-		init(browser, getURL());
+		init(browser, url);
 	}
 	
 	@Test(dataProvider="MarketplaceCreationData")

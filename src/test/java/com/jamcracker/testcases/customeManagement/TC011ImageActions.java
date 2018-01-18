@@ -1,6 +1,7 @@
 package com.jamcracker.testcases.customeManagement;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
@@ -29,43 +30,44 @@ public class TC011ImageActions extends TestBase {
 	return getData("CustomerData.xls", "Images");}
 	
 	@Test(dataProvider="ImageData")
-	public void imageCreation(String executable, String action, String email, String Password, String instName,String imageName,String imageDesc,String volumeName, String volumeSnapshotName)
+	public void imageactions(String executable, String action, String email, String Password, String instName,
+			String imageName,String imageDesc,String volumeName, String volumeSnapshotName)
 	{
 		CustomerAdminLogin custLogin = new CustomerAdminLogin();
 		ImageCreation objImageCreation = new ImageCreation();
 		DeleteImage objDeleteImage = new DeleteImage();
+		
+		
 		if(executable.equalsIgnoreCase("y"))
 		{
-			if(action.equalsIgnoreCase("Image Creation"))
-			{		
 			
+			switch(action.toLowerCase()){
+			case "image creation" : 
 				custLogin.customerAdminLogin(email, Password);
 				objImageCreation.imageCreation(instName, imageName,imageDesc);
-			}
+				break;
 			
-			else if(action.equalsIgnoreCase("Delete Image"))
-			{		
-			
+			case "delete image" :
 				custLogin.customerAdminLogin(email, Password);
 				objDeleteImage.deleteImage(imageName);
-			}
-			
-			else
-			{
+				break;
+			case "image creation with volume" :
 				custLogin.customerAdminLogin(email, Password);
 				objImageCreation.imageCreationwithVolume(instName, imageName, imageDesc, volumeName, volumeSnapshotName);
-				
+				break;
 			}
-			
-			CustomerLogout.logOut();
-		
 		}
 	}
 	
+	@AfterMethod
+	public void logout()
+	{
+		CustomerLogout.logOut();
+	}
 	@AfterClass
 	public void close()
 	{
-		closeBrowser();
+		//closeBrowser();
 
 	}
 
