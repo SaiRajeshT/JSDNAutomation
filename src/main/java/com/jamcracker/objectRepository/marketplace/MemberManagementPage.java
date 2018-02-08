@@ -11,7 +11,7 @@ public class MemberManagementPage extends TestBase
 {
 	  public MemberManagementPage()
 	  {
-		  PageFactory.initElements(driver, this);
+		  PageFactory.initElements(getDriver(), this);
 		  
 	  }
 	  
@@ -93,7 +93,7 @@ public class MemberManagementPage extends TestBase
 	 {
 		 String objPath ="(//td[text()='<REPLACE>'])[1]//following-sibling::td[12][text()='New']";
 		 objPath = objPath.replaceAll("<REPLACE>", storeName);
-		return driver.findElement(By.xpath(objPath));
+		return getDriver().findElement(By.xpath(objPath));
 		 
 	 }
 	 
@@ -102,7 +102,7 @@ public class MemberManagementPage extends TestBase
 	 {
 		 String objPath ="//td[text()='<REPLACE>']//following-sibling::td[text()='New']";
 		 objPath = objPath.replaceAll("<REPLACE>", companyAcronym);
-		return driver.findElement(By.xpath(objPath));
+		return getDriver().findElement(By.xpath(objPath));
 		 
 	 }
 	 
@@ -111,7 +111,7 @@ public class MemberManagementPage extends TestBase
 	 String objPath="//td[text()='<REPLACE>']//following-sibling::td[10][text()='Active']" ;
 	 objPath = objPath.replaceAll("<REPLACE>", companyAcronym);
 	 System.out.println(objPath);
-	 return driver.findElement(By.xpath(objPath));
+	 return getDriver().findElement(By.xpath(objPath));
  }
 
 	

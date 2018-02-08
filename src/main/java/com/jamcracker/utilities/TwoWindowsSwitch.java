@@ -13,18 +13,18 @@ public class TwoWindowsSwitch extends TestBase {
 	
 	public static void getWindowHandles()
 	{
-		Set<String> windowIDs = driver.getWindowHandles();
+		Set<String> windowIDs = getDriver().getWindowHandles();
 		Iterator<String> it = windowIDs.iterator();
 		parentID = it.next();
 		childID = it.next();
 	}
 	
 	public static  void switchToParent() {
-		driver.switchTo().window(parentID);
+		getDriver().switchTo().window(parentID);
 	}
 	
 	public static void switchToChild() {
-		driver.switchTo().window(childID);
+		getDriver().switchTo().window(childID);
 	}
 	
 }

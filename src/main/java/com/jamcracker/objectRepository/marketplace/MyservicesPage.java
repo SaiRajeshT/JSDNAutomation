@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class MyservicesPage extends TestBase {
 
 	public MyservicesPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(linkText = "My Services")
@@ -157,29 +157,29 @@ public class MyservicesPage extends TestBase {
 	public WebElement getSubCategory(String subCategory) {
 		String objXPath = "//div[@id='subcat_<REPLACE>']//input";
 		objXPath = objXPath.replaceAll("<REPLACE>", subCategory);
-		return driver.findElement(By.xpath(objXPath));
+		return getDriver().findElement(By.xpath(objXPath));
 	}
 
 	public WebElement getServiceStatus(String serviceName) {
 		String objXPath = "//tr[td[contains(@title,'<REPLACE>')]]/td[@title='Approved']";
 		objXPath = objXPath.replaceAll("<REPLACE>", serviceName);
-		return driver.findElement(By.xpath(objXPath));
+		return getDriver().findElement(By.xpath(objXPath));
 	}
 
 	public WebElement getPriceTextbox(Integer currencyId, String priceType) {
 		String objXpath = "//input[@id='" + priceType + "_" + currencyId + "']";
-		return driver.findElement(By.xpath(objXpath));
+		return getDriver().findElement(By.xpath(objXpath));
 	}
 
 	public WebElement getTaxTextBox(String currency) {
 		String objXpath = "//div[@id='mp" + currency + "']";
-		return driver.findElement(By.xpath(objXpath));
+		return getDriver().findElement(By.xpath(objXpath));
 	}
 
 	public WebElement getCheckAllTaxCheckBox(String currency) {
 		String objXpath = "(//legend[contains(text(),'" + currency
 				+ "')])[2]//following-sibling::div//input[@type='checkbox']";
-		return driver.findElement(By.xpath(objXpath));
+		return getDriver().findElement(By.xpath(objXpath));
 	}
 
 	@FindBy(name = "resell")

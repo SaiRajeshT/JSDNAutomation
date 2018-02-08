@@ -43,7 +43,7 @@ public class TC019LaunchInstFromImage extends TestBase {
 
 	@AfterMethod
 	public void aftermethod() {
-		driver.quit();
+		getDriver().quit();
 	}
 
 }

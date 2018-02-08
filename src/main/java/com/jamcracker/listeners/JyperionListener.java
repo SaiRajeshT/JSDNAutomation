@@ -11,6 +11,10 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+//import com.Common;
+import com.jamcracker.utilities.DateTime;
+import com.jamcracker.utilities.TestBase;
+//import com.utility.TakeScreenShot;
 import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
@@ -22,10 +26,6 @@ import com.lowagie.text.pdf.PdfAction;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-//import com.Common;
-import com.jamcracker.utilities.DateTime;
-import com.jamcracker.utilities.TestBase;
-//import com.utility.TakeScreenShot;
 
 /**
  * JyperionListener
@@ -123,12 +123,13 @@ public class JyperionListener  implements ITestListener {
 	 * @see com.beust.testng.ITestListener#onTestFailure(com.beust.testng.ITestResult)
 	 */
 	public void onTestFailure(ITestResult result) {
-		//WebDriver driver;
-		this.driver = TestBase.driver;
+		//WebgetDriver() getDriver();
+		this.driver = TestBase.getDriver();
+		
 		//DateTime	datetime;
 		/*TakeScreenShot	tss;
 		String imagePath ="";
-		driver = Common.driver; //Taking the driver from common class.
+		getDriver() = Common.getDriver(); //Taking the getDriver() from common class.
 		datetime	= new DateTime();
 		tss	=	new TakeScreenShot();
 		*/
@@ -141,11 +142,11 @@ public class JyperionListener  implements ITestListener {
 		String testMethodName = result.getName().toString().trim();
 		String screenShotName = testMethodName +datetime.getDateTime()+ ".png";
 
-	/*	if (driver != null) {
+	/*	if (getDriver() != null) {
 			imagePath = fileSeperator + "Screenshots"
 					+ fileSeperator + "Results" + fileSeperator + testClassName
 					+ fileSeperator
-					+ tss.takeScreenShot(driver, screenShotName, testClassName);
+					+ tss.takeScreenShot(getDriver(), screenShotName, testClassName);
 			System.out.println("Screenshot can be found : " + imagePath);
 		}
 		*/

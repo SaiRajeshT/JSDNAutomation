@@ -34,7 +34,7 @@ public class StopStack extends TestBase {
 			}
 
 			objstackPage.stopLink.click();
-			if (driver.getPageSource().contains(
+			if (getDriver().getPageSource().contains(
 					"Please wait while the AppStack ‘"+stackName+"’ is stopped") == true) {
 				Reporter.log("Successfully clicked  stop link for stack"+stackName);
 			}

@@ -43,6 +43,6 @@ public class TC012DisableCaptcha extends TestBase {
   {	//The method will receive ITestResult runtime object for the test that has just finished. This code is added to print Reporter.log in after method also
 	  Reporter.setCurrentTestResult(result);
 		 LogoutPivotPath.logout();
-		 driver.quit();
+		 getDriver().quit();
   }
 }

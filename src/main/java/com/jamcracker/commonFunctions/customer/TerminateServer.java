@@ -57,7 +57,7 @@ public  class TerminateServer extends TestBase {
 
 		
 		 
-		if (driver.getPageSource().contains("Terminating the Instance. This may take a few minutes for the VM to terminate.") == true)
+		if (getDriver().getPageSource().contains("Terminating the Instance. This may take a few minutes for the VM to terminate.") == true)
 		{
 			Reporter.log("Instance Termination intiated successfully");
 		}

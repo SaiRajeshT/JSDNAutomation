@@ -50,7 +50,9 @@ private StackOrder[] getStackOrderData()
 	@AfterMethod
 	public void aftermethod()
 	{
-		driver.quit();
+		
+		getDriver().quit();
+		webDriversMap.remove(Thread.currentThread().getName());
 	}
 	
 }

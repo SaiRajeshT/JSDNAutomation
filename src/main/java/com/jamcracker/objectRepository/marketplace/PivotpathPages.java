@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 
 public class PivotpathPages extends TestBase {
 	  public PivotpathPages(){
-		 PageFactory.initElements(driver, this);
+		 PageFactory.initElements(getDriver(), this);
 	 }
 	 
 	  @FindBy(name="companyAcronym")
@@ -53,7 +53,7 @@ public class PivotpathPages extends TestBase {
 	  
 	  public WebElement getProxyLink(String acronym)
 	  {
-		  return driver.findElement(By.xpath("(//td[@title='"+acronym+"']//following-sibling::td/a[text()='Proxy'])[1]"));
+		  return getDriver().findElement(By.xpath("(//td[@title='"+acronym+"']//following-sibling::td/a[text()='Proxy'])[1]"));
 	  }
 	  
 	  

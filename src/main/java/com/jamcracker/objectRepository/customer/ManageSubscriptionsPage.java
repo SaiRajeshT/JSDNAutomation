@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class ManageSubscriptionsPage extends TestBase {
 	
 	public ManageSubscriptionsPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(className="mainWrapper")
@@ -19,7 +19,7 @@ public class ManageSubscriptionsPage extends TestBase {
 	public WebElement actionsLink(String offerCode) throws Exception {
 		String offerId = ResultsFromDB.getOfferID(offerCode);
 		String requiredXpath = "//tr[@id='needsSubstitution']/td/span";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", offerId)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", offerId)));		
 	}
 	
 	@FindBy(linkText="View Details")

@@ -31,11 +31,11 @@ public class StoreSearchPreference extends TestBase
 		TwoWindowsSwitch.getWindowHandles();
 		TwoWindowsSwitch.switchToChild();
 		try {
-			driver.get("javascript:document.getElementById('overridelink').click();");
+			getDriver().get("javascript:document.getElementById('overridelink').click();");
 		} catch (Exception e) {
 			Reporter.log("Browser is not Internet Explorer");
 		}
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		try {
 			explicitWait(objSetUpPage.submitStoreApproveButton);
 			js.executeScript("arguments[0].scrollIntoView(true);",objSetUpPage.submitStoreApproveButton);

@@ -96,7 +96,7 @@ public class SetUpBillingOptions extends TestBase
 			{
 				e.printStackTrace();
 				Reporter.log("<p style='color:red'>"+paymentMethod + "Payment method is not selected. Please check the issue.</p>");
-				CaptureScreenshot.screenshot(driver,screenShotName,testClassName,packageName);
+				CaptureScreenshot.screenshot(getDriver(),screenShotName,testClassName,packageName);
 				Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
 			}
 		

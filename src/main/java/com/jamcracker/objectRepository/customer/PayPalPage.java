@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class PayPalPage extends TestBase{
 	
 	public PayPalPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(id="outerWrapper")

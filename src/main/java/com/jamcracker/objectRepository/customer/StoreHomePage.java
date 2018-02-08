@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class StoreHomePage extends TestBase {
 	
 	public StoreHomePage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(linkText="Sign Up")

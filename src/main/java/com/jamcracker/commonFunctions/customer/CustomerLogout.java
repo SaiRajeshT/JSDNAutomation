@@ -11,7 +11,7 @@ public static void logOut()
 {
 	try{
 	CustomerMenuAndSubmenuObjects objMenuPage = new CustomerMenuAndSubmenuObjects();
-	driver.navigate().refresh();
+	getDriver().navigate().refresh();
 	explicitWaitToClickable(objMenuPage.profileIcon);
 	Thread.sleep(3000);
 	objMenuPage.profileIcon.click();

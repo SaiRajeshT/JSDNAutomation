@@ -11,7 +11,7 @@ public class SecurityGroup {
 	private String portEnd;
 	private String ipAddress;
 	private String subnetMask;
-
+	private String nicName;
 	private List<SecurityGroupRules> rules;
 
 
@@ -68,6 +68,12 @@ public class SecurityGroup {
 	}
 	public void setRules(List<SecurityGroupRules> rules) {
 		this.rules = rules;
+	}
+	public String getNicName() {
+		return nicName;
+	}
+	public void setNicName(String nicName) {
+		this.nicName = nicName;
 	}
 	
 

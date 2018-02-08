@@ -29,7 +29,7 @@ public class StoreInvoiceSettings extends TestBase{
 		TwoWindowsSwitch.getWindowHandles();
 		TwoWindowsSwitch.switchToChild();
 		try {
-			driver.get("javascript:document.getElementById('overridelink').click();");
+			getDriver().get("javascript:document.getElementById('overridelink').click();");
 		} catch (Exception e) {
 			Reporter.log("Browser is not Internet Explorer");
 		}
@@ -38,7 +38,7 @@ public class StoreInvoiceSettings extends TestBase{
 		objSetUpPage.submitButton.click();
 		TwoWindowsSwitch.switchToParent();
 		Thread.sleep(2000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		try {
 			js.executeScript("arguments[0].scrollIntoView(true);",objSetUpPage.saveAndNextButton);
 			objSetUpPage.saveAndNextButton.click();

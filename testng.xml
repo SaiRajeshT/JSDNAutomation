@@ -3,9 +3,10 @@
  <listeners>
     <listener class-name="com.jamcracker.listeners.TestListener" />
   </listeners>
-<test name="Marketplace Sanity chrome Test" preserve-order="true" enabled="false">
+	<test name="Marketplace Sanity chrome Test" preserve-order="true" enabled="false">
 	   <parameter name="browser" value="chrome"></parameter>
 	   <parameter name="superAdminPivotPathUrl" value="https://superadmin.jamcracker.com/pivotpath/"></parameter>
+	   <parameter name="superAdminUrl" value="http://172.16.9.219:8080/jsdn/superadmin/pages/view.jsp?view=.view.jsdn.superadmin.login"></parameter>
 	   <parameter name="targetMpUrl" value="https://www.targetmp.com"></parameter>
 	   <parameter name="payAccUrl" value="https://www.mptest2.com"></parameter>
 	   <parameter name="sourceMpUrl" value="https://www.monthlymkt.com"></parameter>
@@ -13,8 +14,8 @@
 	   <parameter name="storeUrl" value="https://mntstore.jamcracker.com"></parameter>
 	
 	<classes>
-<!-- 		<class name="com.jamcracker.testcases.marketplace.TC001CreateMarketplace"></class> -->
-<!-- 		<class name="com.jamcracker.testcases.marketplace.TC002SetPassword"></class> -->
+		<class name="com.jamcracker.testcases.marketplace.TC001CreateMarketplace"></class>
+		<class name="com.jamcracker.testcases.marketplace.TC002SetPassword"></class>
 		<class name="com.jamcracker.testcases.marketplace.TC012DisableCaptcha"></class>
 		<class name="com.jamcracker.testcases.marketplace.TC003StoreCreation"></class>
 		<class name="com.jamcracker.testcases.marketplace.TC004StoreBranding"></class>
@@ -42,8 +43,9 @@
 <parameter name="storeUrl" value="https://mntstore.jamcracker.com"></parameter>
   <parameter name="browser" value="chrome"></parameter>
 <classes>
-  <class name="com.jamcracker.testcases.customeManagement.TC017AddOpenstackAccount"></class> 
- <!--   <class name="com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder"></class>
+<class name="com.jamcracker.testcases.customeManagement.TC007IAASAction"></class>
+  <!--   <class name="com.jamcracker.testcases.customeManagement.TC017AddOpenstackAccount"></class> 
+ <class name="com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder"></class>
    <class name="com.jamcracker.testcases.customeManagement.TC007IAASAction"></class>
     <class name="com.jamcracker.testcases.customeManagement.TC008VolumeAction"></class>
     <class name="com.jamcracker.testcases.customeManagement.TC010ResizeInstance"></class>
@@ -58,11 +60,11 @@
 <parameter name="storeUrl" value="https://mntstore.jamcracker.com"></parameter>
   <parameter name="browser" value="chrome"></parameter>
 <classes>
-<!--   <class name="com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder"></class>
+<!-- <class name="com.jamcracker.testcases.customeManagement.TC006PlaceStackOrder"></class>
    <class name="com.jamcracker.testcases.customeManagement.TC007IAASAction"></class>
     <class name="com.jamcracker.testcases.customeManagement.TC008VolumeAction"></class>
     <class name="com.jamcracker.testcases.customeManagement.TC010ResizeInstance"></class>
-  <class name="com.jamcracker.testcases.customeManagement.TC011ImageActions"></class>
+   <class name="com.jamcracker.testcases.customeManagement.TC011ImageActions"></class>
    <class name="com.jamcracker.testcases.customeManagement.TC013StaticIpAddress"></class>
    <class name="com.jamcracker.testcases.customeManagement.TC019LaunchInstFromImage"></class> -->
    <class name="com.jamcracker.testcases.customeManagement.TC014StackAction"></class>

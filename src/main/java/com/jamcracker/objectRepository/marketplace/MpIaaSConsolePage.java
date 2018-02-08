@@ -12,11 +12,11 @@ import com.jamcracker.utilities.TestBase;
 public class MpIaaSConsolePage extends TestBase {
 	
 	public MpIaaSConsolePage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public void waitForMpIaaSConsolePage() {		
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("wrapper")));		
 	}
 	
@@ -25,12 +25,12 @@ public class MpIaaSConsolePage extends TestBase {
 	
 	public WebElement getStackName(String stackName) {		
 		String requiredXpath = "//td[@title='needsSubstitution']";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", stackName)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", stackName)));		
 	}
 	
 	public WebElement getPublishLink(String stackName) {		
 		String requiredXpath = "//tr[td[@title='needsSubstitution']]/td/a/img[@title='Publish']";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", stackName)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", stackName)));		
 	}
 	
 	@FindBy(id="serviceName")

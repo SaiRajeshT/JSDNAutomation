@@ -10,7 +10,7 @@ public class SuperAdminLoginPage extends TestBase
 {
 	public SuperAdminLoginPage() 
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	

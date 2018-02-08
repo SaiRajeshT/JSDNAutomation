@@ -22,7 +22,9 @@ public class TC007IAASAction extends TestBase {
 	@BeforeClass
 	@Parameters({ "browser","storeUrl" })
 	public void setUp(String browser, String url) {
+		System.out.println("Before init paralel instance page");
 		init(browser, url);
+		System.out.println("after init testing paralel instance page");
 	}
 
 	@DataProvider(name = "StartInstanceData")

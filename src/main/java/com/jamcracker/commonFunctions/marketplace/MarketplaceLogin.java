@@ -13,7 +13,7 @@ public class MarketplaceLogin extends TestBase {
 		mpLogin.getLoginButton.click();
 		
 		try{
-			 driver.switchTo().alert().dismiss();
+			getDriver().switchTo().alert().dismiss();
 			 
 			 //Need to change password here
 			/* boolean logoutLink = getCommonObject("Logout_xpath").isDisplayed();

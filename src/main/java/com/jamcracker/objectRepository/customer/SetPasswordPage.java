@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class SetPasswordPage extends TestBase {
 	
 	public SetPasswordPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(id="setPasswordForm")

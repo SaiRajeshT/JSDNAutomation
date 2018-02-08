@@ -11,7 +11,7 @@ public class SuperAdminMarktplacesPage extends TestBase
 {
 	public SuperAdminMarktplacesPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	@FindBy(xpath = "//a[text()='Add Marketplace']")
 	public WebElement addMarketplaceLink;
@@ -53,26 +53,26 @@ public class SuperAdminMarktplacesPage extends TestBase
 	
 	public WebElement  getMarketplaceName(String marketplaceName)
 	{
-		return driver.findElement(By.xpath("//td[text()='"+marketplaceName+"']"));
+		return getDriver().findElement(By.xpath("//td[text()='"+marketplaceName+"']"));
 	}
 	
 	public WebElement getMarketplaceProxy(String companyName)
 	{
 		String proxyObjPath = "//tr[td[text()='<REPLACE>']]//a[text()='Proxy']";
 		proxyObjPath = proxyObjPath.replaceAll("<REPLACE>", companyName);
-		return driver.findElement(By.xpath(proxyObjPath));
+		return getDriver().findElement(By.xpath(proxyObjPath));
 	}
 	
 	public WebElement getMarketplaceActivate(String companyAcronym)
 	{
 		String activateObjPath = "//tr[td[text()='<REPLACE>']]//img[@title='Click here to activate registration']";
 		activateObjPath = activateObjPath.replaceAll("<REPLACE>", companyAcronym);
-		return driver.findElement(By.xpath(activateObjPath));
+		return getDriver().findElement(By.xpath(activateObjPath));
 	}
 	
 	public WebElement verifyActivate(String companyAcronym )
 	{
-		return driver.findElement(By.xpath("//td[text()='"+companyAcronym+"']//following-sibling::td//img[@title='Registration activated']"));
+		return getDriver().findElement(By.xpath("//td[text()='"+companyAcronym+"']//following-sibling::td//img[@title='Registration activated']"));
 	}
 	
 	

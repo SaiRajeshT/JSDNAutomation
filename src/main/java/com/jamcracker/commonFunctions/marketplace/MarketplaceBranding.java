@@ -93,7 +93,7 @@ public class MarketplaceBranding extends TestBase
 			{
 				Reporter.log(timezone + " Timezone is not selected please check the issue");
 				//Manually Taking screenshot
-				CaptureScreenshot.screenshot(driver,screenShotName,testClassName,packageName);
+				CaptureScreenshot.screenshot(getDriver(),screenShotName,testClassName,packageName);
 			}
 						
 		}
@@ -321,7 +321,7 @@ public class MarketplaceBranding extends TestBase
 				catch(Exception e)
 				{
 					Reporter.log(paymentMethod + "<p style='color:red'>Payment method is not selected. Please check the issue.</p>");
-					CaptureScreenshot.screenshot(driver,screenShotName,testClassName,packageName);
+					CaptureScreenshot.screenshot(getDriver(),screenShotName,testClassName,packageName);
 				}
 			
 			}

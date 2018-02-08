@@ -11,7 +11,7 @@ public class CompanyRequestsPage extends TestBase
 {
 	public CompanyRequestsPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(linkText="Company Requests")
@@ -27,7 +27,7 @@ public class CompanyRequestsPage extends TestBase
 	{
 	  String objXPath="//td[@title='<REPLACE>']//preceding-sibling::td//input[@name='chk1']";
 	   objXPath = objXPath.replaceAll("<REPLACE>", email);
-	  return driver.findElement(By.xpath(objXPath));
+	  return getDriver().findElement(By.xpath(objXPath));
 	}
 	
 	 @FindBy(xpath="//button[text()='Yes']")

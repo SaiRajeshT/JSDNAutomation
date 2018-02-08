@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class CmsAdminMenuBar extends TestBase {
 	
 	public CmsAdminMenuBar() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(xpath="//span[text()='Home']")

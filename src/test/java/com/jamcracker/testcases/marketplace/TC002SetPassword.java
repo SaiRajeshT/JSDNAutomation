@@ -50,7 +50,7 @@ public class TC002SetPassword extends TestBase
 	@AfterMethod
 	public void teardown()
 	{
-		driver.quit();
+		getDriver().quit();
 	}
 	
 
@@ -62,7 +62,7 @@ public class TC002SetPassword extends TestBase
 		  if(ITestResult.FAILURE== result.getStatus())
 		  {
 			  System.out.println("Capturing screenshot");
-			  CaptureScreenshot.screenshot(driver,result.getName(),packageName);
+			  CaptureScreenshot.screenshot(getDriver(),result.getName(),packageName);
 		  }
 	  }*/
  

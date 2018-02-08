@@ -11,7 +11,7 @@ public class QuickHelpPage extends TestBase{
 	
 	public QuickHelpPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(xpath="//div[@id='pageBodyTemplate']//li[contains(text(),'Quick Help')]")
@@ -28,7 +28,7 @@ public class QuickHelpPage extends TestBase{
 	
 	public WebElement getLink(String Linkname)
 	{
-		return driver.findElement(By.linkText(Linkname));
+		return getDriver().findElement(By.linkText(Linkname));
 	}
 	
 }

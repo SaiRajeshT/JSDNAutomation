@@ -62,7 +62,7 @@ public class OrderNew extends TestBase {
 		
 		PaymentDetailsPage objPaymentPage = new PaymentDetailsPage();
 		try{
-			JavascriptExecutor js = (JavascriptExecutor) driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			objPaymentPage.bugetLookUpLink.click();
 			/*objPaymentPage.budgetSearchTextBox.click();
 			objPaymentPage.budgetSearchTextBox.clear();*/

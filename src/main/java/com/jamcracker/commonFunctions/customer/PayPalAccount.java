@@ -16,7 +16,7 @@ import com.jamcracker.utilities.TestBase;
 public class PayPalAccount extends TestBase {
 
 	Properties prop = new Properties();
-	JavascriptExecutor js = (JavascriptExecutor) driver;
+	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 
 	public void enterPayPalDetails() throws Exception {
 		InputStream input = null;

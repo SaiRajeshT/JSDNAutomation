@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class MarketplacePage extends TestBase {
 	public MarketplacePage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(linkText="Marketplace")
@@ -26,7 +26,7 @@ public class MarketplacePage extends TestBase {
 	public WebElement getResellButton(String serviceName){
 	String objxpath = "//div[table[tbody[tr[td[text()='<REPLACE>']]]]]//following-sibling::div//span[text()='Resell']";
 	objxpath = objxpath.replaceAll("<REPLACE>", serviceName);
-	return driver.findElement(By.xpath(objxpath));}
+	return getDriver().findElement(By.xpath(objxpath));}
 	
 	@FindBy(linkText="Collapse")
 	public WebElement collapseLink;
@@ -44,7 +44,7 @@ public class MarketplacePage extends TestBase {
 	{
 		String objxpath = "//td[text()='<REPLACE>']//preceding-sibling::td[2]//input";
 		objxpath = objxpath.replaceAll("<REPLACE>", serviceName);
-		return driver.findElement(By.xpath(objxpath));
+		return getDriver().findElement(By.xpath(objxpath));
 	}
 	
 

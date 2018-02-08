@@ -102,7 +102,7 @@ actMarketplace.activateMarketplace(companyName);
 	@AfterMethod
 	public void teardown()
 	{
-		//driver.quit();
+		//getDriver().quit();
 	}
 	
 }

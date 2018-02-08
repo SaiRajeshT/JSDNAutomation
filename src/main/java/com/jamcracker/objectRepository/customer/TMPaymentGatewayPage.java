@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class TMPaymentGatewayPage extends TestBase {
 	
 	public TMPaymentGatewayPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(xpath="//input[@value='0'][@name='ERR_CODE']")

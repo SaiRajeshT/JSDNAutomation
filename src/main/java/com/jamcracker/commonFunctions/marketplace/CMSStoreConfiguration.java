@@ -19,7 +19,7 @@ public class CMSStoreConfiguration extends TestBase {
 	
 	public void storeCMSConfiguration(String domain, String name, String storeType, String siteName, String emailAddress, String defaultLanguage) {
 		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		CmsAdminMenuBar objCmsMenu = new CmsAdminMenuBar();
 		explicitWait(objCmsMenu.structureLink);
 		objCmsMenu.structureLink.click();

@@ -11,7 +11,7 @@ import com.jamcracker.utilities.TestBase;
 public class InstancesPage extends TestBase{
 	
 	public InstancesPage(){
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	
@@ -175,23 +175,32 @@ public class InstancesPage extends TestBase{
 	@FindBy(id="name")
 	public WebElement volSnapshotNameTextBox;
 	
+	
+	@FindBy(linkText="Network Interfaces")
+	public WebElement networkInterfaceLink;
+	
+	@FindBy(xpath="//span[text()='Add Network Interface']")
+	public WebElement addNetworkInterfaceButton;
+
+
+	
 	@FindBy(id="description")
 	public WebElement volSnapShotDescriptionTextBox;
 	
 	public WebElement getVolumeCheckBox(String volumeName)
 	{
-		return driver.findElement(By.xpath("//td[p[@title='"+volumeName+"']]//preceding-sibling::td//input[@type='checkbox']"));
+		return getDriver().findElement(By.xpath("//td[p[@title='"+volumeName+"']]//preceding-sibling::td//input[@type='checkbox']"));
 	}
 	
 	public WebElement getVolumeSnapshotTextBox(String volumeName)
 	{
-		return driver.findElement(By.xpath("//td[p[@title='"+volumeName+"']]//following-sibling::td//input[@name='volSnapName[]']"));
+		return getDriver().findElement(By.xpath("//td[p[@title='"+volumeName+"']]//following-sibling::td//input[@name='volSnapName[]']"));
 	}
 	
 public String getVolumeStatus(String volumeName){
 	String value = null;
 	try{
-		value= driver.findElement(By.xpath("(//td[text()='"+volumeName+"']//following-sibling::td[5])[1]")).getText();
+		value= getDriver().findElement(By.xpath("(//td[text()='"+volumeName+"']//following-sibling::td[5])[1]")).getText();
 		}
 	
 	catch(Exception e)
@@ -200,7 +209,7 @@ public String getVolumeStatus(String volumeName){
 	}
 	
 	try{
-		value = driver.findElement(By.xpath("//tr[td[span[@title='"+volumeName+"']]]//td[6]")).getText();
+		value = getDriver().findElement(By.xpath("//tr[td[span[@title='"+volumeName+"']]]//td[6]")).getText();
 	}
 	
 	catch(Exception e1){
@@ -212,7 +221,7 @@ public String getVolumeStatus(String volumeName){
 	
 public WebElement getSize(String size)
 {
-	return driver.findElement(By.xpath("//div[@id='billableParams']//div[text()='"+size+"']"));
+	return getDriver().findElement(By.xpath("//div[@id='billableParams']//div[text()='"+size+"']"));
 	
 }
 	
@@ -220,14 +229,14 @@ public WebElement getSize(String size)
 		WebElement  a = null;
 		//Instance action link without monitoring
 		try {
-			a= driver.findElement(By.xpath("(//td[text()='" + instName + "']//parent::tr//td[contains(@class,'lastaction')]//img)[1]"));
+			a= getDriver().findElement(By.xpath("(//td[text()='" + instName + "']//parent::tr//td[contains(@class,'lastaction')]//img)[1]"));
 		} catch (NoSuchElementException e) {
 			//e.printStackTrace();
 		}
 		//xpath for lengthy instance name and monitor not enabled
 		if(a == null)
 		try {
-			a = driver.findElement(By.xpath("(//tr[td[span[@title='" + instName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
+			a = getDriver().findElement(By.xpath("(//tr[td[span[@title='" + instName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
 		} catch (NoSuchElementException e) {
 			//e.printStackTrace();
 
@@ -235,7 +244,7 @@ public WebElement getSize(String size)
 		//xpath for monitoring enabled instnace action link
 		if(a == null)
 		try {
-			a = driver.findElement(By.xpath("(//tr[td[div[text()='" + instName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
+			a = getDriver().findElement(By.xpath("(//tr[td[div[text()='" + instName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
 		} catch (NoSuchElementException e) {
 			//e.printStackTrace();
 
@@ -244,7 +253,7 @@ public WebElement getSize(String size)
 		//xpath for lengthy instance name and monitor  enabled
 		if(a == null){
 		try {
-			a = driver.findElement(By.xpath("(//tr[td[span[@title='" + instName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
+			a = getDriver().findElement(By.xpath("(//tr[td[span[@title='" + instName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
 		} catch (NoSuchElementException e) {
 			//e.printStackTrace();
 
@@ -254,50 +263,50 @@ public WebElement getSize(String size)
 	}
 	
 	public WebElement getInstanceLNameActionLink(String instName){
-		return driver.findElement(By.xpath("(//tr[td[span[@title='"+instName+"']]]//td[contains(@class,'lastaction')]//img)[1]"));}
+		return getDriver().findElement(By.xpath("(//tr[td[span[@title='"+instName+"']]]//td[contains(@class,'lastaction')]//img)[1]"));}
 	
 	
 		
 	public WebElement getMonitorInstanceActionLink(String instName){
-		return driver.findElement(By.xpath("(//tr[td[div[text()='"+instName+"']]]//td[contains(@class,'lastaction')]//img)[1]"));}
+		return getDriver().findElement(By.xpath("(//tr[td[div[text()='"+instName+"']]]//td[contains(@class,'lastaction')]//img)[1]"));}
 	/*
 	public WebElement getStoppedInstance(String instName){
-		return driver.findElement(By.xpath("(//td[text()='"+instName+"']//parent::tr//td//div[text()='Stopped'])[1]"));}
+		return getDriver().findElement(By.xpath("(//td[text()='"+instName+"']//parent::tr//td//div[text()='Stopped'])[1]"));}
 	
 	public WebElement getStoppedMonitorInstance(String instName){
-		return driver.findElement(By.xpath("(//div[text()='"+instName+"']//parent::td//following-sibling::td//div[text()='Stopped'])[1]"));}
+		return getDriver().findElement(By.xpath("(//div[text()='"+instName+"']//parent::td//following-sibling::td//div[text()='Stopped'])[1]"));}
 	
 	public WebElement getRunningMonitorInstance(String instName){
-		return driver.findElement(By.xpath("(//tr[td[div[text()='"+instName+"']]]//parent::tr//td//div[text()='Running'])[1]"));}
+		return getDriver().findElement(By.xpath("(//tr[td[div[text()='"+instName+"']]]//parent::tr//td//div[text()='Running'])[1]"));}
 	
 		public WebElement getRunningInstance(String instName){
-			return driver.findElement(By.xpath("(//td[text()='"+instName+"']//parent::tr//td//div[text()='Running'])[1]"));}
+			return getDriver().findElement(By.xpath("(//td[text()='"+instName+"']//parent::tr//td//div[text()='Running'])[1]"));}
 		*/
 	
 	
 	public WebElement getStoppedInstance(String instName){
 		WebElement element = null;
 		try {
-			element =driver.findElement(By.xpath("(//td[text()='"+instName+"']//parent::tr//td//div[text()='Stopped'])[1]"));
+			element =getDriver().findElement(By.xpath("(//td[text()='"+instName+"']//parent::tr//td//div[text()='Stopped'])[1]"));
 		} catch (Exception e) {
 
 		}
 
 		try {
-			element =driver.findElement(By.xpath("(//div[text()='"+instName+"']//parent::td//following-sibling::td//div[text()='Stopped'])[1]"));
+			element =getDriver().findElement(By.xpath("(//div[text()='"+instName+"']//parent::td//following-sibling::td//div[text()='Stopped'])[1]"));
 		} catch (Exception e) {
 
 		}
 		
 		// lengthy instance name without monitoring icon
 					try {
-						element = driver.findElement(By.xpath("(//tr[td[span[@title='"+instName+"']]]//td//div[text()='Stopped'])[1]"));
+						element = getDriver().findElement(By.xpath("(//tr[td[span[@title='"+instName+"']]]//td//div[text()='Stopped'])[1]"));
 					} catch (Exception e) {
 
 					}
 					// lengthy instance name with monitoring icon		
 					try{
-						element =  driver.findElement(By.xpath("(//tr[td[div[span[@title='"+instName+"']]]]//td//div[text()='Stopped'])[1]"));
+						element =  getDriver().findElement(By.xpath("(//tr[td[div[span[@title='"+instName+"']]]]//td//div[text()='Stopped'])[1]"));
 						
 					} catch (Exception e) {
 
@@ -309,14 +318,14 @@ public WebElement getSize(String size)
 		public WebElement getRunningInstance(String instName) {
 			WebElement element = null;
 			try {
-				element = driver.findElement(By.xpath("(//td[text()='"+instName+"']//parent::tr//td//div[text()='Running'])[1]"));;
+				element = getDriver().findElement(By.xpath("(//td[text()='"+instName+"']//parent::tr//td//div[text()='Running'])[1]"));;
 			} catch (Exception e) {
 
 			}
 			
 			if(element == null){
 			try {
-				element = driver.findElement(By.xpath("(//tr[td[div[text()='"+instName+"']]]//parent::tr//td//div[text()='Running'])[1]"));
+				element = getDriver().findElement(By.xpath("(//tr[td[div[text()='"+instName+"']]]//parent::tr//td//div[text()='Running'])[1]"));
 			} catch (Exception e) {
 
 			}}
@@ -324,7 +333,7 @@ public WebElement getSize(String size)
 			// lengthy instance name without monitoring icon
 			if(element == null){
 			try {
-				element = driver.findElement(By.xpath("(//tr[td[span[@title='"+instName+"']]]//td//div[text()='Running'])[1]"));
+				element = getDriver().findElement(By.xpath("(//tr[td[span[@title='"+instName+"']]]//td//div[text()='Running'])[1]"));
 			} catch (Exception e) {
 
 			}}
@@ -332,7 +341,7 @@ public WebElement getSize(String size)
 			
 			if(element == null){
 			try{
-				element =  driver.findElement(By.xpath("(//tr[td[div[span[@title='"+instName+"']]]]//td//div[text()='Running'])[1]"));
+				element =  getDriver().findElement(By.xpath("(//tr[td[div[span[@title='"+instName+"']]]]//td//div[text()='Running'])[1]"));
 				
 			} catch (Exception e) {
 
@@ -344,14 +353,14 @@ public WebElement getSize(String size)
 		
 		
 	public WebElement getStackName(String instName){
-		return driver.findElement(By.xpath("//td[text()='"+instName+"']//following-sibling::td[3]//a[@id='showStackDetails']"));}
+		return getDriver().findElement(By.xpath("//td[text()='"+instName+"']//following-sibling::td[3]//a[@id='showStackDetails']"));}
 				
 	
 		
 	public WebElement getTermiantedInstance(String instName) {
 		WebElement element = null;
 		try {
-			element = driver.findElement(
+			element = getDriver().findElement(
 					By.xpath("(//td[text()='" + instName + "']//parent::tr//td//div[text()='Terminated'])[1]"));
 			//System.out.println("(//td[text()='" + instName + "']//parent::tr//td//div[text()='Terminated'])[1]");
 		} catch (Exception e) {
@@ -359,7 +368,7 @@ public WebElement getSize(String size)
 		}
 
 		try {
-			element = driver.findElement(By.xpath(
+			element = getDriver().findElement(By.xpath(
 					"(//tr[td[span[@title='" + instName + "']]]//td//div[text()='Terminated'])[1]"));
 			//System.out.println("(//tr[td[span[@title='" + instName + "']]]//td//div[text()='Terminated'])[1]");
 		} catch (Exception e) {
@@ -373,7 +382,7 @@ public WebElement getSize(String size)
 	public String getImageStatus(String imageName)
 	{
 		
-	 return driver.findElement(By.xpath("//tr[td[text()='"+imageName+"']]//td[6]")).getText();
+	 return getDriver().findElement(By.xpath("//tr[td[text()='"+imageName+"']]//td[6]")).getText();
 	}
 	
 	public WebElement getVolumeActionLink(String volumeName)
@@ -381,11 +390,11 @@ public WebElement getSize(String size)
 		WebElement element = null;
 				
 		try{
-		element = driver.findElement(By.xpath("(//td[text()='"+volumeName+"']//following-sibling::td//span[contains(text(),'Actions')])[1]"));}
+		element = getDriver().findElement(By.xpath("(//td[text()='"+volumeName+"']//following-sibling::td//span[contains(text(),'Actions')])[1]"));}
 		catch(Exception e){}
 		
 		try{
-			element = driver.findElement(By.xpath("(//td[span[@title='"+volumeName+"']]//following-sibling::td//span[contains(text(),'Actions')])[1]"));}
+			element = getDriver().findElement(By.xpath("(//td[span[@title='"+volumeName+"']]//following-sibling::td//span[contains(text(),'Actions')])[1]"));}
 			catch(Exception e){}
 		
 	return	element ; }
@@ -393,7 +402,7 @@ public WebElement getSize(String size)
 	public boolean getDetachVolumeStatus(String volumeName) {
 		boolean test = false;
 		try {
-			if (driver.findElement(By.xpath("//td[text()='" + volumeName + "']//following-sibling::td[5][text()='Detaching']")).isDisplayed())
+			if (getDriver().findElement(By.xpath("//td[text()='" + volumeName + "']//following-sibling::td[5][text()='Detaching']")).isDisplayed())
 				test = true;
 
 		} catch (Exception e) {
@@ -406,7 +415,7 @@ public WebElement getSize(String size)
 	public boolean getExistingVolumeStatus(String volumeName) {
 		boolean test = false;
 		try {
-			if (driver.findElement(By.xpath("(//td[contains(text(),'"+volumeName+"')]//following-sibling::td[4][text()='Active'])[1]")).isDisplayed())
+			if (getDriver().findElement(By.xpath("(//td[contains(text(),'"+volumeName+"')]//following-sibling::td[4][text()='Active'])[1]")).isDisplayed())
 				test = true;
 
 		} catch (Exception e) {

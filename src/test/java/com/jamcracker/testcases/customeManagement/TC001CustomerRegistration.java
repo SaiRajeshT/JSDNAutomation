@@ -16,6 +16,7 @@ import com.jamcracker.utilities.TestBase;
 @Listeners(com.jamcracker.listeners.TestListener.class)
 public class TC001CustomerRegistration extends TestBase {
 
+	
 	@DataProvider(name = "customerRegistrationData")
 	public CustomerCreationData[] getStackCreationData() {
 		CustomerCreationReader reader = new CustomerCreationReader(System.getProperty("user.dir") + File.separator + "Data" + File.separator + "CustomerData.xls");

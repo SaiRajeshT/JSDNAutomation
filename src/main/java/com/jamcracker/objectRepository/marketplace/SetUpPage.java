@@ -14,7 +14,7 @@ public class SetUpPage extends TestBase
 	
 	private  SetUpPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 		public static SetUpPage getInstance()
@@ -61,26 +61,26 @@ public class SetUpPage extends TestBase
 	public WebElement getLanguage(String language) 
 	{
 		  String requiredXpath = "//label[text()='<REPLACE>']//parent::p/input";
-		  return driver.findElement(By.xpath(requiredXpath.replace("<REPLACE>", language)));
+		  return getDriver().findElement(By.xpath(requiredXpath.replace("<REPLACE>", language)));
 	 }
 	
 	public WebElement getDefaultLanguage(String defaultLanguage) 
 	{
 		  String requiredXpath = "//div[text()='<REPLACE>']//preceding-sibling::div//input[@type='radio']";
-		  return driver.findElement(By.xpath(requiredXpath.replace("<REPLACE>", defaultLanguage)));
+		  return getDriver().findElement(By.xpath(requiredXpath.replace("<REPLACE>", defaultLanguage)));
 	 }
 	
 	
 	public WebElement getTimeZone(String TimeZone) 
 	{
 		  String requiredXpath = "//label[text()='needsSubstitution']//parent::p/input";
-		  return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", TimeZone)));
+		  return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", TimeZone)));
 		 }
 
 	public WebElement getDefaultTimeZone(String defaultTimeZone) 
 	{
 		  String requiredXpath = "//div[div[(text()='needsSubstitution')]]/div/input[@name='defaultTimeZone']";
-		  return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", defaultTimeZone)));
+		  return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", defaultTimeZone)));
 		 }
 	
 	
@@ -90,14 +90,14 @@ public class SetUpPage extends TestBase
 	public WebElement getDateFormat(String dateFormat) 
 	{
 		  String requiredXpath = "//label[text()='needsSubstitution']//parent::p//input";
-		  return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", dateFormat)));
+		  return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", dateFormat)));
 	}
 	
 	
 	public WebElement getDefaultDateFormat(String defaultDateFormat) 
 	{
 		  String requiredXpath = "//div[text()='needsSubstitution']//parent::div//input";
-		  return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", defaultDateFormat)));
+		  return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", defaultDateFormat)));
 	}
 	
 	@FindBy(linkText="On Demand Service Delivery Network Policies")
@@ -135,13 +135,13 @@ public class SetUpPage extends TestBase
 	public WebElement getsameDayRadioButton(String billingType) 
 	{
 		  String requiredXpath = "//label[text()='<REPLACE>']//parent::td//parent::tr//input[@value='D']";
-		  return driver.findElement(By.xpath(requiredXpath.replace("<REPLACE>", billingType)));
+		  return getDriver().findElement(By.xpath(requiredXpath.replace("<REPLACE>", billingType)));
 	}
 
 	public WebElement getmonthlyRadioButton(String billingType) 
 	{
 		  String requiredXpath = "//label[text()='<REPLACE>']//parent::td//parent::tr//input[@value='M']";
-		  return driver.findElement(By.xpath(requiredXpath.replace("<REPLACE>", billingType)));
+		  return getDriver().findElement(By.xpath(requiredXpath.replace("<REPLACE>", billingType)));
 	}
 	
 	@FindBy(xpath="//table[@id='invoiceDay1']//select[@id='invoiceDay']")

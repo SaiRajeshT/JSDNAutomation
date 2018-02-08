@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 
 public class ServiceManagementPage extends TestBase {
 	public ServiceManagementPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(xpath = "//a[contains(text(),'Service Management')]")
@@ -31,13 +31,13 @@ public class ServiceManagementPage extends TestBase {
 	public WebElement yesButton;
 	
 	public WebElement EditService(String serviceName){
-		return driver.findElement(By.xpath("//td[@title='"+serviceName+"']//following-sibling::td//a//img[@title='Edit Service']"));
+		return getDriver().findElement(By.xpath("//td[@title='"+serviceName+"']//following-sibling::td//a//img[@title='Edit Service']"));
 	}
 
 	public WebElement getSelectServiceCheckbox(String serviceName) {
 		String objXPath = "//td[text()='<REPLACE>']//preceding-sibling::td[4]//input[@type='checkbox']";
 		objXPath = objXPath.replaceAll("<REPLACE>", serviceName);
-		return driver.findElement(By.xpath(objXPath));
+		return getDriver().findElement(By.xpath(objXPath));
 	}
 
 	 public WebElement  getServiceStatus(String serviceName)
@@ -45,7 +45,7 @@ public class ServiceManagementPage extends TestBase {
 		 String objPath="//td[text()='<REPLACE>']//following-sibling::td[text()='Approved']" ;
 		 objPath = objPath.replaceAll("<REPLACE>", serviceName);
 		 System.out.println(objPath);
-		 return driver.findElement(By.xpath(objPath));
+		 return getDriver().findElement(By.xpath(objPath));
 	 }
 	 
 	

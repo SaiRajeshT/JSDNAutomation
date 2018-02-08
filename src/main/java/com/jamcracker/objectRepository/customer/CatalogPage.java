@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class CatalogPage extends TestBase {
 	
 	public CatalogPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(linkText="Catalog")
@@ -43,17 +43,17 @@ public class CatalogPage extends TestBase {
 	
 	public WebElement serviceNameText(String serviceName) {		
 		String requiredXpath = "//div[@class='frontview views-fieldset']/h2/span[contains(text(),'needsSubstitution')]";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", serviceName)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", serviceName)));		
 	}
 	
 	public WebElement serviceViewOffersLink(String serviceName) {		
 		String requiredXpath = "//div[@class='back views-fieldset'][h2[span[contains(text(),'needsSubstitution')]]]/div/span/a[text()='View Offers']";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", serviceName)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", serviceName)));		
 	}
 	
 	public WebElement addToCartButton(String offerName) {		
 		String requiredXpath = "//div[div[h2[contains(text(),'needsSubstitution')]]]/div/div/a[text()='Add to Cart']";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", offerName)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", offerName)));		
 	}
 		
 }

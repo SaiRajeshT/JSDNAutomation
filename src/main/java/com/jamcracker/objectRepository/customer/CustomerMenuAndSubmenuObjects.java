@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class CustomerMenuAndSubmenuObjects extends TestBase {
 	
 	public CustomerMenuAndSubmenuObjects() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(linkText="Dashboard")

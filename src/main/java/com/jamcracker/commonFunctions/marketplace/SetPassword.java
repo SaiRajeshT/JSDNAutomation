@@ -44,7 +44,7 @@ public class SetPassword extends TestBase
 		} catch (Exception e) {
 			e.printStackTrace();
 			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e)+"</p>");
-			CaptureScreenshot.screenshot(driver,sceenshotname,testClassName,packageName);
+			CaptureScreenshot.screenshot(getDriver(),sceenshotname,testClassName,packageName);
 			Assert.fail();
 
 

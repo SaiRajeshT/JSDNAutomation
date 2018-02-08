@@ -11,7 +11,7 @@ public class PaymentOptions extends TestBase {
 
 	PaymentDetailsPage objPDpage = new PaymentDetailsPage();
 	TMPaymentGatewayPage objTMPGpage = new TMPaymentGatewayPage();
-	JavascriptExecutor js = (JavascriptExecutor) driver;
+	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	
 	public void paymentPaypal(String paymentMethod) throws Exception {
 

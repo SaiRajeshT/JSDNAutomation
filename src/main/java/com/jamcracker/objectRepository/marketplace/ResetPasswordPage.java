@@ -10,7 +10,7 @@ public class ResetPasswordPage extends TestBase
 {
 	public ResetPasswordPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(id="newPassword")

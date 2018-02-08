@@ -11,7 +11,7 @@ public class CatalogPage extends TestBase {
 	
 	public CatalogPage() {
 
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	
@@ -50,7 +50,7 @@ public class CatalogPage extends TestBase {
 	{
 		String objxpath="//tr[td[text()='"+offerName+"']]//td[4]//following-sibling::td[6]//img[@title='Edit']";
 		//objxpath = objxpath.replaceAll("<REPLACE>", offerName);
-		return driver.findElement(By.xpath(objxpath));
+		return getDriver().findElement(By.xpath(objxpath));
 	}
 	
 	public boolean isEditServiceElementExist(String offerName)
@@ -58,7 +58,7 @@ public class CatalogPage extends TestBase {
 		try{
 			String objxpath="//td[text()='<REPLACE>']//following-sibling::td[8]//img[@alt='Edit']";
 			objxpath = objxpath.replaceAll("<REPLACE>", offerName);
-			driver.findElement(By.xpath(objxpath));
+			getDriver().findElement(By.xpath(objxpath));
 			return true;
 		}catch(Exception e){
 			return false;
@@ -79,7 +79,7 @@ public class CatalogPage extends TestBase {
 	{
 		String objxpath = "//tr[td[text()='<REPLACE>']]//td[4]//following-sibling::td[2]";
 		objxpath = objxpath.replaceAll("<REPLACE>", offerName);
-		return driver.findElement(By.xpath(objxpath));
+		return getDriver().findElement(By.xpath(objxpath));
 	}
 	
 	@FindBy(id="searchValue")

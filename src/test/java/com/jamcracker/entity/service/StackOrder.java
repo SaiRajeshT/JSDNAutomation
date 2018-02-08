@@ -29,14 +29,14 @@ public class StackOrder {
 	private String  storageType;
 	private String	storageAccount;
 	private String	availabitySet;
-	
-
 	private String subNetName;
 	private String privateIp;
 	private String publicIp;
 	private String subnetMask;
-	
 	private String staticIp;
+	private Map<String, String> tags;
+	private List<SecurityGroup> securityGroups;
+
 	
 	public String getInstUserName() {
 		return instUserName;
@@ -80,9 +80,6 @@ public class StackOrder {
 
 
 
-	private Map<String, String> tags;
-
-	private List<SecurityGroup> securityGroups;
 
 	public String getEmail() {
 		return email;

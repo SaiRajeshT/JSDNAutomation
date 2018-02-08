@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class CmsDomainThemePage extends TestBase {
 	
 	public CmsDomainThemePage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(xpath="//a[text()='Theme']")
@@ -18,7 +18,7 @@ public class CmsDomainThemePage extends TestBase {
 	
 	public WebElement getThemePageTitle(String domain) {		
 		String requiredXpath = "//h1[contains(text(),'Theme for needsSubstitution')]";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", domain)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", domain)));		
 	}
 	
 	@FindBy(xpath="//tr[td[h3[contains(text(),'JSDN Default Theme')]]]/td/a[text()='configure']")

@@ -23,7 +23,7 @@ public class StoreBranding extends TestBase
 		TwoWindowsSwitch.getWindowHandles();
 		TwoWindowsSwitch.switchToChild();
 		try {
-			driver.get("javascript:document.getElementById('overridelink').click();");
+			getDriver().get("javascript:document.getElementById('overridelink').click();");
 		} catch (Exception e) {
 			Reporter.log("Browser is not Internet Explorer");
 		}

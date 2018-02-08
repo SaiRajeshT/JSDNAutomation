@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class ManageIaaSServicesPage extends TestBase {
 	
 	public ManageIaaSServicesPage() {		
-		PageFactory.initElements(driver, this);		
+		PageFactory.initElements(getDriver(), this);		
 	}
 	
 	@FindBy(linkText="Service Management")
@@ -27,7 +27,7 @@ public class ManageIaaSServicesPage extends TestBase {
 	
 	public WebElement getReviewLink(String stackName){		
 		String requiredXpath = "//tr[td[@title='needsSubstitution']]/td/a[contains(text(),'Review')]";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", stackName)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", stackName)));		
 	}
 	
 	@FindBy(xpath="//tr[td[table[tbody[tr[td[contains(text(),'Upload the SLA for this Service. (HTML format)')]]]]]]/td/table/tbody/tr/td/div/div/button[@class='sbButtonTextLink']")
@@ -74,7 +74,7 @@ public class ManageIaaSServicesPage extends TestBase {
 	
 	public WebElement getServiceStatus(String stackName){		
 		String requiredXpath = "//tr[td[@title='needsSubstitution']]/td[@title='Approved']";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", stackName)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", stackName)));		
 	}
 		
 }

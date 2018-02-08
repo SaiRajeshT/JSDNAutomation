@@ -23,7 +23,7 @@ public class TestListener extends TestListenerAdapter {
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		System.out.println("***** Error " + result.getName() + " test has failed *****");
 
-		//driver = Common.driver; //Taking the driver from common class.
+		//getDriver() = Common.getDriver(); //Taking the getDriver() from common class.
 		
 		String packageName=result.getClass().getPackage().getName();
 		packageName=packageName.substring(packageName.lastIndexOf(".")+1,packageName.length());
@@ -36,12 +36,12 @@ public class TestListener extends TestListenerAdapter {
 		System.out.println(testMethodName);
 		
 		String screenShotName = testMethodName +sdf.format(timestamp)+ ".png";
-		this.driver = TestBase.driver;
-		if (driver != null) {
+		this.driver = TestBase.getDriver();
+		if (this.driver != null) {
 			String imagePath = ".." + fileSeperator + "Screenshots"
 					+ fileSeperator + "Results" + fileSeperator +packageName+File.separator+ testClassName
 					+ fileSeperator
-					+ takeScreenShot(driver, screenShotName, testClassName);
+					+ takeScreenShot(this.driver, screenShotName, testClassName);
 			System.out.println("Screenshot can be found : " + imagePath);
 		}
 	}

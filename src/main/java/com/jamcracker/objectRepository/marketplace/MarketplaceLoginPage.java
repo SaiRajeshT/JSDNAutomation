@@ -8,7 +8,7 @@ import com.jamcracker.utilities.TestBase;
 public class MarketplaceLoginPage extends TestBase {
 	
 	public MarketplaceLoginPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(id="username")

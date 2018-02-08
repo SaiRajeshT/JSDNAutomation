@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class StaticIpAddressPage extends TestBase {
 	public  StaticIpAddressPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(linkText="Static Public IP Address")
@@ -42,16 +42,16 @@ public class StaticIpAddressPage extends TestBase {
 	
 	public String getDropDownValue(String partialtext)
 	{
-		return driver.findElement(By.xpath("//td[div[@id='header_popUpId']]//select[@id='providerCode']//option[contains(@value,'"+partialtext+"')]")).getText();
+		return getDriver().findElement(By.xpath("//td[div[@id='header_popUpId']]//select[@id='providerCode']//option[contains(@value,'"+partialtext+"')]")).getText();
 	}
 
 	public String getIp()
 	{
-		return driver.findElement(By.xpath("//table[@id='jcTable_listOfFloatingIPs_main']//tr[2]/td[3]")).getText();
+		return getDriver().findElement(By.xpath("//table[@id='jcTable_listOfFloatingIPs_main']//tr[2]/td[3]")).getText();
 	}
 	
 	public String getSuccessMsg()
 	{
-		return driver.findElement(By.xpath("//div[@class='notify-msg']")).getText();
+		return getDriver().findElement(By.xpath("//div[@class='notify-msg']")).getText();
 	}
 }

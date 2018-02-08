@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class CmsDomainCreationPage extends TestBase {
 	
 	public CmsDomainCreationPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(id="edit-subdomain")

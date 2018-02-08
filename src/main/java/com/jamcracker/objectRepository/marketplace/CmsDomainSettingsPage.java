@@ -10,12 +10,12 @@ import com.jamcracker.utilities.TestBase;
 public class CmsDomainSettingsPage extends TestBase {
 	
 	public CmsDomainSettingsPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public WebElement getSettingsPageTitle(String domain) {		
 		String requiredXpath = "//h1[contains(text(),'Settings for needsSubstitution')]";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", domain)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", domain)));		
 	}
 	
 	@FindBy(xpath="//a[text()='Settings']")

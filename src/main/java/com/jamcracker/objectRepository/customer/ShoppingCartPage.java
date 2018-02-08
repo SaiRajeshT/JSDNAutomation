@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class ShoppingCartPage extends TestBase {
 	
 	public ShoppingCartPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(xpath="//div[@id='jcBodyWarpper']")
@@ -19,7 +19,7 @@ public class ShoppingCartPage extends TestBase {
 	public WebElement quantityTextbox(String offerCode) throws Exception {
 		String offerId = ResultsFromDB.getOfferID(offerCode);
 		String requiredXpath = "//div[@id='overrideQty_needsSubstitution']//input[@id='qty_needsSubstitution']";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", offerId)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", offerId)));		
 	}
 	
 	@FindBy(id="checkout")

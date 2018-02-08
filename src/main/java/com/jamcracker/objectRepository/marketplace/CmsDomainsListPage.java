@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class CmsDomainsListPage extends TestBase {
 	
 	public CmsDomainsListPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(xpath="//h1[text()='Domains']")
@@ -24,7 +24,7 @@ public class CmsDomainsListPage extends TestBase {
 	
 	public WebElement getEditDomainLink(String name) {		
 		String requiredXpath = "//tr[td[text()='needsSubstitution']]/td/a[text()='edit domain']";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", name)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", name)));		
 	}
 
 }

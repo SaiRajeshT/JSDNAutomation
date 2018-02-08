@@ -11,7 +11,7 @@ import com.jamcracker.utilities.TestBase;
 	public class Imagespage extends TestBase{
 		
 		public Imagespage(){
-			PageFactory.initElements(driver, this);
+			PageFactory.initElements(getDriver(), this);
 		}
 		
 		
@@ -47,7 +47,7 @@ import com.jamcracker.utilities.TestBase;
 		
 		public WebElement getImageActionLink(String imageName){
 			WebElement element = null;
-			try{ element = driver.findElement(By.xpath("//tr[td[text()='"+imageName+"']]//span[contains(text(),'Actions')]//img"));
+			try{ element = getDriver().findElement(By.xpath("//tr[td[text()='"+imageName+"']]//span[contains(text(),'Actions')]//img"));
 				
 			}
 			catch(Exception e)
@@ -56,7 +56,7 @@ import com.jamcracker.utilities.TestBase;
 			}
 			
 			try{
-				element = driver.findElement(By.xpath("//tr[td[span[@title='"+imageName+"']]]//span[contains(text(),'Actions')]//img"));
+				element = getDriver().findElement(By.xpath("//tr[td[span[@title='"+imageName+"']]]//span[contains(text(),'Actions')]//img"));
 			}
 			catch(Exception e)
 			{
@@ -70,7 +70,7 @@ import com.jamcracker.utilities.TestBase;
 		
 		public WebElement getDeletingImage(String imageName){
 			WebElement element = null;
-			try{ element = driver.findElement(By.xpath("//tr[td[text()='"+imageName+"']]//td[text()='Deleting']"));
+			try{ element = getDriver().findElement(By.xpath("//tr[td[text()='"+imageName+"']]//td[text()='Deleting']"));
 				
 			}
 			catch(Exception e)
@@ -79,7 +79,7 @@ import com.jamcracker.utilities.TestBase;
 			}
 			
 			try{
-				element = driver.findElement(By.xpath("//tr[td[span[@title='"+imageName+"']]]//span[text()='Deleting']"));
+				element = getDriver().findElement(By.xpath("//tr[td[span[@title='"+imageName+"']]]//span[text()='Deleting']"));
 			}
 			catch(Exception e)
 			{

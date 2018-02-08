@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class CustomerRegistrationPage extends TestBase {
 	
 	public CustomerRegistrationPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(xpath="//div[@class='grid_12 marginTop-10']")

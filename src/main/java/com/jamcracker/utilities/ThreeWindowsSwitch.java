@@ -10,7 +10,7 @@ public class ThreeWindowsSwitch extends TestBase {
 	private static String grandchildID;
 		
 	public static void  getWindowHandles() {
-		Set<String> windowIDs = driver.getWindowHandles();
+		Set<String> windowIDs = getDriver().getWindowHandles();
 		Iterator<String> it = windowIDs.iterator();
 		parentID = it.next();
 		childID = it.next();
@@ -18,15 +18,15 @@ public class ThreeWindowsSwitch extends TestBase {
 	}
 	
 	public static void  switchToParent() {
-		driver.switchTo().window(parentID);
+		getDriver().switchTo().window(parentID);
 	}
 	
 	public static void switchToChild() {
-		driver.switchTo().window(childID);
+		getDriver().switchTo().window(childID);
 	}
 	
 	public static void switchTograndChild() {
-		driver.switchTo().window(grandchildID);
+		getDriver().switchTo().window(grandchildID);
 	}
 
 }

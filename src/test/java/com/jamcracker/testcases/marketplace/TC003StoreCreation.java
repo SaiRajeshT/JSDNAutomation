@@ -93,15 +93,15 @@ public class TC003StoreCreation extends TestBase
 		  if(ITestResult.FAILURE== result.getStatus())
 		  {
 			  System.out.println("Capturing screenshot");
-			  CaptureScreenshot.screenshot(driver,result.getName(),packageName);
+			  CaptureScreenshot.screenshot(getDriver(),result.getName(),packageName);
 		  }
-		 // driver.quit();
+		 // getDriver().quit();
 	  }  */
 
 	@AfterMethod
 	public void teardown()
 	{
-		driver.quit();
+		getDriver().quit();
 	}
 	
 	

@@ -60,7 +60,7 @@ public class OrderLess extends TestBase {
 		} catch (Exception e) {
 			explicitWait(objSDpage.reduceSubscriptionPopUp);
 			Reporter.log("Element is not visible and hence moving to the element by scrolling", true);
-			JavascriptExecutor js = (JavascriptExecutor) driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			js.executeScript("arguments[0].scrollIntoView(true);",objSDpage.reduceQtyTextBox(orderNumber));
 			/*js.executeScript("window.scrollBy(0,1000);");*/
 		}

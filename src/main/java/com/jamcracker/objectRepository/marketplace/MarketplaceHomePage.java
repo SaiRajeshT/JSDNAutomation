@@ -12,11 +12,11 @@ import com.jamcracker.utilities.TestBase;
 public class MarketplaceHomePage extends TestBase {
 	String objXPath;
 	public MarketplaceHomePage() {		
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	public void waitForMpHomePage() {		
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("wrapper")));
 	}
 	
@@ -68,14 +68,14 @@ public class MarketplaceHomePage extends TestBase {
 	{
 	   objXPath="//td[@title='<REPLACE>']//preceding-sibling::td//input[@name='chk1']";
 	   objXPath = objXPath.replaceAll("<REPLACE>", email);
-	  return driver.findElement(By.xpath(objXPath));
+	  return getDriver().findElement(By.xpath(objXPath));
 	}
 	
 	public WebElement serviceSelectCheckbox(String serviceName)
 	{
 	   objXPath="//td[@title='<REPLACE>']//preceding-sibling::td[4]//input";
 	   objXPath = objXPath.replaceAll("<REPLACE>", serviceName);
-	  return driver.findElement(By.xpath(objXPath));
+	  return getDriver().findElement(By.xpath(objXPath));
 	}
 	
 	
@@ -83,7 +83,7 @@ public class MarketplaceHomePage extends TestBase {
 	{
 	   objXPath="//tr[td[@title='<REPLACE>']]//input[@type='checkbox'][@name='chk1']";
 	   objXPath = objXPath.replaceAll("<REPLACE>", storeAdminEmail);
-	  return driver.findElement(By.xpath(objXPath));
+	  return getDriver().findElement(By.xpath(objXPath));
 	}
 		
 }

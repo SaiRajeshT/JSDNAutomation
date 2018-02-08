@@ -32,7 +32,7 @@ public class CreateVolumeSnapshot extends TestBase {
 			objinstancePage.volumeTab.click();
 			explicitWait(objinstancePage.showingText);
 			objinstancePage.getVolumeActionLink(volumeName).click();
-			JavascriptExecutor js = (JavascriptExecutor) driver;
+			JavascriptExecutor js = (JavascriptExecutor) getDriver();
 			js.executeScript("window.scrollBy(0, 1300);");
 			objinstancePage.createVolumeSnapshotLink.click();
 			explicitWait(objinstancePage.volSnapshotNameTextBox);

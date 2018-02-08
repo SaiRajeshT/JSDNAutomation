@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class SLAUploadPage extends TestBase {
 	
 	public SLAUploadPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(xpath="//input[@type='file']")

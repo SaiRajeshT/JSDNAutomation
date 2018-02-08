@@ -10,7 +10,7 @@ public class RegionalSettingsPage extends TestBase
 {
 	public RegionalSettingsPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	

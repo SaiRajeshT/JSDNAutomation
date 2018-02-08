@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class DrupalAdminLoginPage extends TestBase {
 	
 	public DrupalAdminLoginPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(id="edit-name")

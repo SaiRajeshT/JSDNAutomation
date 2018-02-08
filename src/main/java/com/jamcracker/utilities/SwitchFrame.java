@@ -7,23 +7,23 @@ public class SwitchFrame extends TestBase
 	
 		
 	public static void indexSwitch(int index){
-		driver.switchTo().frame(index);
+		getDriver().switchTo().frame(index);
 	}
 	
 	public static void nameIdSwitch(String nameId){
-		driver.switchTo().frame(nameId);
+		getDriver().switchTo().frame(nameId);
 	}
 	
 	public static void elementSwitch(WebElement element){
-		driver.switchTo().frame(element);
+		getDriver().switchTo().frame(element);
 	}
 	
 	public static void parentSwitch(){
-		driver.switchTo().parentFrame();
+		getDriver().switchTo().parentFrame();
 	}
 	
 	public static void defaultSwitch(){
-		driver.switchTo().defaultContent();
+		getDriver().switchTo().defaultContent();
 	}
 
 }

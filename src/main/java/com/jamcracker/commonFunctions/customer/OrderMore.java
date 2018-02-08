@@ -16,7 +16,7 @@ public class OrderMore extends TestBase {
 	public void orderMore(String offerCode, String newQuantity) throws Exception {
 
 		CustomerMenuAndSubmenuObjects objCustCommon = new CustomerMenuAndSubmenuObjects();
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		objCustCommon.manageLink.click();
 		explicitWait(objCustCommon.subscriptionsLink);
 		objCustCommon.subscriptionsLink.click();

@@ -1,5 +1,7 @@
 package com.jamcracker.utilities;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -12,13 +14,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
+
 import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import io.github.bonigarcia.wdm.InternetExplorerDriverManager;
 
 public class TestBase {
 	
-	public static WebDriver driver;
 	ExcelReader reader;
 	DesiredCapabilities capability;
 	static WebDriverWait wait;
@@ -28,7 +29,12 @@ public class TestBase {
 	public static int timeout =  600;
 	public static String testClassName;
 	
+	public static Map<String, WebDriver> webDriversMap = new HashMap<String, WebDriver>();
 	
+	
+	public static  WebDriver getDriver() {
+		return webDriversMap.get(Thread.currentThread().getName());
+	}
 	@BeforeClass
 	public void intialize()
 	{
@@ -38,41 +44,51 @@ public class TestBase {
 		packageName=packageName.substring(packageName.lastIndexOf(".")+1,packageName.length());
 	}
 	public void init(String browser, String url) {
+		System.out.println("Inside init");
+		
 		selectBrowser(browser);
 		if (!browser.equalsIgnoreCase("firefox")) {
-			driver.manage().window().maximize();
+			getDriver().manage().window().maximize();
 		}
-		driver.manage().timeouts().implicitlyWait(implicitTimeout,TimeUnit.SECONDS);
-		driver.get(url);
+		getDriver().manage().timeouts().implicitlyWait(implicitTimeout,TimeUnit.SECONDS);
+		getDriver().get(url);
 		if (browser.equalsIgnoreCase("ie")) {
-			driver.get("javascript:document.getElementById('overridelink').click();");
+			getDriver().get("javascript:document.getElementById('overridelink').click();");
 		}
 	}
-		
-	public void selectBrowser(String browser) {
-		if(browser.equalsIgnoreCase("firefox")) {
-			capability = DesiredCapabilities.firefox();
-			capability.setAcceptInsecureCerts(true);
-			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/Drivers/geckodriver.exe");
-			//FirefoxDriverManager.getInstance().setup();
-			driver = new FirefoxDriver(capability);
-			/*FirefoxProfile profile = new FirefoxProfile();
-			profile.setAcceptUntrustedCertificates(true);
-			profile.setAssumeUntrustedCertificateIssuer(false);
-			System.setProperty("webdriver.firefox.marionette", System.getProperty("user.dir") + "/Drivers/geckodriver.exe");
-			driver = new FirefoxDriver(profile);*/
+	
+	
+	public  void  selectBrowser(String browser) {
+		String currentThreadName = Thread.currentThread().getName();
+		System.out.println(currentThreadName);
+		WebDriver driver = webDriversMap.get(currentThreadName);
+		if(driver == null) {
+			if(browser.equalsIgnoreCase("firefox")) {
+				capability = DesiredCapabilities.firefox();
+				capability.setAcceptInsecureCerts(true);
+				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/Drivers/geckodriver.exe");
+				//FirefoxDriverManager.getInstance().setup();
+				driver = new FirefoxDriver(capability);
+				/*FirefoxProfile profile = new FirefoxProfile();
+				profile.setAcceptUntrustedCertificates(true);
+				profile.setAssumeUntrustedCertificateIssuer(false);
+				System.setProperty("webdriver.firefox.marionette", System.getProperty("user.dir") + "/Drivers/geckodriver.exe");
+				driver = new FirefoxDriver(profile);*/
+			}
+			else if (browser.equalsIgnoreCase("chrome")) {
+				capability = DesiredCapabilities.chrome();
+				capability.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+				//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
+				ChromeDriverManager.getInstance().setup();
+				driver = new ChromeDriver(capability);
+			} else if (browser.equalsIgnoreCase("ie")) {
+				//System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "/Drivers/IEDriverServer.exe");
+				InternetExplorerDriverManager.getInstance().arch32().setup();
+				driver = new InternetExplorerDriver();
+			}	
+			webDriversMap.put(currentThreadName, driver);
 		}
-		else if (browser.equalsIgnoreCase("chrome")) {
-			capability = DesiredCapabilities.chrome();
-			capability.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-			//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/Drivers/chromedriver.exe");
-			ChromeDriverManager.getInstance().setup();
-			driver = new ChromeDriver(capability);
-		} else if (browser.equalsIgnoreCase("ie")) {
-			//System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "/Drivers/IEDriverServer.exe");
-			InternetExplorerDriverManager.getInstance().arch32().setup();
-			driver = new InternetExplorerDriver();
-		}
+
 	}
 	
 	public String getData(String excelName, String sheetName, String colName, int rowNum) {
@@ -90,40 +106,40 @@ public class TestBase {
     }
 		
 	public void closeBrowser() {
-		driver.close();
+		getDriver().close();
 	}
 	
 	public static void explicitWait(WebElement element){
-		wait = new WebDriverWait(driver, explicitTimeout);
+		wait = new WebDriverWait(getDriver(), explicitTimeout);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
 	public static void explicitWaitInvisible(WebElement element){
-		wait = new WebDriverWait(driver, explicitTimeout);
+		wait = new WebDriverWait(getDriver(), explicitTimeout);
 		//wait.until(ExpectedConditions.visibilityOf(element));
 		wait.until(ExpectedConditions.invisibilityOf(element));
 	}
 	
 	public void manualWait(WebElement element, int time) {
-		wait = new WebDriverWait(driver, time);
+		wait = new WebDriverWait(getDriver(), time);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
 	public static void explicitWaitToClickable(WebElement element) {
-		wait = new WebDriverWait(driver, explicitTimeout);
+		wait = new WebDriverWait(getDriver(), explicitTimeout);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 	
 	public static void explicitWaitFrameToLoad(WebElement element)
 	{
-		wait = new WebDriverWait(driver, explicitTimeout);
+		wait = new WebDriverWait(getDriver(), explicitTimeout);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(element));
 		
 	}
 	
 	public static void waitTillFrameLoad(WebElement element){
 		
-		 wait =new WebDriverWait(driver, explicitTimeout);
+		 wait =new WebDriverWait(getDriver(), explicitTimeout);
 		 wait.ignoring(org.openqa.selenium.StaleElementReferenceException.class);
 		 wait.ignoring(org.openqa.selenium.WebDriverException.class);
         wait.until(ExpectedConditions.visibilityOf(element));

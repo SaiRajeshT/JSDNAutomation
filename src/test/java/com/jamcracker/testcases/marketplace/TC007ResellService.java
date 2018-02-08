@@ -55,7 +55,7 @@ public class TC007ResellService extends TestBase {
 	@AfterMethod
 	public void teardown()
 	{
-		driver.quit();
+		getDriver().quit();
 	}
 	
 	

@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class SubscriptionDetailsPage extends TestBase {
 	
 	public SubscriptionDetailsPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(id="jcBodyWarpper")
@@ -39,7 +39,7 @@ public class SubscriptionDetailsPage extends TestBase {
 	
 	public WebElement reduceQtyTextBox(String orderNumber) {
 		String requiredXpath = "//td[table[tbody[tr[td[text()='needsSubstitution']]]]]//following-sibling::td//input[@id='Quantity']";
-		return driver.findElement(By.xpath(requiredXpath.replace("needsSubstitution", orderNumber)));		
+		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", orderNumber)));		
 	}
 	
 	@FindBy(id="saveReduceSubscription")

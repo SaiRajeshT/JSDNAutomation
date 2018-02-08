@@ -17,9 +17,9 @@ public class QuickHelp extends TestBase {
 		int count  =0;
 		for(String str : linksList)
 		{
-			if(driver.getPageSource().contains(str))
+			if(getDriver().getPageSource().contains(str))
 			{
-				Reporter.log(str+ " Is displayed in " +driver.getTitle()+ "Page.");
+				Reporter.log(str+ " Is displayed in " +getDriver().getTitle()+ "Page.");
 				objQuickHelp.getLink(str).click();
 			}
 			
@@ -31,13 +31,13 @@ public class QuickHelp extends TestBase {
 			}
 			TwoWindowsSwitch.getWindowHandles();
 			TwoWindowsSwitch.switchToChild();
-			if(driver.getPageSource().contains(helpText.get(count)))
+			if(getDriver().getPageSource().contains(helpText.get(count)))
 			{
-				System.out.println(driver.getTitle());
-				Reporter.log("Navigated to "+driver.getTitle()+" Page." );
+				System.out.println(getDriver().getTitle());
+				Reporter.log("Navigated to "+getDriver().getTitle()+" Page." );
 				Reporter.log(helpText.get(count) + " Is Displayed in online help document");
 			}
-			driver.close();
+			getDriver().close();
 			TwoWindowsSwitch.switchToParent();
 			count++;
 		}

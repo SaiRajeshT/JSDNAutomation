@@ -13,7 +13,7 @@ import com.jamcracker.utilities.TestBase;
 public class ScriptingPage extends TestBase {
 	
 	public ScriptingPage(){
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(linkText="Manage")
@@ -72,18 +72,18 @@ public class ScriptingPage extends TestBase {
 	
 	public WebElement getscriptAction(String scriptName){
 		
-		return driver.findElement(By.xpath("//table[@id='viewDetailsVol_main']//div[text()='"+scriptName+"']//parent::td//following-sibling::td[contains(text(),'Action')]"));
+		return getDriver().findElement(By.xpath("//table[@id='viewDetailsVol_main']//div[text()='"+scriptName+"']//parent::td//following-sibling::td[contains(text(),'Action')]"));
 	}
 	
 	public String getScriptStatus(String scriptName)
 	{
-		return driver.findElement(By.xpath("//td[div[text()='"+scriptName+"']]//following-sibling::td[6]")).getText();
+		return getDriver().findElement(By.xpath("//td[div[text()='"+scriptName+"']]//following-sibling::td[6]")).getText();
 	}
 	
 	
 	public List<WebElement> getActions()
 	{
-		return driver.findElements(By.xpath("//div[@class='actionhover']//a"));
+		return getDriver().findElements(By.xpath("//div[@class='actionhover']//a"));
 	}
 	
 	@FindBy(linkText="View Log")
@@ -136,11 +136,11 @@ public class ScriptingPage extends TestBase {
 	
 	public String getTemplateName(String scriptName)
 	{
-		return driver.findElement(By.xpath("//div[text()='"+scriptName+"']//parent::td//following-sibling::td[4]")).getText();
+		return getDriver().findElement(By.xpath("//div[text()='"+scriptName+"']//parent::td//following-sibling::td[4]")).getText();
 	}
 	public List<WebElement> getLog()
 	{
-		return driver.findElements(By.xpath("//p[text()='Success!']//following::li"));
+		return getDriver().findElements(By.xpath("//p[text()='Success!']//following::li"));
 	}
 	
 	

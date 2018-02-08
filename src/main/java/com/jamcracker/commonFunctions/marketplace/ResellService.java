@@ -77,7 +77,7 @@ public class ResellService extends TestBase {
 			try{
 				SwitchFrame.elementSwitch(objCatalogPage.addCredentialsFrame);
 				objCatalogPage.cancelButton.click();
-				driver.switchTo().defaultContent();
+				getDriver().switchTo().defaultContent();
 			    
 			}
 			

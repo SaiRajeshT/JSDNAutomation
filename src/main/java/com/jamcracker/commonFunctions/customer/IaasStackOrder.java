@@ -417,9 +417,9 @@ public class IaasStackOrder extends TestBase {
 		
 		SwitchFrame.defaultSwitch();
 		
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 		//js.executeScript("arguments[0].scrollIntoView(true);", objStackLaunchPage.stackLaunchButton);
-		System.out.println(driver.manage().window().getSize());
+		System.out.println(getDriver().manage().window().getSize());
 		js.executeScript("window.scrollBy(0, -1900);");
 		
 		SwitchFrame.elementSwitch(objCatalogPage.launchstackFrame);
@@ -449,7 +449,7 @@ public class IaasStackOrder extends TestBase {
 	try{
 		SwitchFrame.defaultSwitch();
 	
-		if(driver.getPageSource().contains("Stack creation is initialized. You will receive an email when the stack is ready.")==true)
+		if(getDriver().getPageSource().contains("Stack creation is initialized. You will receive an email when the stack is ready.")==true)
 		{
 			Reporter.log("stack launched successfully");
 			//objCatalogPage.catalogLink.click();

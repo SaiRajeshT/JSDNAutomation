@@ -34,7 +34,7 @@ public class VerifySubscriptionStatus extends TestBase{
 				break;
 			}
 			else{
-				driver.navigate().refresh();
+				getDriver().navigate().refresh();
 				continue;
 			}
 		}

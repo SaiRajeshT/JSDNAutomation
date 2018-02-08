@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class UsersPage extends TestBase {
 
 	public UsersPage(){
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 			}
 	
 	@FindBy(linkText="Manage")
@@ -54,12 +54,12 @@ public class UsersPage extends TestBase {
 	
 	public WebElement getAction(String email)
 	{
-		return driver.findElement(By.xpath("//td[text()='"+email+"']//following-sibling::td//span[contains(text(),'Actions')]"));
+		return getDriver().findElement(By.xpath("//td[text()='"+email+"']//following-sibling::td//span[contains(text(),'Actions')]"));
 	}
 	
 	public WebElement selectOfferCheckBox(String offerName)
 	{
-		return driver.findElement(By.xpath("//span[@title='"+offerName+"']//preceding-sibling::input[@type='checkbox']"));
+		return getDriver().findElement(By.xpath("//span[@title='"+offerName+"']//preceding-sibling::input[@type='checkbox']"));
 	}
 	
 	
@@ -108,7 +108,7 @@ public class UsersPage extends TestBase {
 	
 	public String getofferStatus(String offerName)
 	{
-		return driver.findElement(By.xpath("//td[text()='"+offerName+"']//following-sibling::td//span")).getText();
+		return getDriver().findElement(By.xpath("//td[text()='"+offerName+"']//following-sibling::td//span")).getText();
 	}
 	
 	

@@ -37,7 +37,7 @@ public class TerminateStack extends TestBase {
 			objstackPage.terminateLink.click();
 			explicitWait(objstackPage.confirmButton);
 			objstackPage.confirmButton.click();
-			if (driver.getPageSource().contains(
+			if (getDriver().getPageSource().contains(
 					"The stack termination process is initiated") == true) {
 				Reporter.log("Stack Termination intiated.");
 			}

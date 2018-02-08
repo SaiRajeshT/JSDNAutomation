@@ -33,7 +33,7 @@ public class StopInstance extends TestBase {
 			}
 
 			objinstancePage.stopLink.click();
-			if (driver.getPageSource()
+			if (getDriver().getPageSource()
 					.contains("Stopping the Instance. This may take a few minutes for the VM to shut down") == true) {
 				Reporter.log("Instance stoped successfully");
 			}

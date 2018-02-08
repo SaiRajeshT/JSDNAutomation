@@ -18,7 +18,7 @@ public class ChangeTemplateAndExecute extends TestBase {
 			objScriptPage.manageLink.click();
 
 			objScriptPage.scriptingLink.click();
-			if (driver.getTitle().equals(Constants.MANAGE_SCRIPT_PAGE_TITLE)) {
+			if (getDriver().getTitle().equals(Constants.MANAGE_SCRIPT_PAGE_TITLE)) {
 				Reporter.log("Successfully Navigated to Manage Script Page");
 			}
 

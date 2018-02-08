@@ -56,7 +56,7 @@ public class TC006StoreAdminSetPassword extends TestBase {
 
   @AfterMethod
   public void afterMethod() {
-	  driver.quit();
+	  getDriver().quit();
   }
 
 }

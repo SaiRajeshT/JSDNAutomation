@@ -21,7 +21,7 @@ public class AssginSubscription extends TestBase{
 		try{
 			
 			UsersPage objUserPage = new UsersPage();
-		driver.navigate().refresh();
+			getDriver().navigate().refresh();
 		objUserPage.manageLink.click();
 		objUserPage.UsersLink.click();
 		objUserPage.userSearchTextBox.clear();
@@ -48,7 +48,7 @@ public class AssginSubscription extends TestBase{
 			Reporter.log("<p style='color:red'>Offer is not avialable in the store.</p>");
 			objUserPage.cancelButton.click();	
 		}
-		js = (JavascriptExecutor)driver;
+		js = (JavascriptExecutor)getDriver();
 		js.executeScript("arguments[0].scrollIntoView(true);", objUserPage.saveAndNextButton);
 		objUserPage.saveAndNextButton.click();
 		if(objUserPage.successMsgBar.getText().equalsIgnoreCase(Constants.SERVICE_ASSIGN_MESSAGE))

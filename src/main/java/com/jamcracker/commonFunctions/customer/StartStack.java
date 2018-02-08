@@ -34,7 +34,7 @@ public class StartStack extends TestBase {
 			}
 
 			objstackPage.startLink.click();
-			if (driver.getPageSource().contains(
+			if (getDriver().getPageSource().contains(
 					"Please wait while the AppStack ‘"+stackName+"’ is started") == true) {
 				Reporter.log("Successfully clicked start link for stack"+stackName);
 			}

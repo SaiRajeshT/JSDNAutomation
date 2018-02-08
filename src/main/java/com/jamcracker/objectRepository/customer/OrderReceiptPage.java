@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class OrderReceiptPage extends TestBase {
 	
 	public OrderReceiptPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 		
 	@FindBy(id="jcBodyWarpper")
@@ -22,12 +22,12 @@ public class OrderReceiptPage extends TestBase {
 	public String getOrderNumber()
 	{
 		try{
-			 return driver.findElement(By.xpath("//div[@id='orderPaymentDetails']//p[contains(text(),'Order Number')]//following-sibling::p")).getText();
+			 return getDriver().findElement(By.xpath("//div[@id='orderPaymentDetails']//p[contains(text(),'Order Number')]//following-sibling::p")).getText();
 			
 		}
 		catch(Exception e)
 		{
-			return driver.findElement(By.xpath("//div[@id='orderPaymentDetails']//p[contains(text(),'Request Number')]//following-sibling::p")).getText();	
+			return getDriver().findElement(By.xpath("//div[@id='orderPaymentDetails']//p[contains(text(),'Request Number')]//following-sibling::p")).getText();	
 		}
 	}
 	

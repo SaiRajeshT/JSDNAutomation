@@ -16,7 +16,7 @@ public class AddExecuteScript extends TestBase {
 		ScriptingPage objScriptPage = new ScriptingPage();
 	try{	objScriptPage.manageLink.click();
 		objScriptPage.scriptingLink.click();
-	if(driver.getTitle().equals(Constants.MANAGE_SCRIPT_PAGE_TITLE))
+	if(getDriver().getTitle().equals(Constants.MANAGE_SCRIPT_PAGE_TITLE))
 	{
 		Reporter.log("Successfully Navigated to Manage Script Page");
 	}
@@ -34,7 +34,7 @@ public class AddExecuteScript extends TestBase {
 			Assert.fail();
 		}
 	objScriptPage.addScript.click();
-	if(driver.getTitle().equalsIgnoreCase(Constants.ADD_SCRIPT_PAGE_TITLE))
+	if(getDriver().getTitle().equalsIgnoreCase(Constants.ADD_SCRIPT_PAGE_TITLE))
 	{
 		Reporter.log("Add script Page is displayed");
 	}

@@ -86,7 +86,7 @@ public class TC005ServiceCreation extends TestBase{
  
   @AfterMethod
   public void afterTest() {
-	 driver.quit();
+	  getDriver().quit();
   }
 
 }

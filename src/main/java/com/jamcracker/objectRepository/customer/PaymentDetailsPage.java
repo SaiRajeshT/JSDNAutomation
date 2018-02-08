@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class PaymentDetailsPage extends TestBase {
 	
 	public PaymentDetailsPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(id="jcBodyWarpper")
@@ -36,7 +36,7 @@ public class PaymentDetailsPage extends TestBase {
 	
 	public void selectBudgetRadioButton(String budgetCode)
 	{
-		 driver.findElement(By.xpath("//input[@id='B0006']")).click();
+		 getDriver().findElement(By.xpath("//input[@id='B0006']")).click();
 	}
 	
 	//@FindBy(id="btnProceed")

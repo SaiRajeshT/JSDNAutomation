@@ -12,7 +12,7 @@ public class StoreRequestsPage extends TestBase
 	String objXPath;
 	public StoreRequestsPage()
 	{
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(linkText="Store Requests")
@@ -23,14 +23,14 @@ public class StoreRequestsPage extends TestBase
 	{
 		 objXPath ="//td[@title='<REPLACE>']//following-sibling::td//a[text()='Review']";
 		 objXPath=objXPath.replaceAll("<REPLACE>", storeAdminEmail);
-		return driver.findElement(By.xpath(objXPath));
+		return getDriver().findElement(By.xpath(objXPath));
 	}
 	
 	public WebElement getStoreSelectCheckbox(String storeAdminEmail)
 	{
 	  objXPath="//tr[td[@title='<REPLACE>']]//input[@type='checkbox'][@name='chk1']";
 	   objXPath = objXPath.replaceAll("<REPLACE>", storeAdminEmail);
-	  return driver.findElement(By.xpath(objXPath));
+	  return getDriver().findElement(By.xpath(objXPath));
 	}
 	
 	@FindBy(xpath="//input[@value='Approve Selected']")

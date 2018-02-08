@@ -15,7 +15,7 @@ public class MarketplaceCreation extends TestBase
 	{
 		try{
 		SuperAdminMarktplacesPage superAdminMktPlacePage = new SuperAdminMarktplacesPage();
-		System.out.println(driver.getTitle());
+		System.out.println(getDriver().getTitle());
 		superAdminMktPlacePage.addMarketplaceLink.click();
 		Thread.sleep(3000);
 		SwitchFrame.nameIdSwitch("_iframe-addmp");

@@ -17,7 +17,7 @@ public class ActivateMarketplace  extends TestBase
 		try{
 		SuperAdminMarktplacesPage superobjects = new SuperAdminMarktplacesPage();
 		superobjects.getMarketplaceActivate(companyAcronym).click();
-		driver.switchTo().alert().accept();
+		getDriver().switchTo().alert().accept();
 		superobjects.verifyActivate(companyAcronym).isDisplayed();
 		Reporter.log("Marketplace"+companyAcronym+" is activated");
 		}

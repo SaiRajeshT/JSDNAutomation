@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class CmsStructuresPage extends TestBase {
 	
 	public CmsStructuresPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(xpath="//h1[text()='Structure']")

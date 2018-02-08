@@ -16,7 +16,7 @@ import com.jamcracker.utilities.TestBase;
 
 public class PolicyCreation extends TestBase {
 	
-	JavascriptExecutor js = (JavascriptExecutor) driver;
+	JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	CustomerMenuAndSubmenuObjects objCustCommon = new CustomerMenuAndSubmenuObjects();
 	PoliciesPage objPolicies = new PoliciesPage();
 	

@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class EnterPriseAdminLoginPage extends TestBase {
 	
 	public EnterPriseAdminLoginPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 

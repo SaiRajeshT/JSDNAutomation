@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class CloudServiceCredentialsPage extends TestBase {
 	
 	public CloudServiceCredentialsPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(xpath="//span[contains(text(),'Add Cloud Service Credentials')]")
@@ -47,16 +47,16 @@ public class CloudServiceCredentialsPage extends TestBase {
 	public WebElement accountIDLabel;
 	
 	public WebElement authorizationStatus(String accountId) {
-		return driver.findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td//span[@title='Waiting for Authorization']"));
+		return getDriver().findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td//span[@title='Waiting for Authorization']"));
 	}
 	
 	public WebElement activeStatus(String accountId) {
-		return driver.findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td[contains(text(),'Active')]"));
+		return getDriver().findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td[contains(text(),'Active')]"));
 	}
 	
 	public WebElement authorizationFailed(String accountId)
 	{
-		return driver.findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td//span[@title='Authorization Failed']"));
+		return getDriver().findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td//span[@title='Authorization Failed']"));
 
 	}
 	
@@ -67,7 +67,7 @@ public class CloudServiceCredentialsPage extends TestBase {
 	public WebElement goButton;
 	
 	public WebElement actionLink(String accountId) {
-		return driver.findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td[contains(@class,'lastaction')]//span"));
+		return getDriver().findElement(By.xpath("//td[text()='"+accountId+"']//following-sibling::td[contains(@class,'lastaction')]//span"));
 	}
 	
 	@FindBy(linkText="Validate")

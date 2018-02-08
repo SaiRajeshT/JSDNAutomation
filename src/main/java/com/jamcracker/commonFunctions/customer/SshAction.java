@@ -32,12 +32,12 @@ public class SshAction extends TestBase {
 			Thread.sleep(10000);
 			TwoWindowsSwitch.getWindowHandles();
 			TwoWindowsSwitch.switchToChild();
-			//driver.switchTo().alert();
+			//getDriver().switchTo().alert();
 			if(objinstancePage.sshWindow.isDisplayed())
 			{
 				Reporter.log("Launch ssh Working for"+instName);
 			}
-//			System.out.println(driver.getTitle());
+//			System.out.println(getDriver().getTitle());
 			try{
 			if(objinstancePage.cancelButton.isDisplayed()){
 				objinstancePage.cancelButton.click();

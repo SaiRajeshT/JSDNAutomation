@@ -12,7 +12,7 @@ public class MarketplacePage extends TestBase {
 
 	public MarketplacePage() {
 
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(linkText="Marketplace")
@@ -30,8 +30,8 @@ public class MarketplacePage extends TestBase {
 		/*//div[table[tbody[tr[td[text()='<REPLACE>']]]]]//following-sibling::div//span[text()='Resell']//parent::a	
 		objxpath = objxpath.replace("needsSubstitution", serviceName);
 		System.out.println(objxpath);
-		return driver.findElement(By.xpath(objxpath));*/
-		return driver.findElement(By.xpath(objxpath.replace("needsSubstitution", serviceName)));
+		return getDriver().findElement(By.xpath(objxpath));*/
+		return getDriver().findElement(By.xpath(objxpath.replace("needsSubstitution", serviceName)));
 	}
 	
 	@FindBy(linkText="Collapse")
@@ -50,11 +50,11 @@ public class MarketplacePage extends TestBase {
 	{
 		String objxpath = "//td[text()='<REPLACE>']//preceding-sibling::td[2]//input";
 		objxpath = objxpath.replaceAll("<REPLACE>", serviceName);
-		return driver.findElement(By.xpath(objxpath));
+		return getDriver().findElement(By.xpath(objxpath));
 	}
 	
 	public WebElement selectOfferCheckbox(String serviceName, String offerName) {
-		  return driver.findElement(By.xpath("//td[@title='"+offerName+"']//preceding-sibling::td[@title='"+serviceName+"']//preceding-sibling::td//input[@type='checkbox']"));
+		  return getDriver().findElement(By.xpath("//td[@title='"+offerName+"']//preceding-sibling::td[@title='"+serviceName+"']//preceding-sibling::td//input[@type='checkbox']"));
 	}
 	
 

@@ -9,7 +9,7 @@ import com.jamcracker.utilities.TestBase;
 public class BrainTreePage extends TestBase{
 	
 	public BrainTreePage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(id="braintree-dropin-frame")

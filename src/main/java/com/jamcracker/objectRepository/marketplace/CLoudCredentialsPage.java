@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class CLoudCredentialsPage extends TestBase {
 	
 	public CLoudCredentialsPage() {
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 	
 	@FindBy(id="addButton")
@@ -62,15 +62,15 @@ public class CLoudCredentialsPage extends TestBase {
 	public WebElement accountIDLabel;
 	
 	public WebElement validateIcon(String accountID) {
-		return driver.findElement(By.xpath("//tr[td[@title='"+accountID+"']]//td/a/img[@title='Validate']"));
+		return getDriver().findElement(By.xpath("//tr[td[@title='"+accountID+"']]//td/a/img[@title='Validate']"));
 	}
 	
 	public WebElement credStatus(String accountID) {
-		return driver.findElement(By.xpath("//tr[td[@title='"+accountID+"']]//td[text()='Active']"));
+		return getDriver().findElement(By.xpath("//tr[td[@title='"+accountID+"']]//td[text()='Active']"));
 	}
 	
 	public WebElement credFailedStatus(String accountID) {
-		return driver.findElement(By.xpath("//tr[td[@title='"+accountID+"']]//td[text()='Authorization Failed']"));
+		return getDriver().findElement(By.xpath("//tr[td[@title='"+accountID+"']]//td[text()='Authorization Failed']"));
 	}
 
 }

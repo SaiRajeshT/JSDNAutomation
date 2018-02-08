@@ -11,7 +11,7 @@ import com.jamcracker.utilities.TestBase;
 public class AppstackPage extends TestBase {
 	
 	public AppstackPage(){
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	public String getAppStackStatus(String appstackName)
@@ -19,7 +19,7 @@ public class AppstackPage extends TestBase {
 		String elementValue= null;
 	 if(elementValue==null)
 	try{	
-		String a = driver.findElement(By.xpath("//td[text()='"+appstackName +"']//following-sibling::td[4]//div/div")).getText();
+		String a = getDriver().findElement(By.xpath("//td[text()='"+appstackName +"']//following-sibling::td[4]//div/div")).getText();
 		System.out.println(a);
 		if(!a.equals("") && !a.equals(null)){
 			elementValue=a;
@@ -28,7 +28,7 @@ public class AppstackPage extends TestBase {
 	catch(Exception e){e.printStackTrace(); }
 	 if(elementValue==null)
 	try{
-		String a = driver.findElement(By.xpath("//td[span[@title='"+appstackName+"']]//following-sibling::td[4]/div/div")).getText().trim();
+		String a = getDriver().findElement(By.xpath("//td[span[@title='"+appstackName+"']]//following-sibling::td[4]/div/div")).getText().trim();
 		if(!a.equals("") && !a.equals(null)){
 			elementValue=a;
 		}
@@ -39,7 +39,7 @@ public class AppstackPage extends TestBase {
 	
 	 if(elementValue==null)
 	try{
-		String a = driver.findElement(By.xpath("//td[text()='"+appstackName +"']//following-sibling::td[4]//a")).getText().trim();
+		String a = getDriver().findElement(By.xpath("//td[text()='"+appstackName +"']//following-sibling::td[4]//a")).getText().trim();
 		if(!a.equals("") && !a.equals(null)){
 			elementValue=a;
 		}
@@ -49,14 +49,14 @@ public class AppstackPage extends TestBase {
 		}
 	
 	/*try{
-		String a = driver.findElement(By.xpath("//td[span[@title='"+appstackName+"']]//following-sibling::td[4]//div/a")).getText();
+		String a = getDriver().findElement(By.xpath("//td[span[@title='"+appstackName+"']]//following-sibling::td[4]//div/a")).getText();
 		if(!a.equals("") && !a.equals(null)){
 			elementValue=a;
 		}	}
 	catch(Exception e){}*/
 	 if(elementValue==null)
 	try{
-		String a = driver.findElement(By.xpath("//td[span[@title='"+appstackName+"']]//following-sibling::td[4]//a")).getText();
+		String a = getDriver().findElement(By.xpath("//td[span[@title='"+appstackName+"']]//following-sibling::td[4]//a")).getText();
 		if(!a.equals("") && !a.equals(null)){
 			elementValue=a;
 		}	}
@@ -101,14 +101,14 @@ public class AppstackPage extends TestBase {
 	public WebElement getStackActionLink(String stackName) {
 		WebElement  a = null;
 		try {
-			a= driver.findElement(By.xpath("(//td[text()='" + stackName + "']//parent::tr//td[contains(@class,'lastaction')]//img)[1]"));
+			a= getDriver().findElement(By.xpath("(//td[text()='" + stackName + "']//parent::tr//td[contains(@class,'lastaction')]//img)[1]"));
 			return a;
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 		}
 		
 	try {
-			a = driver.findElement(By.xpath("(//tr[td[span[@title='" + stackName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
+			a = getDriver().findElement(By.xpath("(//tr[td[span[@title='" + stackName + "']]]//td[contains(@class,'lastaction')]//img)[1]"));
 		} catch (NoSuchElementException e) {
 			e.printStackTrace();
 
@@ -122,14 +122,14 @@ public class AppstackPage extends TestBase {
 		WebElement element = null;
 		
 		try {
-			element = driver.findElement(By.xpath("(//td[text()='"+stackName+"']//parent::tr//td//div[text()='Running'])[1]"));
+			element = getDriver().findElement(By.xpath("(//td[text()='"+stackName+"']//parent::tr//td//div[text()='Running'])[1]"));
 			return element;
 		} catch (Exception e) {
 
 		}
 		
 		try {
-			element = driver.findElement(By.xpath("(//tr[td[span[@title='"+stackName+"']]]//td//div[text()='Running'])[1]"));
+			element = getDriver().findElement(By.xpath("(//tr[td[span[@title='"+stackName+"']]]//td//div[text()='Running'])[1]"));
 			return element;
 		} catch (Exception e) {
 
@@ -141,14 +141,14 @@ public class AppstackPage extends TestBase {
 		WebElement element = null;
 		
 		try {
-			element = driver.findElement(By.xpath("(//td[text()='"+stackName+"']//parent::tr//td//div[contains(text(),'Stopped')])[1]"));
+			element = getDriver().findElement(By.xpath("(//td[text()='"+stackName+"']//parent::tr//td//div[contains(text(),'Stopped')])[1]"));
 			return element;
 		} catch (Exception e) {
 
 		}
 		
 		try {
-			element = driver.findElement(By.xpath("(//tr[td[span[@title='"+stackName+"']]]//td//div[contains(text(),'Stopped')])[1]"));
+			element = getDriver().findElement(By.xpath("(//tr[td[span[@title='"+stackName+"']]]//td//div[contains(text(),'Stopped')])[1]"));
 			return element;
 		} catch (Exception e) {
 
@@ -161,14 +161,14 @@ public class AppstackPage extends TestBase {
 		WebElement element = null;
 		
 		try {
-			element = driver.findElement(By.xpath("(//td[text()='"+stackName+"']//parent::tr//td//div[contains(text(),'Terminated')])[1]"));
+			element = getDriver().findElement(By.xpath("(//td[text()='"+stackName+"']//parent::tr//td//div[contains(text(),'Terminated')])[1]"));
 			return element;
 		} catch (Exception e) {
 
 		}
 		
 		try {
-			element = driver.findElement(By.xpath("(//tr[td[span[@title='"+stackName+"']]]//td//div[contains(text(),'Terminated')])[1]"));
+			element = getDriver().findElement(By.xpath("(//tr[td[span[@title='"+stackName+"']]]//td//div[contains(text(),'Terminated')])[1]"));
 			return element;
 		} catch (Exception e) {
 

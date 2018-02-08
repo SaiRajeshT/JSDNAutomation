@@ -6,13 +6,14 @@ import org.openqa.selenium.interactions.Actions;
 public class MouseActions extends TestBase {
 		
 	public static void opDragDrop(WebElement source, WebElement target) {		
-		Actions actions = new Actions(driver);
+		Actions actions = new Actions(getDriver());
 		actions.moveToElement(source).clickAndHold().moveToElement(target).release().build().perform();
 	}
 	
 	public static void mouseHover(WebElement element) {
-		Actions actions = new Actions(driver);
+		Actions actions = new Actions(getDriver());
 		actions.moveToElement(element).build().perform();
+		
 	}
 
 }

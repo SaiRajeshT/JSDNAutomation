@@ -83,12 +83,12 @@ public class CustomerCreation extends TestBase {
 			custRegister.i_agreeCheckBox.click();
 		}
 		try {
-			Actions act = new Actions(driver);
+			Actions act = new Actions(getDriver());
 			act.moveToElement(custRegister.registerButton).click().perform();
 		} catch (Exception e) {
 			custRegister.registerButton.click();
 		}
-		String actualTitle = driver.getTitle();
+		String actualTitle = getDriver().getTitle();
 		String expectedTitle = "Registration Success";
 		Assert.assertEquals(actualTitle, expectedTitle);
 		Reporter.log("Customer with Name" + ccData.getCompanyName()+ " and Email Id "+ccData.getEmail()+" Registration is Successful ", true);

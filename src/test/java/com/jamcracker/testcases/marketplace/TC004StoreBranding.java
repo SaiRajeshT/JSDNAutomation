@@ -166,7 +166,7 @@ public class TC004StoreBranding extends TestBase {
 
 	@AfterMethod
 	public void afterMethod() {
-		 driver.quit();
+		getDriver().quit();
 	}
 
 }

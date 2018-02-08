@@ -33,7 +33,7 @@ public class StartInstance extends TestBase {
 
 			objinstancePage.startLink.click();
 			Reporter.log("Clicked on start link for instance.");
-			if (driver.getPageSource().contains(
+			if (getDriver().getPageSource().contains(
 					"Starting the Instance. This may take a few minutes to have the VM up and running.") == true) {
 				Reporter.log("Instance started successfully.");
 			}

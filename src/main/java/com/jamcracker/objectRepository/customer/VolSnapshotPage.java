@@ -10,7 +10,7 @@ import com.jamcracker.utilities.TestBase;
 public class VolSnapshotPage extends TestBase {
 	
 	public VolSnapshotPage(){
-		PageFactory.initElements(driver, this);
+		PageFactory.initElements(getDriver(), this);
 	}
 
 	@FindBy(linkText="Volume Snapshots")
@@ -29,7 +29,7 @@ public class VolSnapshotPage extends TestBase {
 	{
 		boolean result = false;
 		try{
-			if (driver.findElement(By.xpath("//tr[td[div[@title='"+snapShotName+"']]]//div[text()='Deleting']")).isDisplayed())
+			if (getDriver().findElement(By.xpath("//tr[td[div[@title='"+snapShotName+"']]]//div[text()='Deleting']")).isDisplayed())
 				result = true;
 		}
 		
@@ -46,7 +46,7 @@ public class VolSnapshotPage extends TestBase {
 	{
 		WebElement element = null;
 		try{
-			 	element = driver.findElement(By.xpath("//tr[td[div[@title='"+snashotName+"']]]//td//div[text()='Active']"));
+			 	element = getDriver().findElement(By.xpath("//tr[td[div[@title='"+snashotName+"']]]//td//div[text()='Active']"));
 		}
 		catch(Exception e)
 		{
@@ -60,7 +60,7 @@ public class VolSnapshotPage extends TestBase {
 	{
 		WebElement element = null;
 		try{
-			element = driver.findElement(By.xpath("//tr[td[div[@title='"+snashotName+"']]]//td//span[text()='Error']"));
+			element = getDriver().findElement(By.xpath("//tr[td[div[@title='"+snashotName+"']]]//td//span[text()='Error']"));
 			}
 			catch(Exception e)
 		{
@@ -73,7 +73,7 @@ public class VolSnapshotPage extends TestBase {
 	
 	public WebElement getDeleteSnapshotLink(String snashotName)
 	{
-		return driver.findElement(By.xpath("(//td[div[text()='"+snashotName+"']])[1]//a[contains(text(),'Delete')]"));
+		return getDriver().findElement(By.xpath("(//td[div[text()='"+snashotName+"']])[1]//a[contains(text(),'Delete')]"));
 		
 	}
 	
