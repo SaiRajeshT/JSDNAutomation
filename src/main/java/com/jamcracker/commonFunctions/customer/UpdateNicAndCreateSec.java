@@ -19,7 +19,7 @@ import com.jamcracker.utilities.HandleDropDown;
 import com.jamcracker.utilities.SQLUtil;
 import com.jamcracker.utilities.TestBase;
 
-public class NicCreation extends TestBase {
+public class UpdateNicAndCreateSec extends TestBase {
 	
 	InstancesPage objInstancePage = new InstancesPage();
 	CustomerMenuAndSubmenuObjects menuObj = new CustomerMenuAndSubmenuObjects();
@@ -28,20 +28,12 @@ public class NicCreation extends TestBase {
 	Connection con;
 	PreparedStatement stmt;
 	PreparedStatement stmt1;
-	public void nicCreation(NicDetails nicDataObj){
+	public void updateNicAndCreateSec(NicDetails nicDataObj){
 	try{
 		
 		 con = SQLUtil.getConnection();
-		 stmt=	con.prepareStatement("select count(port_name) from jci_port where port_name like '"+nicDataObj.getNicName()+"' and "
-				+ "actor_id=(select organization_id from jcp_person where email like '"+nicDataObj.getEmail()+"') and "
-				+ "server_id=(select  id from jcp_server where server_name like '"+nicDataObj.getInstName()+"' order by creation_date desc  limit 1)");
-		ResultSet res = stmt.executeQuery();
-		int count =	0;
-		if(res.next()){
-			count =	res.getInt(1);
-		}
 		
-		Reporter.log("Add Nic Scenario :");
+		Reporter.log("Update Nic name and Add Security group Scenario :");
 		objInstancePage.manageLink.click();
 		objInstancePage.instancesLink.click();
 		explicitWait(objInstancePage.searchTextBox);
@@ -55,11 +47,20 @@ public class NicCreation extends TestBase {
 		objInstancePage.viewDetaisLink.click();
 		objInstancePage.networkInterfaceLink.click();
 		explicitWait(objInstancePage.addNetworkInterfaceButton);
-		objInstancePage.addNetworkInterfaceButton.click();
-		nicPageObj.nicNameTextBox.sendKeys(nicDataObj.getNicName());
-		explicitWaitToClickable(nicPageObj.subNetDropDown);
-		HandleDropDown.selectDDLByVisibletext(nicPageObj.subNetDropDown, nicDataObj.getSubNet());
+		nicPageObj.searchTextBox.sendKeys(nicDataObj.getNicName());
+		Thread.sleep(2000);
+		nicPageObj.goButton.click();
+		nicPageObj.getNicAction(nicDataObj.getNicName()).click();
+		nicPageObj.editNic.click();
+		explicitWaitToClickable(nicPageObj.nicNameTextBox);
+		nicPageObj.nicNameTextBox.clear();
+		nicPageObj.nicNameTextBox.sendKeys(nicDataObj.getUpdateNicName());
 		HandleDropDown.selectDDLByVisibletext(nicPageObj.publicIpDropdown, nicDataObj.getPublicIp());
+		//explicitWaitToClickable(nicPageObj.saveNicButton); its not waiting even after keeping this
+		Thread.sleep(5000);
+		explicitWaitToClickable(nicPageObj.publicIpDropdown);
+		
+		
 		nicPageObj.securityGroupLink.click();
 	
 		try{
@@ -82,19 +83,11 @@ public class NicCreation extends TestBase {
 			
 		}
 		
-		explicitWait(nicPageObj.addButton);
-		nicPageObj.addButton.click();
+		explicitWait(nicPageObj.saveNicButton);
+		nicPageObj.saveNicButton.click();
 		
-		 stmt1=	con.prepareStatement("select count(port_name) from jci_port where port_name like '"+nicDataObj.getNicName()+"' and "
-				+ "actor_id=(select organization_id from jcp_person where email like '"+nicDataObj.getEmail()+"') and "
-				+ "server_id=(select  id from jcp_server where server_name like '"+nicDataObj.getInstName()+"' order by creation_date desc  limit 1)");
-		ResultSet res1 = stmt1.executeQuery();
-		int count1 = 0;
-		if(res1.next()){
-			count1 =	res1.getInt(1);
-		}
-			if(count1 > count)
-			{
+		
+		
 				boolean test = true;
 				long startTime = (System.currentTimeMillis()) / 1000;
 				while (test) {
@@ -102,7 +95,7 @@ public class NicCreation extends TestBase {
 						Reporter.log("<p style='color:red'>Waited for"+timeout+" Seconds.Nic status did not go to Active/Error.Please check the issue.<p>");
 						Assert.fail();
 						break;		}
-			      PreparedStatement getStatusStmt = con.prepareStatement("select status from jci_port where port_name like '"+nicDataObj.getNicName()+"' and actor_id=(select organization_id from jcp_person where email like '"+nicDataObj.getEmail()+"') and  server_id=(select  id from jcp_server where server_name like '"+nicDataObj.getInstName()+"' order by creation_date desc  limit 1) order by creation_date desc limit 1");
+			      PreparedStatement getStatusStmt = con.prepareStatement("select status from jci_port where port_name like '"+nicDataObj.getUpdateNicName()+"' and actor_id=(select organization_id from jcp_person where email like '"+nicDataObj.getEmail()+"') and  server_id=(select  id from jcp_server where server_name like '"+nicDataObj.getInstName()+"' order by creation_date desc  limit 1) order by creation_date desc limit 1");
 			      		ResultSet resStatus = getStatusStmt.executeQuery();
 			      		
 			      		if(resStatus.next())
@@ -110,7 +103,7 @@ public class NicCreation extends TestBase {
 			      			switch(resStatus.getInt(1))
 			      			{
 			      			case NicConstants.NICACTIVE : 
-			      				Reporter.log("DB: Nic Created successfully and present in active status");
+			      				Reporter.log("DB: Nic updated successfully and present in active status");
 			      				test = false;
 			      				break;
 			      			case NicConstants.NICERROR :
@@ -125,30 +118,27 @@ public class NicCreation extends TestBase {
 			      			}
 			      		}
 			
-				}
-			
-				nicPageObj.searchTextBox.sendKeys(nicDataObj.getNicName());
+				
+			     nicPageObj.searchTextBox.clear();
+				nicPageObj.searchTextBox.sendKeys(nicDataObj.getUpdateNicName());
 				Thread.sleep(2000);
 				nicPageObj.goButton.click();
 				//System.out.println(nicPageObj.rows.size());
-				if(nicPageObj.getStatus(nicDataObj.getNicName()).equalsIgnoreCase("active"))
+				if(nicPageObj.getStatus(nicDataObj.getUpdateNicName()).equalsIgnoreCase("active"))
 						{
-							Reporter.log(nicDataObj.getNicName()+"Nic Created successfully and displayed in active status");
+							Reporter.log(nicDataObj.getUpdateNicName()+"Nic updated successfully and displayed in active status");
 						}
-				else if(nicPageObj.getStatus(nicDataObj.getNicName()).equalsIgnoreCase("Error"))
+				else if(nicPageObj.getStatus(nicDataObj.getUpdateNicName()).equalsIgnoreCase("Error"))
 				{
 					
-						Reporter.log(nicDataObj.getNicName()+"Nic Went to Error status");
+						Reporter.log(nicDataObj.getUpdateNicName()+"Nic Went to Error status");
 				}
 				
 				
 				
 			}
 			
-			else{
-				Reporter.log("No nics are created");
-			}
-			
+		
 			
 	}
 		catch(Exception e)

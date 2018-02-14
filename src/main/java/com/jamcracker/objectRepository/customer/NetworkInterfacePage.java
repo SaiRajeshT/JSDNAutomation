@@ -78,6 +78,11 @@ public class NetworkInterfacePage extends TestBase{
 	@FindBy(linkText="Edit")
 	public WebElement editNic;
 	
+	@FindBy(id="savePort")
+	public WebElement saveNicButton;
+	
+	@FindBy(xpath="//form[@id='editSecGrpForm']//span[text()='Save']")
+	public WebElement saveSecButton;
 	
 	
 	public WebElement getNicAction(String nicName)
@@ -131,6 +136,9 @@ public class NetworkInterfacePage extends TestBase{
 		}
 		
 
+	@FindBy(xpath="//img[contains(@class,'grpDel')]")
+	public List<WebElement> deleteIcons;
+	
 	@FindBy(linkText="Add New")
 	public WebElement addNewRuleLink;
 	
@@ -140,7 +148,28 @@ public class NetworkInterfacePage extends TestBase{
 	@FindBy(xpath="//form[@id='createNewSecGrp']//span[text()='Cancel']")
 	public WebElement cancelButton;
 	
-	
+	public WebElement deleteSecGroup(String secGrpName)
+	{
+		return getDriver().findElement(By.xpath("//h4[text()='"+secGrpName+"']//following::img[contains(@class,'grp_close')]"));
 		
+		
+	}
+	
+	public WebElement editSecGroup(String secGrpName)
+	{
+		return getDriver().findElement(By.xpath("//h4[text()='"+secGrpName+"']//following::img[contains(@class,'grp_edit')]"));
+		
+		
+	}
+	
+	public WebElement secGroup(String secGrpName)
+	{
+		return getDriver().findElement(By.xpath("//h4[text()='"+secGrpName+"']"));
+		
+		
+	}
+	
+	
+	
 	
 }
