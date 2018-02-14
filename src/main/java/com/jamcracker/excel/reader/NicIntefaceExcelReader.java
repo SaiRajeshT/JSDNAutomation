@@ -56,12 +56,13 @@ public class NicIntefaceExcelReader {
 					nicDetailsObj.setAction(row.getCell(3).getStringCellValue().trim());
 					nicDetailsObj.setInstName(row.getCell(4).getStringCellValue().trim());
 					nicDetailsObj.setNicName(row.getCell(5).getStringCellValue().trim());
-					nicDetailsObj.setSubNet(row.getCell(6).getStringCellValue().trim());
-					if (row.getCell(7) != null) {
-						nicDetailsObj.setPrivateIp(row.getCell(7).getStringCellValue().trim());
-					}
+					nicDetailsObj.setUpdateNicName(row.getCell(6).getStringCellValue().trim());
+					nicDetailsObj.setSubNet(row.getCell(7).getStringCellValue().trim());
 					if (row.getCell(8) != null) {
-						nicDetailsObj.setPublicIp(row.getCell(8).getStringCellValue().trim());
+						nicDetailsObj.setPrivateIp(row.getCell(8).getStringCellValue().trim());
+					}
+					if (row.getCell(9) != null) {
+						nicDetailsObj.setPublicIp(row.getCell(9).getStringCellValue().trim());
 					}
 				
 					nicDetailsObj.setSecurityGroups(mapSecurityGroup.get(nicDetailsObj.getNicName()));	
@@ -97,7 +98,9 @@ public class NicIntefaceExcelReader {
 			SecurityGroup securityGroup = new SecurityGroup();
 			securityGroup.setNicName(nicName);
 			securityGroup.setSecurityGroupName(row.getCell(1).getStringCellValue());
+			if(row.getCell(2)!= null){
 			List<SecurityGroupRules> rules = new ArrayList<SecurityGroupRules>();
+			
 			String securityGrprules = row.getCell(2).getStringCellValue();
 			String[] arrRules = securityGrprules.split("/");
 			for(String rule : arrRules)
@@ -111,9 +114,7 @@ public class NicIntefaceExcelReader {
 				secRules.setSubnetMask(ruledetails[4]);	
 				rules.add(secRules);
 			}
-			 
-			securityGroup.setRules(rules);
-			
+			securityGroup.setRules(rules);}
 			
 			//mapSec.get(instanceName) -- It will return Array list object 
 			mapSec.get(nicName).add(securityGroup);

@@ -13,6 +13,7 @@ public class NicDetails {
 	private String privateIp;
 	private String publicIp;
 	private String instName;
+	private String updateNicName;
 
 	private List<SecurityGroup> securityGroups;
 
@@ -78,6 +79,12 @@ public class NicDetails {
 	}
 	public void setInstName(String instName) {
 		this.instName = instName;
+	}
+	public String getUpdateNicName() {
+		return updateNicName;
+	}
+	public void setUpdateNicName(String updateNicName) {
+		this.updateNicName = updateNicName;
 	}
 
 	

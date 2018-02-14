@@ -6,12 +6,13 @@ import java.sql.ResultSet;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoSuchElementException;
 import org.testng.Reporter;
 
 import com.jamcracker.constants.NicConstants;
 import com.jamcracker.entity.service.NicDetails;
+import com.jamcracker.entity.service.SecurityGroup;
 import com.jamcracker.objectRepository.customer.CustomerMenuAndSubmenuObjects;
 import com.jamcracker.objectRepository.customer.InstancesPage;
 import com.jamcracker.objectRepository.customer.NetworkInterfacePage;
@@ -19,17 +20,21 @@ import com.jamcracker.utilities.HandleDropDown;
 import com.jamcracker.utilities.SQLUtil;
 import com.jamcracker.utilities.TestBase;
 
-public class DeleteNic extends TestBase {
+public class DeleteSecGroupFromNic extends TestBase {
 
 	InstancesPage objInstancePage = new InstancesPage();
 	CustomerMenuAndSubmenuObjects menuObj = new CustomerMenuAndSubmenuObjects();
 	NetworkInterfacePage nicPageObj = new NetworkInterfacePage();
 
 	Connection con;
+	PreparedStatement stmt;
+	PreparedStatement stmt1;
 
-	public void nicDelete(NicDetails nicDataObj) {
+	public void deleteSecGroup(NicDetails nicDataObj) {
 		try {
-			Reporter.log("Add Nic Scenario :");
+
+			con = SQLUtil.getConnection();
+			Reporter.log("Delete Security group Scenario :");
 			objInstancePage.manageLink.click();
 			objInstancePage.instancesLink.click();
 			explicitWait(objInstancePage.searchTextBox);
@@ -47,26 +52,60 @@ public class DeleteNic extends TestBase {
 			Thread.sleep(2000);
 			nicPageObj.goButton.click();
 			nicPageObj.getNicAction(nicDataObj.getNicName()).click();
-			nicPageObj.deleteNicLink.click();
-			nicPageObj.nicDeleteConfirm.click();
-			if (getDriver().getPageSource()
-					.contains(NicConstants.NICDELETEMSG + "'" + nicDataObj.getNicName() + "'.")) {
-				Reporter.log("Delete Nic intiated for NIC " + nicDataObj.getNicName());
-			} else {
-				Reporter.log("<p style='color:red'> Delete action is not intiated.Please check the issue.</p>");
+			nicPageObj.editNic.click();
+			explicitWaitToClickable(nicPageObj.nicNameTextBox);
+
+			explicitWaitToClickable(nicPageObj.securityGroupLink);
+			nicPageObj.securityGroupLink.click();
+
+			try {
+
+				if (nicDataObj.getSecurityGroups() != null) {
+					for (SecurityGroup secGroup : nicDataObj.getSecurityGroups()) {
+						/*
+						 * SecurityGroupCreation securityGroupobj = new
+						 * SecurityGroupCreation();
+						 * explicitWaitToClickable(nicPageObj.
+						 * createSecurityGroupLink);
+						 * nicPageObj.createSecurityGroupLink.click();
+						 * securityGroupobj.nicCreateSecurityGroup(secGroup);
+						 */
+						JavascriptExecutor js = (JavascriptExecutor) getDriver();
+						// js.executeScript("arguments[0].scrollIntoView(true);",nicPageObj.secGroup(secGroup.getSecurityGroupName()));
+						js.executeScript("window.scrollBy(0,200)");
+						nicPageObj.deleteSecGroup(secGroup.getSecurityGroupName()).click();
+					}
+				}
 			}
-			con = SQLUtil.getConnection();
+
+			catch (Exception e) {
+				Reporter.log(" security group  is not available");
+				e.printStackTrace();
+
+			}
+
+			explicitWait(nicPageObj.saveNicButton);
+			nicPageObj.saveNicButton.click();
+
+			if (getDriver().getPageSource().contains(NicConstants.NICUPDATEMSG)) {
+				Reporter.log("Nic Updation intiated");
+			}
+
+			else {
+				Reporter.log("Security group not deleted. Please check the issue.");
+			}
+
 			boolean test = true;
 			long startTime = (System.currentTimeMillis()) / 1000;
 			while (test) {
 				if ((System.currentTimeMillis() / 1000) - startTime > timeout) {
-					Reporter.log("<p style='color:red'>Waited for" + timeout + " Seconds. Nic "
-							+ nicDataObj.getNicName() + "  is not getting Deleted.Please check the issue.<p>");
+					Reporter.log("<p style='color:red'>Waited for" + timeout
+							+ " Seconds.Nic status did not go to Active/Error.Please check the issue.<p>");
 					Assert.fail();
 					break;
 				}
-				PreparedStatement getStatusStmt = con
-						.prepareStatement("select status from jci_port where port_name like '" + nicDataObj.getNicName()
+				PreparedStatement getStatusStmt = con.prepareStatement(
+						"select status from jci_port where port_name like '" + nicDataObj.getUpdateNicName()
 								+ "' and actor_id=(select organization_id from jcp_person where email like '"
 								+ nicDataObj.getEmail()
 								+ "') and  server_id=(select  id from jcp_server where server_name like '"
@@ -77,55 +116,45 @@ public class DeleteNic extends TestBase {
 				if (resStatus.next()) {
 					switch (resStatus.getInt(1)) {
 					case NicConstants.NICACTIVE:
-						Reporter.log("DB: Nic present in active status");
+						Reporter.log("DB: Nic updated successfully and present in active status");
 						test = false;
 						break;
 					case NicConstants.NICERROR:
-						Reporter.log("DB: Nic Present in  error status");
+						Reporter.log("Nic Created and went to error status");
 						test = false;
 						break;
 					case NicConstants.NICTERMINATED:
-						Reporter.log("DB: Nic Deleted Successfully");
+						Reporter.log("Nic Deleted Successfully");
 						test = false;
 						break;
 
 					}
 				}
-			}
-			objInstancePage.searchTextBox.clear();
-			nicPageObj.searchTextBox.sendKeys(nicDataObj.getNicName());
-			Thread.sleep(2000);
-			nicPageObj.goButton.click();
-			// System.out.println(nicPageObj.rows.size());
-			try {
-				if (nicPageObj.getStatus(nicDataObj.getNicName()).equalsIgnoreCase("active")) {
+
+				nicPageObj.searchTextBox.clear();
+				nicPageObj.searchTextBox.sendKeys(nicDataObj.getUpdateNicName());
+				Thread.sleep(2000);
+				nicPageObj.goButton.click();
+				// System.out.println(nicPageObj.rows.size());
+				if (nicPageObj.getStatus(nicDataObj.getUpdateNicName()).equalsIgnoreCase("active")) {
 					Reporter.log(
-							nicDataObj.getNicName() + "Nic is not deleted successfully and displayed in active status");
-					Assert.fail();
+							nicDataObj.getUpdateNicName() + "Nic updated successfully and displayed in active status");
+				} else if (nicPageObj.getStatus(nicDataObj.getUpdateNicName()).equalsIgnoreCase("Error")) {
+
+					Reporter.log(nicDataObj.getUpdateNicName() + "Nic Went to Error status");
 				}
-			} catch (NoSuchElementException e) {
 
-				try {
-					if (nicPageObj.getStatus(nicDataObj.getNicName()).equalsIgnoreCase("Error")) {
-
-						Reporter.log(nicDataObj.getNicName() + "Nic is not deleted. and its present in Error status");
-						Assert.fail();
-					}
-				} catch (Exception e1) {
-					Reporter.log(nicDataObj.getNicName() + "Nic is  deleted.");
-
-				}
 			}
+
 		} catch (Exception e) {
-			
-			Reporter.log("<p style='color:red'>Nic is not deleted. Please check the issue.</p>");
 			Reporter.log("<p style='color:red'>EXCEPTION:--" + ExceptionUtils.getStackTrace(e) + "</p>");
 			e.printStackTrace();
 			Assert.fail();
 
 		} finally {
-			
 			try {
+				SQLUtil.closePreparedStatement(stmt);
+				SQLUtil.closePreparedStatement(stmt1);
 				SQLUtil.closeConnection(con);
 			} catch (Exception e) {
 				e.printStackTrace();
