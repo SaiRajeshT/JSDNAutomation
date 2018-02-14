@@ -16,7 +16,7 @@ public class AssginSubscription extends TestBase{
 
 	JavascriptExecutor js;
 
-	public void assignSubscription (String email,String offerName)
+	public void assignSubscription (String email,String offerName, String mscsp,String mailNickName,String displayName)
 	{
 		try{
 			
@@ -51,6 +51,20 @@ public class AssginSubscription extends TestBase{
 		js = (JavascriptExecutor)getDriver();
 		js.executeScript("arguments[0].scrollIntoView(true);", objUserPage.saveAndNextButton);
 		objUserPage.saveAndNextButton.click();
+		
+		
+		
+		
+		if(mscsp.equalsIgnoreCase("Y"))
+		{	
+		objUserPage.mailNicknameTextBox.sendKeys(mailNickName);
+		Thread.sleep(2000);
+		objUserPage.displayNameTextBox.sendKeys(displayName);
+		objUserPage.saveAndFinishButton.click();
+		}	
+		
+	
+		
 		if(objUserPage.successMsgBar.getText().equalsIgnoreCase(Constants.SERVICE_ASSIGN_MESSAGE))
 		{
 			Reporter.log("Service Assign intiated for user " + email );

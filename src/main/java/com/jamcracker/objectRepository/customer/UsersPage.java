@@ -106,6 +106,12 @@ public class UsersPage extends TestBase {
 	@FindBy(id="table_search")
 	public WebElement userSearchTextBox;
 	
+	@FindBy(xpath="//input[@id='mailNickname']")
+	public WebElement mailNicknameTextBox;
+	
+	@FindBy(xpath="//input[@id='displayName']")
+	public WebElement displayNameTextBox;
+	
 	public String getofferStatus(String offerName)
 	{
 		return getDriver().findElement(By.xpath("//td[text()='"+offerName+"']//following-sibling::td//span")).getText();

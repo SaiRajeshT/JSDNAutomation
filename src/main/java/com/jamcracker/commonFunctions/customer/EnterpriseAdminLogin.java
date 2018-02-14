@@ -7,19 +7,14 @@ import com.jamcracker.utilities.TestBase;
 public class EnterpriseAdminLogin extends TestBase {
 
 	
-	public static void  enterpriseAdminLogin(String username, String password) {
+	public void  enterpriseAdminLogin(String username, String password) throws Exception {
 		StoreHomePage storeHome = new StoreHomePage();
 
-		storeHome.signInLink.click();
-		try {
-			explicitWait(storeHome.usernameTextBox);
-		} catch (Exception e) {
-			storeHome.signInLink.click();
-			explicitWait(storeHome.usernameTextBox);
-		}
-		storeHome.usernameTextBox.sendKeys(username);
-		storeHome.passwordTextBox.sendKeys(password);
-		storeHome.signInButton.click();
+		storeHome.enterpriseUsernameTextBox.sendKeys(username);
+		storeHome.enterprisePasswordTextBox.sendKeys(password);
+		storeHome.enterpriseSignInButton.click();
+		storeHome.catalogLink.click();				
+		
 	}
 
 }
