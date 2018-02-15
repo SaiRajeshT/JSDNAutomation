@@ -40,7 +40,8 @@ public class TC002Assignsubscription extends TestBase {
 
 
 @Test(dataProvider="UserData")
-public void testAssignSubscription(String executable, String custEmail, String password ,String email,String offerName)
+public void testAssignSubscription(String executable, String custEmail, String password ,String email,
+		String offerName, String mscsp,String mailNickName,String displayName)
 {
 
 	if(executable.equalsIgnoreCase("y"))
@@ -51,20 +52,20 @@ public void testAssignSubscription(String executable, String custEmail, String p
 		if(count ==0){
 			count++;
 		loginObj.customerAdminLogin(custEmail, password);
-		objAssignUser.assignSubscription(email, offerName);
+		objAssignUser.assignSubscription(email, offerName, mscsp, mailNickName, displayName);
 
 				}
 		else
 		{	count++;
 			if(custEmail.equalsIgnoreCase(al.get(count-1)))
 			{	
-				objAssignUser.assignSubscription(email, offerName);
+				objAssignUser.assignSubscription(email, offerName, mscsp, mailNickName, displayName);
 				
 			}
 			else{
 				CustomerLogout.logOut();
 				loginObj.customerAdminLogin(custEmail, password);
-				objAssignUser.assignSubscription(email, offerName);
+				objAssignUser.assignSubscription(email, offerName, mscsp, mailNickName, displayName);
 				
 			}
 		}

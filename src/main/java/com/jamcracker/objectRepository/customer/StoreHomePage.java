@@ -30,4 +30,18 @@ public class StoreHomePage extends TestBase {
 	@FindBy(xpath="//input[@id='edit-submit--2']")
 	public WebElement signInButton;
 	
+	@FindBy(xpath= "//input[@name='name']")
+	public WebElement enterpriseUsernameTextBox;
+	
+	@FindBy(xpath="//input[@name='pass']")
+	public WebElement enterprisePasswordTextBox;
+	
+	@FindBy(xpath="//input[@type='submit']")
+	public WebElement enterpriseSignInButton;
+	
+	@FindBy(linkText="Catalog")
+	public WebElement catalogLink;
+	
+	
+	
 }

@@ -26,13 +26,13 @@ public class TC003OrderNew extends TestBase {
 
 	@Test(dataProvider = "orderNewData")
 	public void testOrderNew(String executable,String email, String password, String serviceName, String offerName, String offerCode,
-			String quantity, String paymentMethod,String dummyBudget) throws Exception {
+			String quantity, String paymentMethod,String dummyBudget,String ExistingMicrosoftCloudCustomer,String MicrosoftPrimaryDomain) throws Exception {
 		if(executable.equalsIgnoreCase("Y"))
 		{
 		CustomerAdminLogin custLogin = new CustomerAdminLogin();
 		custLogin.customerAdminLogin(email, password);
 		OrderNew orderNew = new OrderNew();
-		orderNew.orderNew(serviceName, offerName, offerCode, quantity, paymentMethod,dummyBudget);
+		orderNew.orderNew(serviceName, offerName, offerCode, quantity, paymentMethod,dummyBudget,ExistingMicrosoftCloudCustomer,MicrosoftPrimaryDomain);
 		}
 	}
 

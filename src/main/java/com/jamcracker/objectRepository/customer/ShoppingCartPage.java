@@ -22,6 +22,7 @@ public class ShoppingCartPage extends TestBase {
 		return getDriver().findElement(By.xpath(requiredXpath.replace("needsSubstitution", offerId)));		
 	}
 	
+	
 	@FindBy(id="checkout")
 	public WebElement checkoutButton;
 	
@@ -33,5 +34,20 @@ public class ShoppingCartPage extends TestBase {
 	
 	@FindBy(id="pop_title")
 	public WebElement slaPopUp;
+	
+	@FindBy(xpath="//div[@id='pop_title']")
+	public WebElement additionalInfoPopUp;
+
+    @FindBy(xpath="//input[@id='excusno']")
+	public WebElement existingCustomerNoRadioButton;
+    
+    @FindBy(xpath="//input[@id='domain']")
+    public WebElement primaryDomainTextBox;
+    
+    @FindBy(xpath="//span[contains(text(),'Save & Finish')]")
+	public WebElement saveAndFinishButton;
+
+    @FindBy(xpath="//input[@id='excusyes']")
+	public WebElement existingCustomerYesRadioButton;
 
 }

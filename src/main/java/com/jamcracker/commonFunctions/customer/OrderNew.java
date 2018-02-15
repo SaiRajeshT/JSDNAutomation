@@ -23,7 +23,7 @@ public class OrderNew extends TestBase {
 	CatalogPage objCatalog = new CatalogPage();
 
 	public void orderNew(String serviceName, String offerName, String offerCode, String quantity,
-			String paymentMethod,String budgetCode)
+			String paymentMethod,String budgetCode, String existingMicrosoftCloudCustomer, String microsoftPrimaryDomain)
 			throws Exception {
 		CustomerMenuAndSubmenuObjects objCustCommon = new CustomerMenuAndSubmenuObjects();
 		objCustCommon.catalogLink.click();
@@ -58,6 +58,43 @@ public class OrderNew extends TestBase {
 		} catch (Exception e) {
 			Reporter.log("Sla Pop Up is not available");
 		}
+		Thread.sleep(5000);
+		explicitWait(objShopCart.additionalInfoPopUp);
+		if(existingMicrosoftCloudCustomer.equalsIgnoreCase("N"))
+		{
+			if(!objShopCart.existingCustomerNoRadioButton.isEnabled())
+			{
+				objShopCart.saveAndFinishButton.click();
+				Thread.sleep(2000);
+			}
+			else{
+					try
+					{
+						objShopCart.existingCustomerNoRadioButton.click();
+					}
+					catch(Exception e){
+						Reporter.log("existing customer No radio button is not available");	  
+					}
+				}
+		}
+		 else if(!objShopCart.existingCustomerYesRadioButton.isEnabled())
+		   { 
+			 objShopCart.saveAndFinishButton.click();
+		   }
+		 else{
+			 try
+			 {
+				 objShopCart.existingCustomerYesRadioButton.click();
+			 }
+			 catch(Exception e){
+				 Reporter.log("existing customer No radio button is not available");	  
+			 }
+		 }
+		objShopCart.primaryDomainTextBox.clear();
+		Thread.sleep(3000);
+		objShopCart.primaryDomainTextBox.sendKeys(microsoftPrimaryDomain);
+		Thread.sleep(3000);
+		objShopCart.saveAndFinishButton.click();
 		Thread.sleep(5000);
 		
 		PaymentDetailsPage objPaymentPage = new PaymentDetailsPage();
